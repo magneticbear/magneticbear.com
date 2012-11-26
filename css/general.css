@@ -122,6 +122,10 @@ nav {
 	margin: 6% 20px 0;
 }
 
+.menu {
+	display: none;}
+
+
 nav a {
 	color: #333;
 	padding: 1.5em 0;
@@ -561,7 +565,7 @@ aside figcaption {
 
 /* -----------------Contact Begins--------------- */
 
-iframe {
+.contact iframe {
 	margin-bottom: 3.5em;
 	border: solid 2px #CCCCCC;
 }
@@ -581,7 +585,7 @@ form {
 }
 
 input, textarea {
-	width: 100%;
+	width: 92%;
 	display: block;
 	padding: 0.8em 1em;
 	margin-bottom: 1em;
@@ -589,18 +593,20 @@ input, textarea {
 	border: 1px solid #CCC;
 }
 
-input[type=submit] {
+form button {
 	border: 1px solid #D3D3D3;
-	width: 60%;
-	padding: 0.8em 0;
-	margin: 1em 0;
+	width: 222px;
+	padding: 1.2em 0;
+	margin: 1em auto;
 	font-weight: bold;
-	color: #333;
+	color: #fff;
+	background-color: #999;
 	cursor: pointer;
+	border-radius: 4px;
 }
 
-input[type=submit]:hover {
-	color: #FFF;
+form button:hover {
+	background-color: #CCC;
 }
 
 
@@ -773,21 +779,57 @@ footer span {
 /* --Social Media Ends-- */
 
 @media screen and (max-width:640px) {
+	html {
+	-webkit-transition: all ease-in-out 400ms;
+	border-left: 1px #CCCCCC solid;
+	}
+		
 	header {
-		padding-top: 8%;
+		padding-top: 4%;
 		background-color: rgba(255,255,255,0.9);
 		top: 0;
 		z-index: 5555;
 	}
 	
+	header h1 {
+	background-size: 80%;
+	}
+	
 	.tagline {
-		top: auto;
-		bottom: -3px;
+		font-size: 1.1em;
+		top: 11%;
+		right: -8px;
 	}
 	
 	nav {
-		margin-left: -8em;
+		font-size: 18px;
+		margin-left: -6.5em;
+		top: 15%;
 		-webkit-transition: all ease-in-out 400ms;
+	}
+	
+	.selected {
+	font-size: 1.4em;
+	}
+
+	.selected a {
+	padding: 0.7em 0.6em;
+	}
+
+
+	
+	.menu {
+		display: block;
+		position: absolute;
+		top: 80%;
+		left: -1px;
+		color: #FFF;
+		border: none;
+		width: 44px;
+		height: 44px;
+		font-weight: bold;
+		background: #999 url(../images/menu-icon.png) no-repeat center center;
+		background-size: 60%;
 	}
 	
 	article {
@@ -818,13 +860,33 @@ footer span {
 		width: 77.8;
 	}
 	
+	.lab .avatar {
+		float: none;
+		margin-bottom: 1em;
+	}
+	
+	.lab cite{
+		display: inline;
+		margin-right: 1em;
+	}
+	
 	form {
 		margin-left: 0;	
 	}
 	
 	footer {
 		background-color: rgba(255,255,255,0.9);
-		position:relative;
+		margin-left: 0;
+		position: relative;
+	}
+	
+	footer span {
+		margin-left: 20px;
+	}
+	
+	footer p {
+		margin-left: 60px;
+
 	}
 	
 	.social {
