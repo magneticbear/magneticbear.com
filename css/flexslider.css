@@ -74,3 +74,8 @@ html[xmlns] .slides {display: block;}
   .flex-direction-nav .flex-prev {opacity: 1; left: 0;}
   .flex-direction-nav .flex-next {opacity: 1; right: 0;}
 }*/
+
+@media screen and (max-width:320px) {
+	.flex-direction-nav {
+		display: none;}
+}

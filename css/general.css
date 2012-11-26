@@ -281,7 +281,7 @@ figure {
 
 .iphone {
 	width: 194px;
-	padding: 82px 22px 96px;
+	padding: 83px 22px 20px;
 	position: absolute;
 	right: 12%;
 	top: 5%;
@@ -289,10 +289,14 @@ figure {
 
 .white {
 	background: transparent url(../images/portfolio/iPhone-white.png) no-repeat;
+	background-size: 100%;
+
 }
 
 .black {
 	background: transparent url(../images/portfolio/iPhone-black.png) no-repeat;
+	background-size: 100%;
+
 }
 
 .android {
@@ -300,6 +304,7 @@ figure {
 	padding: 90px 32px 96px;
 	position: absolute;
 	background: transparent url(../images/portfolio/android.png) no-repeat;
+	background-size: 100%;
 	right: 12%;
 	top: 5%;
 }
@@ -778,7 +783,7 @@ footer span {
 
 /* --Social Media Ends-- */
 
-@media screen and (max-width:640px) {
+@media screen and (max-width:850px) {
 	html {
 	-webkit-transition: all ease-in-out 400ms;
 	border-left: 1px #CCCCCC solid;
@@ -789,6 +794,7 @@ footer span {
 		background-color: rgba(255,255,255,0.9);
 		top: 0;
 		z-index: 5555;
+		height: 96px;
 	}
 	
 	header h1 {
@@ -796,9 +802,9 @@ footer span {
 	}
 	
 	.tagline {
-		font-size: 1.1em;
-		top: 11%;
-		right: -8px;
+		font-size: 0.87em;
+		top: 13%;
+		right: -6px;
 	}
 	
 	nav {
@@ -816,12 +822,10 @@ footer span {
 	padding: 0.7em 0.6em;
 	}
 
-
-	
 	.menu {
 		display: block;
 		position: absolute;
-		top: 80%;
+		top: 85%;
 		left: -1px;
 		color: #FFF;
 		border: none;
@@ -839,7 +843,7 @@ footer span {
 	.content {
 		width: 90%;
 		margin: 0% 5%;
-		padding: 40% 0 0;
+		padding: 7em 0 0;
 	}
 	
 	.content p, blockquote {
@@ -855,12 +859,20 @@ footer span {
 		margin-top: 2em;
 	}
 	
+	.cca {
+		height: 180px;
+	}
+	
+	aside figure:last-child {
+	margin-right: 2em;
+	}
+		
 	.team article, .lab article, article, form {
 		width: 77.8%;
 		width: 77.8;
 	}
 	
-	.lab .avatar {
+	.lab .avatar, .contact .avatar {
 		float: none;
 		margin-bottom: 1em;
 	}
@@ -891,5 +903,27 @@ footer span {
 	
 	.social {
 		display: none;
+	}
+}
+
+@media screen and (max-width:320px) {
+	.tagline {
+		top: 11%;
+	}
+	
+	.iphone {
+		width: 75%;
+		padding: 31.25% 8.25% 35%; 
+		left: 4.25%;
+	}
+	
+	.android {
+		width: 70%;
+		padding: 37% 13.2% 93.2%; 
+		left: 2%;
+	}
+	
+	.contact section a {
+		padding-top: 0.28em;
 	}
 }
