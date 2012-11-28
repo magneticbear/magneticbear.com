@@ -213,7 +213,7 @@ section a {
 
 .fade {
 	background-color: #D5D5D5;
-	height: 50px;
+	height: 65px;
 	position: absolute;
 	bottom: 0px;
 	width: 100%;
@@ -233,21 +233,6 @@ section a {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 
 }
-
-.expand {
-	width: 24px;
-	height: 24px;
-	display: block;
-	position: absolute;
-	bottom: 0;
-	right: 0;
-	cursor: pointer;
-	background-image: url(../images/plus-btn.png);
-	background-position: center center;
-	background-size: 100%;
-}
-
-
 
 
 /* -- Content Ends-- */
@@ -496,7 +481,7 @@ aside figcaption {
 /* -----------------Lab Begins--------------- */
 
 .lab article {
-		height: 20.5em;
+		height: auto;
 }
 
 .lab article cite {
@@ -565,6 +550,43 @@ aside figcaption {
 	display: block;
 	margin-bottom: 0.5em;
 }
+
+.read-more {
+	width: 24px;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	-webkit-transition: all ease-in-out 350ms;
+}
+
+.read-more a {
+	height: 24px;
+	background-color:#D4D4D4;
+	display: block;
+	color: #FFF;
+	padding-top: 0.2em;
+	padding-left: 1.8em;
+	position: relative;
+}
+.read-more a:hover {
+	text-decoration: none;
+	background-color:#999;
+	color: #FFF;
+}
+
+.read-more img {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	left: 0;
+	top: 1px;
+}
+
+.read-more:hover {
+	width: 7.6em;
+}
+
 
 .lab time {
 

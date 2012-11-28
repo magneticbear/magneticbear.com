@@ -72,9 +72,10 @@ header {
 	width: 100%;
 	max-width:1200px;
 	position: fixed;
-	padding-top: 5em;
+	padding-top: 8em;
 	background-color: rgba(255,255,255,0.9);
 	z-index: 5555;
+	top: 0;
 }
 
 header h1 {
@@ -102,7 +103,7 @@ header h1 {
 	width: 8em;
 	text-align: right;
 	float: right;
-	margin: 2em 20px;
+	margin: 5em 20px;
 	color: #333;
 }
 
@@ -142,6 +143,10 @@ article h2 {
 	color: #575757;
 }
 
+.stage {
+	display: block;
+}
+
 .icon {
 	background-color: #D5D5D5;
 	display: block;
@@ -174,7 +179,6 @@ article h2 {
 	background-color: #F0F0F0;
 	height: 0;
 	overflow: hidden;
-	
 }
 
 textarea {
