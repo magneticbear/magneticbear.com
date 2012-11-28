@@ -252,6 +252,71 @@ section a {
 
 /* -- Content Ends-- */
 
+/* -----------------Home Begins--------------- */
+
+.pr {
+	background: transparent url(../images/portfolio/cca/bg.png) no-repeat;
+}
+
+.process {
+
+}
+
+.home ul {
+	margin: 0 auto;
+}
+
+.home h1 {
+	text-align: center;
+	width: 85%; 
+	margin: 0 auto;
+}
+
+.home h3 {
+	color: #ABABAB;
+	font-size: 0.8em;
+	font-weight: normal;
+	background-color: #FFF;
+	border-bottom: 1px solid #D5D5D5;
+	margin-top: 8em;
+}
+
+.home a {
+	width: 30%;
+	color: #fff;
+	min-width: 100px;
+	padding: 0.8em;
+	background-color: #EC1D78;
+	text-align: center;
+	margin: 2em auto;
+	display: block;
+}
+
+.home a:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #EB5B9A;
+}
+
+.home li {
+	bottom: -23%;
+	width: 35%;
+	-webkit-transition: all ease-in-out 800ms;
+	list-style-type: none;
+	position: absolute;
+	right: 24%;
+}
+
+.home li img {
+	width: 100%;
+}
+
+.home li:last-child {
+		right: 24.1%;
+	}
+
+/* -- Content Ends-- */
+
 /* -----------------Work Begins--------------- */
 figure {
 	margin: 2em 0 0;
@@ -859,10 +924,6 @@ footer span {
 		margin-top: 2em;
 	}
 	
-	.cca {
-		height: 180px;
-	}
-	
 	aside figure:last-child {
 	margin-right: 2em;
 	}
@@ -915,6 +976,11 @@ footer span {
 		width: 75%;
 		padding: 31.25% 8.25% 35%; 
 		left: 4.25%;
+	}
+	
+	.cca, .pr {
+		height: 180px;
+		margin-bottom: 4em;
 	}
 	
 	.android {

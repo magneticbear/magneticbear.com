@@ -26,11 +26,24 @@ $(document).ready(function() {
 	
 	$('.icon').mouseenter(function() {
   		$(this).children('.progress').css('height','140px');
-		});
+	});
 		
 		$('.icon').mouseleave(function() {
   		$(this).children('.progress').css('height','10px');
-	});		
+	});	
+	
+	setTimeout(function (){	
+	$(".home li:nth-child(1)").css('right','-3%')}, 1600);
+	setTimeout(function (){	
+	$(".home li:nth-child(2)").css('right','-3%')}, 1600);
+	setTimeout(function (){	
+	$(".home li:nth-child(3)").css('right','10.5%')}, 1600);
+	setTimeout(function (){	
+	$(".home li:nth-child(4)").css('right','27.5%')}, 1600);
+	setTimeout(function (){	
+	$(".home li:nth-child(5)").css('right','44%')}, 1600);
+	setTimeout(function (){	
+	$(".home li:nth-child(6)").css('right','60%')}, 1600);		
 });	
 	
 
