@@ -14,8 +14,9 @@
 	<meta name="description" content="<%= @getPreparedDescription() %>" />
 	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
-	<!-- CSS & Favicon -->
+	<!-- CSS, Fonts & Favicon -->
 	<%- @getBlock('styles').add(['/vendor/normalize.css','/css/general.css']).toHTML() %>
+	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
 	<link rel="icon" href="fav.png">
 </head>
 <body>
@@ -33,10 +34,10 @@
 
 	<nav>
 		<ul>
-			<li <%= "class=selected" if @document.nav == 'work' %>><a href="/work">WORK</a></li>
-			<li <%= "class=selected" if @document.nav == 'team' %>><a href="/team">TEAM</a></li>
-			<li <%= "class=selected" if @document.nav == 'lab' %>><a href="/lab">LAB</a></li>
-			<li <%= "class=selected" if @document.nav == 'contact' %>><a href="/contact">CONTACT</a></li>
+			<li <%= "class=selected" if @document.nav == 'work' %>><a href="/work.html">WORK</a></li>
+			<li <%= "class=selected" if @document.nav == 'team' %>><a href="/team.html">TEAM</a></li>
+			<li <%= "class=selected" if @document.nav == 'lab' %>><a href="/lab.html">LAB</a></li>
+			<li <%= "class=selected" if @document.nav == 'contact' %>><a href="/contact.html">CONTACT</a></li>
 		</ul>
 	</nav>
 
@@ -61,6 +62,12 @@
     <script>window.jQuery || document.write('<script src="/vendor/jquery.js"><\/script>')</script>
 
 	<!-- Scripts -->
-	<%- @getBlock('scripts').add(['/vendor/log.js', '/vendor/modernizr.js', "/js/function.js"]).toHTML() %>
+	<%- @getBlock('scripts').add(['/vendor/log.js', '/vendor/modernizr.js', "/js/function.js","/js/jquery.flexslider.js"]).toHTML() %>
+	<script>
+		$(document).ready(function() {
+			$(window).load(function() {
+			$('.flexslider').flexslider();});
+		});
+	</script>
 </body>
 </html>
