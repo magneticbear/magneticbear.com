@@ -15,7 +15,7 @@
 	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
 
 	<!-- CSS, Fonts & Favicon -->
-	<%- @getBlock('styles').add(['/vendor/normalize.css','/css/general.css']).toHTML() %>
+	<%- @getBlock('styles').add(['/vendor/normalize.css','/css/general.css','/css/flexslider.css']).toHTML() %>
 	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
 	<link rel="icon" href="fav.png">
 </head>
@@ -25,7 +25,7 @@
     <![endif]-->
 
     <header>
-		<a href="/"><h1>Magnetic Bear Studio</h1></a>
+		<a href="/"><h1>Magnetic Bear Studios</h1></a>
 		<button class="menu"></button>
 		<div class="tagline">
 			<h2>BEAUTIFULLY<br>CRAFTED<br><span>APPS</span></h2>
