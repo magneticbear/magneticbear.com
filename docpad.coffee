@@ -27,6 +27,10 @@ docpadConfig = {
 				apps, mobile, ios, iphone, android, ipad, ux, user experience, ottawa
 				"""
 
+			authors: [{'nick': 'jp', 'pic': 'JP.jpeg', 'name': 'JP Simard', 'email': 'jp@magneticbear.com', 'github': 'jpsim', 'twitter': 'simjp', 'title': 'Founder & CEO', 'tagline': 'No time for this shit...', 'bio': 'iOS+Android developer at @magneticbear studios (founder), electrical engineer, musician, runner, jazz aficionado, fake graphic designer'},
+						{'nick': 'mo', 'pic': 'Mo.jpeg', 'name': 'Mo Mozafarian', 'email': 'mo@magneticbear.com', 'github': 'mo-mozafarian', 'twitter': 'M_Mozafarian', 'title': 'Creative Director', 'tagline': 'Stuff I think of .oO','bio': 'Multimedia Designer'},
+						{'nick': 'adrian', 'pic': 'Adrian.jpeg', 'name': 'Adrian Seeley', 'email': 'adrian@magneticbear.com', 'github': 'adrianseeley', 'twitter': 'adrnsly', 'title': 'Lead Developer', 'tagline': 'I\'m the big data guy...','bio': 'Data Scientist, and Magnetic Bear, at Magnetic Bear Studios'},
+						{'nick': 'stu', 'pic': 'Stu.jpeg', 'name': 'Stuart Macgregor', 'email': 'stuart@magneticbear.com', 'github': 'stumac', 'twitter': 'macgregor_stu', 'title': 'Developer', 'tagline': 'I write stuff...','bio': 'Mobile Applications Developers at Magnetic Bear Studios. Programmer, strength enthusiast, hater of all things functional'}]
 
 		# -----------------------------
 		# Helper Functions
@@ -52,6 +56,10 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
+		getTwitter: (name) ->
+			author = (item for item in @site.authors when item.nick == 'jp')
+			ret = '@' + author[0].twitter
+		# <%= @getTwitter @document.author if @document.author %>
 
 	# =================================
 	# DocPad Events
@@ -66,20 +74,6 @@ docpadConfig = {
 			# Extract the server from the options
 			{server} = opts
 			docpad = @docpad
-
-			# As we are now running in an event,
-			# ensure we are using the latest copy of the docpad configuraiton
-			# and fetch our urls from it
-			latestConfig = docpad.getConfig()
-			oldUrls = latestConfig.templateData.site.oldUrls or []
-			newUrl = latestConfig.templateData.site.url
-
-			# Redirect any requests accessing one of our sites oldUrls to the new site url
-			server.use (req,res,next) ->
-				if req.headers.host in oldUrls
-					res.redirect(newUrl+req.url, 301)
-				else
-					next()
 }
 
 # Export our DocPad Configuration

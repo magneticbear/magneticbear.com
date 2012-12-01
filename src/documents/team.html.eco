@@ -1,0 +1,20 @@
+---
+ layout: 'default'
+title: 'Team'
+---
+<div class="content team">
+	<% for author in @site.authors: %>
+		<article>
+			<div class="avatar">
+				<img src="images/<%= author.pic %>" alt="<%= author.name %>">
+			</div>
+			
+			<h1><%= author.name %></h1>
+			<i>— <%= author.title %></i>
+			<p><%= author.bio %></p>
+			<section>
+				<a href="#"><%= author.tagline %></a>
+			</section>
+		</article>
+	<% end %>
+</div>
