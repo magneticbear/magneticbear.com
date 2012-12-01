@@ -5,65 +5,53 @@ nav: 'work'
 ---
 <div class="content">
 	<article>
-		<figure>
-		<div class="bg scala1">
-			<div class="iphone white">
-				<div class="flexslider">
-					<ul class="slides">
-						<li><img src="images/portfolio/scala1/screen-1.png" alt=""/></li>
-						<li><img src="images/portfolio/scala1/screen-2.png" alt=""/></li>
-						<li><img src="images/portfolio/scala1/screen-3.png" alt=""/></li>
-						<li><img src="images/portfolio/scala1/screen-4.png" alt=""/></li>
-						<li><img src="images/portfolio/scala1/screen-5.png" alt=""/></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-			<figcaption>
-				<img class="app-icon" src="images/portfolio/app-icon.png">
-				<h1>iDelete</h1>
-				<ul class="tags">
-					<li title="User Experience">UX</li>
-					<li title="User Interface">UI</li>
-					<li title="Development">DEV</li>
-				</ul>
-				<p>Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing. </p>
-				<blockquote>Magnetic Bear Studios helped us figure out exactly what we wanted and built us a beautiful and functional tool, providing a durable competitive advantage. I cannot recommend them highly enough. <cite>— Luc Lendrum, CPO</cite> </blockquote>
-			</figcaption>
-		</figure>
-		
+		<% for post in @getFilesAtPath("work").toJSON(): %>
+			<% if post.title != 'Work': %>
+				<% if post.title == 'Scala1': %>
+					<figure>
+					<div class="bg scala1">
+						<div class="iphone white">
+							<div class="flexslider">
+								<ul class="slides">
+									<li><img src="images/portfolio/scala1/screen-1.png" alt=""/></li>
+									<li><img src="images/portfolio/scala1/screen-2.png" alt=""/></li>
+									<li><img src="images/portfolio/scala1/screen-3.png" alt=""/></li>
+									<li><img src="images/portfolio/scala1/screen-4.png" alt=""/></li>
+									<li><img src="images/portfolio/scala1/screen-5.png" alt=""/></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+						<figcaption>
+							<img class="app-icon" src="images/portfolio/app-icon.png">
+							<h1><%= post.title %></h1>
+							<ul class="tags">
+								<% for tag in post.tags: %>
+									<li><%= tag %></li>
+								<% end %>
+							</ul>
+							<p><%- post.content %></p>
+							<blockquote>Magnetic Bear Studios helped us figure out exactly what we wanted and built us a beautiful and functional tool, providing a durable competitive advantage. I cannot recommend them highly enough. <cite>— Luc Lendrum, CPO</cite></blockquote>
+						</figcaption>
+					</figure>
+				<% end %>
+			<% end %>
+		<% end %>
 		<aside>
 			<div class="wrap">
-				<figure><a href="#">
-				<img src="images/portfolio/app-icon.png">
-				<figcaption>iDelete</figcaption></a>
-				</figure>
-				
-				<figure><a href="#">
-				<img src="images/portfolio/app-icon.png">
-				<figcaption>iDelete</figcaption></a>
-				</figure>
-				
-				<figure><a href="#">
-				<img src="images/portfolio/app-icon.png">
-				<figcaption>iDelete</figcaption></a>
-				</figure>
-				
-				<figure><a href="#">
-				<img src="images/portfolio/app-icon.png">
-				<figcaption>iDelete</figcaption></a>
-				</figure>
-				
-				<figure><a href="#">
-				<img src="images/portfolio/app-icon.png">
-				<figcaption>iDelete</figcaption></a>
-				</figure>
-				
-				<figure><a href="#">
-				<img src="images/portfolio/dribbble-app-icon.png">
-				<figcaption>More Work on Dribbble</figcaption></a>
+				<% for post in @getFilesAtPath("work").toJSON(): %>
+					<% if post.title != 'Work': %>
+						<figure><a href="#">
+							<img src="images/portfolio/app-icon.png">
+							<figcaption><%= post.title %></figcaption></a>
+						</figure>
+					<% end %>
+				<% end %>
+				<figure><a href="http://dribbble.com/magneticbear">
+					<img src="images/portfolio/dribbble-app-icon.png">
+					<figcaption>More on Dribbble</figcaption></a>
 				</figure>
 			</div>
-		</aside>		
+		</aside>
 	</article>
 </div>
