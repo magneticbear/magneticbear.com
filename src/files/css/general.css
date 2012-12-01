@@ -33,7 +33,6 @@ a {
 
 /* --General Ends-- */
 
-
 /* -----------------Fonts Begins--------------- */
 
 @font-face {
@@ -45,7 +44,6 @@ a {
          url('../fonts/ostrich-regular-webfont.svg#OstrichSansMedium') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 @font-face {
@@ -57,7 +55,6 @@ a {
          url('../fonts/ostrich-black-webfont.svg#OstrichSansBlack') format('svg');
     font-weight: normal;
     font-style: normal;
-
 }
 
 /* --Fonts Ends-- */
@@ -85,7 +82,6 @@ header h1 {
 	margin-left: 10px;
 	display: inline-block;
 }
-
 
 .tagline {
 	position: absolute;
@@ -119,12 +115,12 @@ nav {
 	font-size: 1.4em;
 	width: 3.8em;
 	letter-spacing: 0.2em;
-	margin: 6% 20px 0;
+	margin: 0 20px 0;
 }
 
 .menu {
-	display: none;}
-
+	display: none;
+}
 
 nav a {
 	color: #333;
@@ -153,7 +149,6 @@ nav li {
 	padding: 12px 0 6px;
 	padding-left: 0.8em;
 }
-
 
 /* --- Navigation Ends-- */
 
@@ -231,9 +226,7 @@ section a {
 	background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 40%,rgba(255,255,255,1) 100%); /* W3C */
 	
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
-
 }
-
 
 /* -- Content Ends-- */
 
@@ -297,8 +290,8 @@ section a {
 }
 
 .home li:last-child {
-		right: 24.1%;
-	}
+	right: 24.1%;
+}
 
 /* -- Content Ends-- */
 
@@ -308,17 +301,16 @@ figure {
 }
 
 .scala1 {
-		background: transparent url(../images/portfolio/scala1/bg.png) no-repeat;
+	background: transparent url(../images/portfolio/scala1/bg.png) no-repeat;
 }
 
 .mybound {
-		background: transparent url(../images/portfolio/mybound/bg.png) no-repeat;
+	background: transparent url(../images/portfolio/mybound/bg.png) no-repeat;
 }
 
 .cca {
-		background: transparent url(../images/portfolio/cca/bg.png) no-repeat;
+	background: transparent url(../images/portfolio/cca/bg.png) no-repeat;
 }
-
 
 .bg {
 	width: 100%;
@@ -340,13 +332,11 @@ figure {
 .white {
 	background: transparent url(../images/portfolio/iPhone-white.png) no-repeat;
 	background-size: 100%;
-
 }
 
 .black {
 	background: transparent url(../images/portfolio/iPhone-black.png) no-repeat;
 	background-size: 100%;
-
 }
 
 .android {
@@ -440,7 +430,6 @@ aside a:hover {
 	
 	transition: all ease-in-out 200ms;
 	-webkit-transition: all ease-in-out 200ms;
-
 }
 
 .sel {
@@ -476,12 +465,13 @@ aside figcaption {
 	color: #575757;
 	font-weight: bold;
 }
+
 /* -- Work Ends-- */
 
 /* -----------------Lab Begins--------------- */
 
 .lab article {
-		height: auto;
+	height: auto;
 }
 
 .lab article cite {
@@ -546,6 +536,7 @@ aside figcaption {
 	margin: 1.2em 0 0.4em;
 	clear: right;
 }
+
 .lab cite {
 	display: block;
 	margin-bottom: 0.5em;
@@ -587,7 +578,6 @@ aside figcaption {
 	width: 7.6em;
 }
 
-
 .lab time {
 
 }
@@ -615,7 +605,6 @@ aside figcaption {
 	margin: 1em auto;
 	display: block;
 	float: none;
-
 }
 
 .team .avatar img {
@@ -634,7 +623,6 @@ aside figcaption {
 	display: block;
 	margin-bottom: 1.4em;
 	text-align: center;
-	
 }
 
 .team section {
@@ -649,9 +637,6 @@ aside figcaption {
 	padding-top: 0.6em;
 	margin-bottom: 1em;
 }
-
-
-
 
 /* --Team Ends-- */
 
@@ -673,7 +658,6 @@ form {
 	margin-left: 7.1em;
 	display: inline-block;
 	margin-bottom: 2em;
-
 }
 
 input, textarea {
@@ -701,8 +685,6 @@ form button:hover {
 	background-color: #CCC;
 }
 
-
-
 .contact section {
 	border: none;
 	width: 38%;
@@ -711,7 +693,6 @@ form button:hover {
 	margin-top: 0;
 	padding-top: 0;
 }
-
 
 .contact section p {
 	margin-bottom: 2.2em;
@@ -746,11 +727,6 @@ form button:hover {
 .contact section span img {
 	width: 100%;
 }
-
-
-
-
-
 
 /* -- Contact Ends-- */
 
@@ -872,8 +848,8 @@ footer span {
 
 @media screen and (max-width:850px) {
 	html {
-	-webkit-transition: all ease-in-out 400ms;
-	border-left: 1px #CCCCCC solid;
+		-webkit-transition: all ease-in-out 400ms;
+		border-left: 1px #CCCCCC solid;
 	}
 		
 	header {
@@ -885,7 +861,7 @@ footer span {
 	}
 	
 	header h1 {
-	background-size: 80%;
+		background-size: 80%;
 	}
 	
 	.tagline {
@@ -902,11 +878,11 @@ footer span {
 	}
 	
 	.selected {
-	font-size: 1.4em;
+		font-size: 1.4em;
 	}
 
 	.selected a {
-	padding: 0.7em 0.6em;
+		padding: 0.7em 0.6em;
 	}
 
 	.menu {
@@ -952,7 +928,6 @@ footer span {
 		
 	.team article, .lab article, article, form {
 		width: 77.8%;
-		width: 77.8;
 	}
 	
 	.lab .avatar, .contact .avatar {
@@ -981,7 +956,6 @@ footer span {
 	
 	footer p {
 		margin-left: 60px;
-
 	}
 	
 	.social {
