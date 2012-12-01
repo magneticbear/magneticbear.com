@@ -1,10 +1,10 @@
 ---
 layout: 'default'
-title: 'Jobs'
-nav: 'jobs'
+title: 'Lab'
+nav: 'lab'
 ---
 <div class="content lab">
-	<% for post in @getFilesAtPath("jobs").toJSON(): %>
+	<% for post in @getFilesAtPath("lab").toJSON(): %>
 		<% if post.author: %>
 			<article>
 				<div class="avatar">
@@ -15,6 +15,8 @@ nav: 'jobs'
 				<cite>by <%= @getAuthorName post.author %></cite>
 				<time><%- post.date.toShortDateString() %></time>
 				<p><%- post.content %></p>
+				<div class="fade"></div>
+				<div class="read-more"><a href="#"><img src="/images/read-more.png" alt="Read More">Read More</a></div>
 			</article>
 		<% end %>
 	<% end %>
