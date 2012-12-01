@@ -1,6 +1,7 @@
 ---
 layout: 'default'
 title: 'Team'
+nav: 'team'
 ---
 <div class="content team">
 	<% for author in @site.authors: %>

@@ -1,0 +1,23 @@
+---
+layout: 'default'
+title: 'Jobs'
+nav: 'jobs'
+---
+<div class="content lab">
+	<% for post in @getFilesAtPath("lab").toJSON(): %>
+		<% if post.author: %>
+			<article>
+				<div class="avatar">
+					<img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>">
+					<a href="#"><img src="/images/twitter-icon.png" alt="Twitter">@M_Mozafarian</a>
+				</div>
+				<a href="<%= post.url %>"><h1><%- post.title %></h1></a>
+				<cite>by <%= @getAuthorName post.author %></cite>
+				<time><%- post.date.toShortDateString() %></time>
+				<p><%- post.content %></p>
+				<div class="fade"></div>
+				<div class="read-more"><a href="#"><img src="/images/read-more.png" alt="Read More">Read More</a></div>
+			</article>
+		<% end %>
+	<% end %>
+</div>

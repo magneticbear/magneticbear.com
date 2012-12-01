@@ -42,7 +42,18 @@
 		</ul>
 	</nav>
 
-	<%- @content %>
+	<div class="content">
+		<article>
+			<div class="avatar">
+				<img src="/images/<%= @getAuthorPic @document.author %>" alt="<%= @getAuthorName @document.author %>">
+				<a href="#"><img src="/images/twitter-icon.png" alt="Twitter"><%= @getAuthorTwitter @document.author %></a>
+			</div>
+			<h1><%- @document.title %></h1>
+			<cite>by <%= @getAuthorName @document.author %></cite>
+			<time><%- @document.date.toShortDateString() %></time>
+			<p><%- @content %></p>
+		</article>
+	</div>
 	
 	<footer>
 		<span>©</span>
@@ -50,10 +61,10 @@
 		
 		<div class="social">
 			<ul>
-				<li><a href="mailto:consult@magneticbear.com" target="_blank"><img src="images/email-icon.png" alt="Email">info@magneticbear.com</a></li>
-				<li><a href="https://github.com/magneticbear" target="_blank"><img src="images/github-icon.png" alt="Github">magneticbear</a></li>
-				<li><a href="http://dribbble.com/magneticbear" target="_blank"><img src="images/dribbble-icon.png" alt="Dribble">magneticbear</a></li>
-				<li><a href="http://twitter.com/magneticbear" target="_blank"><img src="images/twitter-icon.png" alt="Twitter">@magneticbear</a></li>
+				<li><a href="mailto:consult@magneticbear.com" target="_blank"><img src="/images/email-icon.png" alt="Email">info@magneticbear.com</a></li>
+				<li><a href="https://github.com/magneticbear" target="_blank"><img src="/images/github-icon.png" alt="Github">magneticbear</a></li>
+				<li><a href="http://dribbble.com/magneticbear" target="_blank"><img src="/images/dribbble-icon.png" alt="Dribble">magneticbear</a></li>
+				<li><a href="http://twitter.com/magneticbear" target="_blank"><img src="/images/twitter-icon.png" alt="Twitter">@magneticbear</a></li>
 			</ul>
 		</div>
 	</footer>

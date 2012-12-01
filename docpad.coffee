@@ -56,10 +56,10 @@ docpadConfig = {
 			# Merge the document keywords with the site keywords
 			@site.keywords.concat(@document.keywords or []).join(', ')
 
-		getTwitter: (name) ->
-			author = (item for item in @site.authors when item.nick == 'jp')
-			ret = '@' + author[0].twitter
-		# <%= @getTwitter @document.author if @document.author %>
+		getAuthor: (nick) -> return (item for item in @site.authors when item.nick == nick)
+		getAuthorName: (nick) -> return (item.name for item in @site.authors when item.nick == nick)
+		getAuthorTwitter: (nick) -> return '@' + (item.twitter for item in @site.authors when item.nick == nick)
+		getAuthorPic: (nick) -> return (item.pic for item in @site.authors when item.nick == nick)
 
 	# =================================
 	# DocPad Events
