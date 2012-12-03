@@ -1,7 +1,6 @@
 ---
 layout: 'post'
 title: 'Senior Mobile Developer'
-author: 'jp'
 nav: 'jobs'
 ---
 ## We’re seeking experienced mobile developers who:
