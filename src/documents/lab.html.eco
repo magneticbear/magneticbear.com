@@ -9,7 +9,7 @@ nav: 'lab'
 			<article>
 				<div class="avatar">
 					<img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>">
-					<a href="#"><img src="/images/twitter-icon.png" alt="Twitter">@M_Mozafarian</a>
+					<a href="#"><img src="/images/twitter-icon.png" alt="Twitter"><%= @getAuthorTwitter post.author %></a>
 				</div>
 				<a href="<%= post.url %>"><h1><%- post.title %></h1></a>
 				<cite>by <%= @getAuthorName post.author %></cite>
