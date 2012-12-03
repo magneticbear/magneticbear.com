@@ -2,6 +2,7 @@
 layout: 'post'
 title: 'Junior Mobile Developer'
 author: 'jp'
+nav: 'jobs'
 ---
 Are you looking for an exciting way to learn and live mobile? Come join our team for the experience of a lifetime!
 
