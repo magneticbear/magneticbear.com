@@ -36,8 +36,8 @@
 						<textarea placeholder="Leave a comment" cols="30" rows="5"></textarea>
 					</form>	
 					<ul>
-						<li><cite>Mo Said</cite>blurb from Mo<time>10:50AM Jan 12th, 2013</time></li>
-						<li><cite>Mo Said</cite>blurb from Mo<time>10:50AM Jan 12th, 2013</time></li>
+						<li><cite>Mo Said</cite> blurb from Mo<time> 10:50AM Jan 12th, 2013</time></li>
+						<li><cite>Mo Said</cite> blurb from Mo<time> 10:50AM Jan 12th, 2013</time></li>
 					</ul>				
 				</div>
 			</article>	
@@ -60,11 +60,13 @@
 						<textarea placeholder="Leave a comment" cols="30" rows="5"></textarea>
 					</form>	
 					<ul>
-						<li><cite>Mo Said</cite>blurb from Mo<time>10:50AM Jan 12th, 2013</time></li>
-						<li><cite>Mo Said</cite>blurb from Mo<time>10:50AM Jan 12th, 2013</time></li>
+						<li><cite>Mo Said</cite> blurb from Mo<time> 10:50AM Jan 12th, 2013</time></li>
+						<li><cite>Mo Said</cite> blurb from Mo<time> 10:50AM Jan 12th, 2013</time></li>
 					</ul>				
 				</div>
 			</article>	
+			
+			
 				
 		</div>
 		
@@ -83,6 +85,22 @@
 		</footer>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
-		<script src="js/cp-function.js"></script>
+		<script>
+			$(document).ready(function() {
+				
+				$(".stage").toggle(function(){$(this).siblings(".extra").css("height","auto");}, function(){$(this).siblings(".extra").css("height","0");})
+				$(".stage").toggle(function(){$(this).siblings(".extra").css("border-top","1px solid #CCC");}, function(){$(this).siblings(".extra").css("border","none");})	
+				
+				$('.icon').mouseenter(function() {
+					$(this).children('.progress').css('height','140px');
+				});
+					
+					$('.icon').mouseleave(function() {
+					$(this).children('.progress').css('height','10px');
+				});	
+				
+			});	
+	</script>
+	
 	</body>
 </html>
