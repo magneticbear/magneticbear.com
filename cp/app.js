@@ -57,7 +57,8 @@ function setup_debug_project()
 				[
 					{
 						last_change: new Date(),
-						markdown: 'HIB JIB RABIBDABIB',
+						markdown:   'HIB JIB RABIBDABIB',
+						short_name: 'Adrian',
 						tags: 
 						[
 							'problem', 'flow', 'meeting'
@@ -111,7 +112,7 @@ function setup_feed(doc, stage, tag)
 	var feed = '';
 	for(var e = 0; e < doc.feed.entries.length; e++)
 	{
-		
+		feed += html_wrap_feed_entry.replace();
 	}
 }
 
