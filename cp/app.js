@@ -91,7 +91,7 @@ function serve_cp(req, res)
 				var content  = '';
 				if(doc.stage_completions.meeting != null)
 				{
-					var stage = setup_stage('Meeting', '/client-portal/images/meeting.png' '<b>Meetings are a real fun time!</b>');
+					var stage = setup_stage('Meeting', '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>');
 					stage     = setup_feed(doc, stage, 'meeting');
 				}
 
