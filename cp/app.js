@@ -58,7 +58,7 @@ function setup_debug_project()
 				[
 					{
 						last_change: new Date(),
-						markdown:   'HIB JIB RABIBDABIB',
+						markdown:   '# HIB JIB RABIBDABIB',
 						short_name: 'Adrian',
 						tags: 
 						[
@@ -93,6 +93,7 @@ function serve_cp(req, res)
 				{
 					var stage = setup_stage('Meeting', '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>');
 					stage     = setup_feed(doc, stage, 'meeting');
+					content  += stage;
 				}
 
 
@@ -111,13 +112,8 @@ function setup_stage(stage_title, icon_url, stage_description)
 function setup_feed(doc, stage, tag)
 {
 	var feed = '';
-	for(var e = 0; e < doc.feed.entries.length; e++)
-	{
-		if(contains_tag(doc.feed.entries[e].tags, tag))
-		{
-			feed += html_wrap_feed_entry.replace('{{short_name}}', doc.feed.entries[e].short_name).replace('{{markdown}}', md(doc.feed.entries[e].markdown)).replace('{{timestamp}}', doc.feed.entries[e].last_change);
-		}
-	}
+	for(var e = 0; e < doc.feed.entries.length; e++) if(contains_tag(doc.feed.entries[e].tags, tag)) feed += html_wrap_feed_entry.replace('{{short_name}}', doc.feed.entries[e].short_name).replace('{{markdown}}', md(doc.feed.entries[e].markdown)).replace('{{timestamp}}', doc.feed.entries[e].last_change);
+	return stage.replace('{{feed}}', feed);
 }
 function contains_tag(array, tag) 
 {
