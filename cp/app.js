@@ -17,19 +17,51 @@ app.use(express.bodyParser());
 app.get('/cp/:project', serve_cp);
 app.post('/cp/:project', make_post);
 
+delete_project('test');
+create_new_project('test', 'Test Project');
+
 function make_post(req, res)
 {
 	console.log(req);
 	serve_cp(req, res);
 }
 
-setup_debug_project();
-function setup_debug_project()
+function post_to_project(url, markdown, short_name, tags)
+{
+	db.projects.findOne({project_url: url}, 
+		function(err, doc)
+		{
+				 if(err)  console.log(err);
+			else if(!doc) console.log('project not found');
+			else
+			{
+				doc.feed.entries.push({ last_change: new Date(), markdown: markdown, short_name: short_name, tags: tags });
+				db.projects.save(doc, 
+					function(err)
+					{
+						if(err)console.log(err);
+					}
+				);
+			}
+		}
+	);
+}
+
+function delete_project(url)
+{
+	db.projects.remove({project_url: url}, 
+		function(err)
+		{
+			if(err) console.log(err);
+		}
+	);
+}
+function create_new_project(url, name)
 {
 	db.projects.save(
 		{
-			project_url:  'test', 
-			project_name: 'The CP Test Project', 
+			project_url:  url, 
+			project_name: name, 
 
 			stage_completions:
 			{
@@ -65,12 +97,9 @@ function setup_debug_project()
 				[
 					{
 						last_change: new Date(),
-						markdown:   '# HIB JIB RABIBDABIB',
-						short_name: 'Adrian',
-						tags: 
-						[
-							'problem', 'flow', 'meeting'
-						]
+						markdown:    'Project Start!',
+						short_name:  'Adrian',
+						tags: 		 []
 					}
 				]
 			}
@@ -123,11 +152,12 @@ function serve_cp(req, res)
 				html_wrap_stage_entry;
 				var to_serve = html_cp.replace('{{content}}', content);
 				serve(req, res, 200, to_serve, new Date().getTime());
+
+				post_to_project('test', fs.readFileSync('md/test.MD', 'utf8'), 'Adrian', ['meeting', 'problem']);
 			}
 		}
 	);
 }
-
 function build_meeting(doc) 	  { return setup_feed(doc, setup_stage('Meeting', 		'/client-portal/images/meeting.png', 		'<b>Meetings are a real fun time.</b>'), 			     'meeting');       }
 function build_problem(doc) 	  { return setup_feed(doc, setup_stage('Problem', 		'/client-portal/images/problem-space.png',  '<b>99 problems and your app aint one of them.</b>'), 	 'problem');       }
 function build_solution(doc) 	  { return setup_feed(doc, setup_stage('Solution', 		'/client-portal/images/solution-space.png', '<b>Solutions are okay, I prefer solvents though.</b>'), 'solution');      }
@@ -151,8 +181,6 @@ function build_polish(doc) 		  { return setup_feed(doc, setup_stage('Polish', 		
 function build_testing(doc) 	  { return setup_feed(doc, setup_stage('Testing', 		'/client-portal/images/testing.png', 	    '<b>Lending our phones to irresponsible parties.</b>'),  'testing'); 	   }
 function build_beer(doc) 		  { return setup_feed(doc, setup_stage('Beer', 			'/client-portal/images/beer.png', 		    '<b>420</b>'), 											 'beer'); 		   }
 function build_delivery(doc) 	  { return setup_feed(doc, setup_stage('Delivery', 		'/client-portal/images/final-product.png',  '<b>Planet Express Ship at your service!</b>'), 		 'delivery');      }
-
-
 function setup_stage(stage_title, icon_url, stage_description)
 {
 	return html_wrap_stage_entry.replace('{{stage_title}}', stage_title).replace('{{icon_url}}', icon_url).replace('{{stage_description}}', stage_description);
@@ -168,7 +196,6 @@ function contains_tag(array, tag)
     for (var a = 0; a < array.length; a++) if (array[a].toLowerCase() === tag.toLowerCase()) return true;
     return false;
 }
-
 function serve(req, res, http_response_code, html_response, response_timer)
 {
 	res.status(http_response_code);
