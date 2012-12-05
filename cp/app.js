@@ -23,30 +23,35 @@ create_new_project('test', 'Test Project');
 function make_post(req, res)
 {
 	console.log(req);
-	serve_cp(req, res);
+	post_to_project('test', fs.readFileSync('md/test.MD', 'utf8'), 'Adrian', ['meeting', 'problem'], 
+		function(err)
+		{
+			if(err) console.log(err);
+			serve_cp(req, res);
+		}
+	);
 }
 
-function post_to_project(url, markdown, short_name, tags)
+function post_to_project(url, markdown, short_name, tags, callback)
 {
 	db.projects.findOne({project_url: url}, 
 		function(err, doc)
 		{
-				 if(err)  console.log(err);
-			else if(!doc) console.log('project not found');
+				 if(err)  callback(err);
+			else if(!doc) callback('Project not found');
 			else
 			{
 				doc.feed.entries.push({ last_change: new Date(), markdown: markdown, short_name: short_name, tags: tags });
 				db.projects.save(doc, 
 					function(err)
 					{
-						if(err)console.log(err);
+						if(callback) callback(err);
 					}
 				);
 			}
 		}
 	);
 }
-
 function delete_project(url)
 {
 	db.projects.remove({project_url: url}, 
@@ -111,7 +116,6 @@ function create_new_project(url, name)
 		}
 	);
 }
-
 function serve_cp(req, res)
 {
 	// todo: validate req.params.project before using
@@ -152,8 +156,6 @@ function serve_cp(req, res)
 				html_wrap_stage_entry;
 				var to_serve = html_cp.replace('{{content}}', content);
 				serve(req, res, 200, to_serve, new Date().getTime());
-
-				post_to_project('test', fs.readFileSync('md/test.MD', 'utf8'), 'Adrian', ['meeting', 'problem']);
 			}
 		}
 	);
