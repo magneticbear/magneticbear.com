@@ -900,12 +900,12 @@ footer span {
 	}
 	
 	article {
-		padding: 8%;
+		padding: 4%;
 	}
 	
 	.content {
-		width: 90%;
-		margin: 0% 5%;
+		width: 94%;
+		margin: 0% 3%;
 		padding: 7em 0 0;
 	}
 	
@@ -927,7 +927,7 @@ footer span {
 	}
 		
 	.team article, .lab article, article, form {
-		width: 77.8%;
+		width: 85.8%;
 	}
 	
 	.lab .avatar, .contact .avatar {
