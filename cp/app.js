@@ -1,4 +1,4 @@
-var port	 = process.env.PORT || 80;
+var port	 = process.env.PORT || 22324;
 var fs		 = require('fs');
 var db_url	 = process.env.MONGOHQ_URL || 'mbsweb';
 var db		 = require('mongojs').connect(db_url, ['projects', 'log']);
@@ -13,7 +13,6 @@ app.use(express.bodyParser());
 
 app.get('/cp/:project', serve_cp);
 
-
 function serve_cp(req, res)
 {
 	// todo: validate req.params.project before using
@@ -26,7 +25,7 @@ function serve_cp(req, res)
 			else if(!doc) serve(req, res, 404, html_404, new Date().getTime());
 			else
 			{
-				var content  = ''
+				var content  = 'HIIIB';
 				var to_serve = html_cp.replace('{{content}}', content);
 				serve(req, res, 200, to_serve, new Date().getTime());
 			}
