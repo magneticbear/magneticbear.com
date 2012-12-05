@@ -22,7 +22,7 @@ create_new_project('test', 'Test Project');
 
 function make_post(req, res)
 {
-	console.log(req);
+	// post the test md
 	post_to_project('test', fs.readFileSync('md/test.MD', 'utf8'), 'Adrian', ['meeting', 'problem'], 
 		function(err)
 		{
@@ -31,7 +31,6 @@ function make_post(req, res)
 		}
 	);
 }
-
 function post_to_project(url, markdown, short_name, tags, callback)
 {
 	db.projects.findOne({project_url: url}, 
