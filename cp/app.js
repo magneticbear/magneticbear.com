@@ -2,6 +2,7 @@ var port	 = process.env.PORT || 22324;
 var fs		 = require('fs');
 var db_url	 = process.env.MONGOHQ_URL || 'mbsweb';
 var db		 = require('mongojs').connect(db_url, ['projects', 'log']);
+var md 		 = require("node-markdown").Markdown;
 var express	 = require('express');
 var app		 = express();
 
@@ -112,8 +113,16 @@ function setup_feed(doc, stage, tag)
 	var feed = '';
 	for(var e = 0; e < doc.feed.entries.length; e++)
 	{
-		feed += html_wrap_feed_entry.replace();
+		if(contains_tag(doc.feed.entries[e].tags, tag))
+		{
+			feed += html_wrap_feed_entry.replace('{{short_name}}', doc.feed.entries[e].short_name).replace('{{markdown}}', md(doc.feed.entries[e].markdown)).replace('{{timestamp}}', doc.feed.entries[e].last_change);
+		}
 	}
+}
+function contains_tag(array, tag) 
+{
+    for (var a = 0; a < array.length; a++) if (array[a].toLowerCase() === tag.toLowerCase()) return true;
+    return false;
 }
 
 function serve(req, res, http_response_code, html_response, response_timer)
