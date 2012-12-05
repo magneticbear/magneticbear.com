@@ -15,6 +15,13 @@ var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
 app.use(express.bodyParser());
 
 app.get('/cp/:project', serve_cp);
+app.post('/cp/:project', make_post);
+
+function make_post(req, res)
+{
+	console.log(req);
+	serve_cp(req, res);
+}
 
 setup_debug_project();
 function setup_debug_project()
