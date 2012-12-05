@@ -1,7 +1,7 @@
 var port	 = process.env.PORT || 22324;
 var fs		 = require('fs');
 var db_url	 = process.env.MONGOHQ_URL || 'mbsweb';
-var db		 = require('mongojs').connect(db_url, ['projects', 'users', 'log']);
+var db		 = require('mongojs').connect(db_url, ['projects', 'log']);
 var md 		 = require("node-markdown").Markdown;
 var express	 = require('express');
 var app		 = express();
