@@ -1,7 +1,7 @@
 var port	 = process.env.PORT || 22324;
 var fs		 = require('fs');
 var db_url	 = process.env.MONGOHQ_URL || 'mbsweb';
-var db		 = require('mongojs').connect(db_url, ['projects', 'log']);
+var db		 = require('mongojs').connect(db_url, ['projects', 'users', 'log']);
 var md 		 = require("node-markdown").Markdown;
 var express	 = require('express');
 var app		 = express();
@@ -11,20 +11,73 @@ var html_wrap_stage_entry = fs.readFileSync('html/wrap_stage_entry.html', 'utf8'
 var html_wrap_feed_entry  = fs.readFileSync('html/wrap_feed_entry.html',  'utf8');
 var html_500 			  = '<html><b>500</b> DB IS DOWN!</html>';
 var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
+var html_666 			  = '<html><b>666</b> BAD!</html>';
+
+var admins = ['adrian@magneticbear.com', 'jp@magneticbear.com', 'stu@magneticbear.com', 'mo@magneticbear.com'];
 
 app.use(express.bodyParser());
 
-app.get('/cp/:project',  serve_cp);
-app.post('/cp/:project', make_post);
+app.get('/cp/:project/:email',  serve_cp);
+app.post('/cp/:project/:email', make_post);
 
-function make_post(req, res)
+function is_admin_on_project(email, url, callback)
 {
-	// post the test md
-	post_to_project('test', fs.readFileSync('md/test.MD', 'utf8'), 'Adrian', ['meeting', 'problem'], 
-		function(err)
+	if(contains_tag(admins, email))
+	{
+		callback(err, true);
+	}
+	else
+	{
+		callback(err, false);
+	}
+}
+function is_user_on_project(email, url, callback)
+{
+	db.projects.findOne({project_url: url}, 
+		function (err, doc)
 		{
-			if(err) console.log(err);
-			serve_cp(req, res);
+			if(err)
+			{ 
+				callback(err, false);
+			}
+			else if(!doc)
+			{
+				callback('Project not found', false);
+			}
+			else
+			{
+				if(contains_tag(doc.users, email) || contains_tag(admins, email))
+				{
+					callback(err, true);
+				}
+				else
+				{
+					callback(err, false);
+				}
+			}
+		}
+	);
+}
+function make_post(req, res)
+{	
+	is_user_on_project(req.params.email, req.params.project, 
+		function(err, result)
+		{
+			if(err) serve(req, res, 500, html_500, new Date().getTime());
+			else if (result)
+			{
+				post_to_project(req.params.project, fs.readFileSync('md/test.MD', 'utf8'), 'Adrian', ['meeting', 'problem'], 
+					function(err)
+					{
+						if(err) serve(req, res, 500, html_500, new Date().getTime());
+						else serve_cp(req, res);
+					}
+				);
+			}
+			else
+			{
+				serve(req, res, 666, html_666, new Date().getTime());
+			}
 		}
 	);
 }
@@ -59,6 +112,9 @@ function delete_project(url)
 }
 function create_new_project(url, name)
 {
+	//is_admin_on_project(req.params.email, req.params.project, 
+	//function(err, result)
+	//{
 	db.projects.save(
 		{
 			project_url:  url, 
@@ -90,14 +146,6 @@ function create_new_project(url, name)
 				beer: 		   0,
 				delivery: 	   0
 			},
-
-			admins:
-			[
-				'adrian@magneticbear.com',
-				'jp@magneticbear.com',
-				'mo@magneticbear.com',
-				'stu@magneticbear.com'
-			],
 
 			users: 
 			[
