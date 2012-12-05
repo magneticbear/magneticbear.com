@@ -89,13 +89,29 @@ function serve_cp(req, res)
 			else
 			{
 				var content  = '';
-				if(doc.stage_completions.meeting != null)
-				{
-					var stage = setup_stage('Meeting', '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>');
-					stage     = setup_feed(doc, stage, 'meeting');
-					content  += stage;
-				}
-
+				if(doc.stage_completions.meeting       != null) content += build_meeting(doc);
+				if(doc.stage_completions.problem       != null) content += build_problem(doc);
+				if(doc.stage_completions.solution 	   != null) content += build_solution(doc);
+				if(doc.stage_completions.design 	   != null) content += build_design(doc);
+				if(doc.stage_completions.flow 		   != null) content += build_flow(doc);
+				if(doc.stage_completions.wireframe 	   != null) content += build_wireframe(doc);
+				if(doc.stage_completions.development   != null) content += build_development(doc);
+				if(doc.stage_completions.ia 		   != null) content += build_ia(doc);
+				if(doc.stage_completions.data_model    != null) content += build_data_model(doc);
+				if(doc.stage_completions.ux_demo 	   != null) content += build_ux_demo(doc);
+				if(doc.stage_completions.branding 	   != null) content += build_branding(doc);
+				if(doc.stage_completions.style_guide   != null) content += build_style_guide(doc);
+				if(doc.stage_completions.ui 		   != null) content += build_ui(doc);
+				if(doc.stage_completions.api_structure != null) content += build_api_structure(doc);
+				if(doc.stage_completions.network       != null) content += build_network(doc);
+				if(doc.stage_completions.functionality != null) content += build_functionality(doc);
+				if(doc.stage_completions.ui_demo 	   != null) content += build_ui_demo(doc);
+				if(doc.stage_completions.web_design    != null) content += build_web_design(doc);
+				if(doc.stage_completions.web_frontend  != null) content += build_web_frontend(doc);
+				if(doc.stage_completions.polish 	   != null) content += build_polish(doc);
+				if(doc.stage_completions.testing 	   != null) content += build_testing(doc);
+				if(doc.stage_completions.beer 		   != null) content += build_beer(doc);
+				if(doc.stage_completions.delivery 	   != null) content += build_delivery(doc);
 
 				html_wrap_stage_entry;
 				var to_serve = html_cp.replace('{{content}}', content);
@@ -104,6 +120,31 @@ function serve_cp(req, res)
 		}
 	);
 }
+
+function build_meeting(doc) 	  { return setup_feed(doc, setup_stage('Meeting', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_problem(doc) 	  { return setup_feed(doc, setup_stage('Problem', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_solution(doc) 	  { return setup_feed(doc, setup_stage('Solution', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_design(doc) 		  { return setup_feed(doc, setup_stage('Design', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_flow(doc) 		  { return setup_feed(doc, setup_stage('Flow', 			'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_wireframe(doc)     { return setup_feed(doc, setup_stage('Wireframe', 	'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_development(doc)   { return setup_feed(doc, setup_stage('Development',   '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_ia(doc) 			  { return setup_feed(doc, setup_stage('IA', 			'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_data_model(doc)    { return setup_feed(doc, setup_stage('Data Model', 	'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_ux_demo(doc) 	  { return setup_feed(doc, setup_stage('UX Demo', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_branding(doc) 	  { return setup_feed(doc, setup_stage('Branding', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_style_guide(doc)   { return setup_feed(doc, setup_stage('Style Guide',   '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_ui(doc) 			  { return setup_feed(doc, setup_stage('UI', 			'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_api_structure(doc) { return setup_feed(doc, setup_stage('API Structure', '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_network(doc) 	  { return setup_feed(doc, setup_stage('Network', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_functionality(doc) { return setup_feed(doc, setup_stage('Functionality', '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_ui_demo(doc) 	  { return setup_feed(doc, setup_stage('UI Demo', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_web_design(doc) 	  { return setup_feed(doc, setup_stage('Web Design', 	'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_web_frontend(doc)  { return setup_feed(doc, setup_stage('Web Frontend',  '/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_polish(doc) 		  { return setup_feed(doc, setup_stage('Polish', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_testing(doc) 	  { return setup_feed(doc, setup_stage('Testing', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_beer(doc) 		  { return setup_feed(doc, setup_stage('Beer', 			'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+function build_delivery(doc) 	  { return setup_feed(doc, setup_stage('Delivery', 		'/client-portal/images/meeting.png', '<b>Meetings are a real fun time!</b>'), 'meeting'); }
+
 
 function setup_stage(stage_title, icon_url, stage_description)
 {
