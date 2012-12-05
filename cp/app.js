@@ -14,11 +14,8 @@ var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
 
 app.use(express.bodyParser());
 
-app.get('/cp/:project', serve_cp);
+app.get('/cp/:project',  serve_cp);
 app.post('/cp/:project', make_post);
-
-delete_project('test');
-create_new_project('test', 'Test Project');
 
 function make_post(req, res)
 {
@@ -210,6 +207,9 @@ function serve(req, res, http_response_code, html_response, response_timer)
 }
 
 db.projects.ensureIndex({project_url:1});
+
+delete_project('test');
+create_new_project('test', 'Test Project');
 
 app.listen(port);
 console.log('msbweb serving: ' + port);
