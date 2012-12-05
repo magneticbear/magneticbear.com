@@ -5,9 +5,11 @@ var db		 = require('mongojs').connect(db_url, ['projects', 'log']);
 var express	 = require('express');
 var app		 = express();
 
-var html_cp  = fs.readFileSync('html/cp.html',  'utf8');
-var html_500 = '<html><b>500</b> DB IS DOWN!</html>';
-var html_404 = '<html><b>404</b> PAGE NOT FOUND!</html>';
+var html_cp  			  = fs.readFileSync('html/cp.html',  			  'utf8');
+var html_wrap_stage_entry = fs.readFileSync('html/wrap_stage_entry.html', 'utf8');
+var html_wrap_feed_entry  = fs.readFileSync('html/wrap_feed_entry.html',  'utf8');
+var html_500 			  = '<html><b>500</b> DB IS DOWN!</html>';
+var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
 
 app.use(express.bodyParser());
 
