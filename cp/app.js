@@ -89,7 +89,21 @@ function create_new_project(url, name)
 				testing: 	   0,
 				beer: 		   0,
 				delivery: 	   0
-			}, 
+			},
+
+			admins:
+			[
+				'adrian@magneticbear.com',
+				'jp@magneticbear.com',
+				'mo@magneticbear.com',
+				'stu@magneticbear.com'
+			],
+
+			users: 
+			[
+				'abseeley@gmail.com',
+				'adrian@gatosomina.com'
+			],
 
 			feed: 
 			{
