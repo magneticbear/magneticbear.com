@@ -24,7 +24,7 @@ var admins =
 app.use(express.bodyParser());
 
 app.all('/cp/:email/:auth/:project/*',      	auth_user);
-app.all('/cp/admin/:email/:auth/:project/*' 	auth_admin);
+app.all('/cp/admin/:email/:auth/:project/*', 	auth_admin);
 
 app.get ('/cp/:email/:auth/:project/serve',     serve_cp);
 app.post('/cp/:email/:auth/:project/postfeed',  postfeed);
@@ -58,6 +58,7 @@ function auth_user(req, res, next)
 }
 function auth_admin(req, res, next)
 {
+	//console.log(req.toString());
 	if(!req.params.email || !req.params.auth) serve(req, res, 403, html_403, now());
 	else
 	{
@@ -118,7 +119,7 @@ function delete_project(req, res, url)
 			);
 
 }
-function create_new_project(req, res, url, name)
+function newproj(req, res, url, name)
 {
 	is_admin('', '', //req.params.email, req.params.project, 
 		function(err, result)
@@ -266,7 +267,7 @@ function serve(req, res, http_response_code, html_response, response_timer)
 
 	var entry = {method: req.method, endpoint: req.url, http_response_code: http_response_code, response_time: now() - response_timer};
   	db.log.save({date: now(), entry: entry});
-  	console.log(entry);
+  	//console.log(entry);
 }
 
 function now()
