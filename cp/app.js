@@ -13,19 +13,18 @@ var html_500 			  = '<html><b>500</b> DB IS DOWN!</html>';
 var html_403 			  = '<html><b>403</b> BAD AUTH!</html>';
 var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
 
-
 var admins = 
 [
-	'adrian@magneticbear.com', 
-	'jp@magneticbear.com', 
-	'stu@magneticbear.com', 
-	'mo@magneticbear.com'
+	{email: 'adrian@magneticbear.com', auth: 'foobar'},
+	{email: 'jp@magneticbear.com',     auth: 'foobar'},
+	{email: 'stu@magneticbear.com',    auth: 'foobar'},
+	{email: 'mo@magneticbear.com',     auth: 'foobar'}
 ];
 
 app.use(express.bodyParser());
 
-app.all('/cp/:email/:auth/:project/*',      auth_user);
-app.all('/cp/admin/:email/:auth/:project/*' auth_admin);
+app.all('/cp/:email/:auth/:project/*',      	auth_user);
+app.all('/cp/admin/:email/:auth/:project/*' 	auth_admin);
 
 app.get ('/cp/:email/:auth/:project/serve',     serve_cp);
 app.post('/cp/:email/:auth/:project/postfeed',  postfeed);
@@ -33,11 +32,45 @@ app.post('/cp/admin/:email/:auth/:project/new', newproj);
 
 function auth_user(req, res, next)
 {
-	if(contains_tag())
+	if(!req.params.email || !req.params.auth || !req.params.project) serve(req, res, 403, html_403, now());
+	else
+	{
+		db.projects.findOne({project_url: req.params.project}, 
+			function(err, doc)
+			{
+					 if(err)  serve(req, res, 500, html_500, now());
+				else if(!doc) serve(req, res, 403, html_403, now());
+				else
+				{
+					for(var u = 0; u < doc.users.length; u++)
+					{
+						if(doc.users[u].email.toLowerCase() === req.params.email.toLowerCase())
+						{
+							if(users[u].auth === req.params.auth) next();
+							else serve(req, res, 403, html_403, now());
+						}
+					}
+					auth_admin(req, res, next());
+				}
+			}
+		);
+	}
 }
 function auth_admin(req, res, next)
 {
-	if(!req.params.email || !req.params.auth) serve(req, res, 403, html_403, now())
+	if(!req.params.email || !req.params.auth) serve(req, res, 403, html_403, now());
+	else
+	{
+		for(var a = 0; a < admins.length; a++)
+		{
+			if(admins[a].email.toLowerCase() === req.params.email.toLowerCase())
+			{
+				if(admins[a].auth === req.params.auth) next();
+				else serve(req, res, 403, html_403, now());
+			}
+		}
+		serve(req, res, 403, html_403, now());
+	}
 }
 
 function postfeed(req, res)
@@ -121,8 +154,8 @@ function create_new_project(req, res, url, name)
 
 					users: 
 					[
-						'abseeley@gmail.com',
-						'adrian@gatosomina.com'
+						{email: 'abseeley@gmail.com',    auth: 'foobar'},
+						{email: 'adrian@gatosomina.com', auth: 'foobar'}
 					],
 
 					feed: 
@@ -235,44 +268,7 @@ function serve(req, res, http_response_code, html_response, response_timer)
   	db.log.save({date: now(), entry: entry});
   	console.log(entry);
 }
-function is_admin(email, url, callback)
-{
-	if(contains_tag(admins, email))
-	{
-		callback(null, true);
-	}
-	else
-	{
-		callback(null, false);
-	}
-}
-function is_user_on_project(email, url, callback)
-{
-	db.projects.findOne({project_url: url}, 
-		function (err, doc)
-		{
-			if(err)
-			{ 
-				callback(err, false);
-			}
-			else if(!doc)
-			{
-				callback('Project not found', false);
-			}
-			else
-			{
-				if(contains_tag(doc.users, email) || contains_tag(admins, email))
-				{
-					callback(err, true);
-				}
-				else
-				{
-					callback(err, false);
-				}
-			}
-		}
-	);
-}
+
 function now()
 {
 	return new Date().getTime();
