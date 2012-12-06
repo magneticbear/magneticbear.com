@@ -127,7 +127,12 @@ nav a {
 	padding: 1.5em 0;
 	display: block;
 	margin: 0;
+	transition: all ease-in-out 200ms;
 	-webkit-transition: all ease-in-out 200ms;
+	-moz-transition: all ease-in-out 200ms;
+	-o-transition: all ease-in-out 200ms;
+	-ms-transition: all ease-in-out 200ms;
+
 }
 
 nav a:hover {
@@ -171,7 +176,6 @@ article {
 	margin: 10% 3% 0em;
 	padding: 0.5em 3%;
 	position: relative;
-	overflow: hidden;
 }
 
 article h1 {
@@ -179,15 +183,20 @@ article h1 {
 	letter-spacing: 0.2em;
 }
 
-article p {
+article p, article ul {
 	font-size: 1em;
 	line-height: 2.5em;
 	margin-bottom: 1.8em;
 	margin-left: 7.1em;
 }
 
+article li {
+	margin-left: 1.2em;
+}
+
 article a {
-	color:#333;
+	color: #333;
+	text-decoration: underline;
 }
 
 article a:hover {
@@ -211,7 +220,7 @@ section a {
 	height: 65px;
 	position: absolute;
 	bottom: 0px;
-	width: 100%;
+	width: 94%;
 	max-width: 672px;
 	background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 40%, rgba(255,255,255,1) 100%); /* FF3.6+ */
 
@@ -279,10 +288,15 @@ section a {
 .home li {
 	bottom: -23%;
 	width: 35%;
-	-webkit-transition: all ease-in-out 800ms;
 	list-style-type: none;
 	position: absolute;
 	right: 24%;
+	transition: all ease-in-out 800ms;
+	-webkit-transition: all ease-in-out 800ms;
+	-moz-transition: all ease-in-out 800ms;
+	-o-transition: all ease-in-out 800ms;
+	-ms-transition: all ease-in-out 800ms;
+
 }
 
 .home li img {
@@ -375,17 +389,18 @@ figure h1 {
 }
 
 .tags li {
+	min-width:  2em;
+	text-align: center;;
 	font-size: 0.85em;
+	margin: 0.6em 0.3em 0.6em 0;
 	display: inline-block;
 	list-style-type: none;
-	padding: 0.5em 0.8em 0.5em 0.6em;
-	margin-right: 0.3em;
+	padding: 0.3em 0.6em;
 	font-weight: bold;
 	color: #FFF;
 	background-color: #D4D4D4;
 	border-radius: 4px;
 	cursor: default;
-	margin-top: 0.6em;
 }
 
 blockquote {
@@ -431,6 +446,9 @@ aside a:hover {
 	
 	transition: all ease-in-out 200ms;
 	-webkit-transition: all ease-in-out 200ms;
+	-moz-transition: all ease-in-out 200ms;
+	-o-transition: all ease-in-out 200ms;
+	-ms-transition: all ease-in-out 200ms;
 }
 
 .sel {
@@ -501,10 +519,16 @@ aside figcaption {
 	width: 100%;
 	max-width: 5.5em;
 	
-	-webkit-transition: all ease-out 500ms;
 	border-radius: 8em;
 	-webkit-box-shadow: 0px 0px 0px 2px #D4D4D4;
 	box-shadow: 0px 0px 0px 2px  #C0C0C0;
+
+	transition: all ease-out 500ms;
+	-webkit-transition: all ease-out 500ms;
+	-moz-transition: all ease-out 500ms;
+	-o-transition: all ease-out 500ms;
+	-ms-transition: all ease-out 500ms;
+
 }
 
 .avatar a {
@@ -549,7 +573,13 @@ aside figcaption {
 	position: absolute;
 	right: 0;
 	bottom: 0;
+	overflow: hidden;
+	transition: all ease-in-out 350ms;
 	-webkit-transition: all ease-in-out 350ms;
+	-moz-transition: all ease-in-out 350ms;
+	-o-transition: all ease-in-out 350ms;
+	-ms-transition: all ease-in-out 350ms;
+
 }
 
 .read-more a {
@@ -560,6 +590,8 @@ aside figcaption {
 	padding-top: 0.2em;
 	padding-left: 1.8em;
 	position: relative;
+	text-decoration: none;
+
 }
 .read-more a:hover {
 	text-decoration: none;
@@ -608,7 +640,7 @@ aside figcaption {
 	float: none;
 }
 
-.team .avatar img {
+.team .avatar img{
 	width: 100%;
 	max-width: 10em;
 	display: block;
@@ -627,14 +659,14 @@ aside figcaption {
 }
 
 .team section {
-	width: 80%;
+	width: 88%;
 	text-align: right;
 	font-size: 0.8em;
 	font-weight: bold;
 	font-style: italic;
 	position: absolute;
 	bottom: 0em;
-	right: 12%;
+	right: 6%;
 	padding-top: 0.6em;
 	margin-bottom: 1em;
 }
@@ -789,7 +821,11 @@ footer span {
 	float: right;
 	margin-right: 4px;
 	position: relative;
+	transition: all ease-in-out 400ms;
 	-webkit-transition: all ease-in-out 400ms;
+	-moz-transition: all ease-in-out 400ms;
+	-o-transition: all ease-in-out 400ms;
+	-ms-transition: all ease-in-out 400ms;
 }
 
 .social li:nth-child(4):hover {
@@ -848,8 +884,13 @@ footer span {
 
 @media screen and (max-width:850px) {
 	html {
-		-webkit-transition: all ease-in-out 400ms;
 		border-left: 1px #CCCCCC solid;
+		transition: all ease-in-out 400ms;
+		-webkit-transition: all ease-in-out 400ms;
+		-moz-transition: all ease-in-out 400ms;
+		-o-transition: all ease-in-out 400ms;
+		-ms-transition: all ease-in-out 400ms;
+
 	}
 		
 	header {
@@ -874,7 +915,13 @@ footer span {
 		font-size: 18px;
 		margin-left: -6.5em;
 		top: 15%;
+		transition: all ease-in-out 400ms;
 		-webkit-transition: all ease-in-out 400ms;
+		-moz-transition: all ease-in-out 400ms;
+		-o-transition: all ease-in-out 400ms;
+		-ms-transition: all ease-in-out 400ms;
+
+
 	}
 	
 	.selected {
@@ -901,6 +948,16 @@ footer span {
 	
 	article {
 		padding: 4%;
+	}
+
+	article ul, .tags {
+		margin-left:  0;
+	}
+
+	.app-icon {
+		display: block;
+		float: none;
+		margin:  2em 0;
 	}
 	
 	.content {
