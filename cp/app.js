@@ -24,14 +24,17 @@ var admins =
 app.use(express.bodyParser());
 
 app.all('/cp/:email/:auth/:project/*',      	auth_user);
-app.all('/cp/admin/:email/:auth/:project/*', 	auth_admin);
+app.all('/cpadmin/:email/:auth/:project/*', 	auth_admin);
 
 app.get ('/cp/:email/:auth/:project/serve',     serve_cp);
 app.post('/cp/:email/:auth/:project/postfeed',  postfeed);
-app.post('/cp/admin/:email/:auth/:project/new', newproj);
+app.post('/cpadmin/:email/:auth/:project/new', newproj);
 
 function auth_user(req, res, next)
 {
+	console.log('user');
+	console.log(req.params.email);
+	console.log(req.params.auth);
 	if(!req.params.email || !req.params.auth || !req.params.project) serve(req, res, 403, html_403, now());
 	else
 	{
@@ -58,7 +61,8 @@ function auth_user(req, res, next)
 }
 function auth_admin(req, res, next)
 {
-	//console.log(req.toString());
+	console.log(req.params.email);
+	console.log(req.params.auth);
 	if(!req.params.email || !req.params.auth) serve(req, res, 403, html_403, now());
 	else
 	{
@@ -110,14 +114,12 @@ function postfeed(req, res)
 }
 function delete_project(req, res, url)
 {
-
-			db.projects.remove({project_url: url}, 
-				function(err)
-				{
-					if(err) console.log(err);
-				}
-			);
-
+	db.projects.remove({project_url: url}, 
+		function(err)
+		{
+			if(err) console.log(err);
+		}
+	);
 }
 function newproj(req, res, url, name)
 {
