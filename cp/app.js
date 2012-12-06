@@ -10,167 +10,141 @@ var html_cp  			  = fs.readFileSync('html/cp.html',  			  'utf8');
 var html_wrap_stage_entry = fs.readFileSync('html/wrap_stage_entry.html', 'utf8');
 var html_wrap_feed_entry  = fs.readFileSync('html/wrap_feed_entry.html',  'utf8');
 var html_500 			  = '<html><b>500</b> DB IS DOWN!</html>';
+var html_403 			  = '<html><b>403</b> BAD AUTH!</html>';
 var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
-var html_666 			  = '<html><b>666</b> BAD!</html>';
 
-var admins = ['adrian@magneticbear.com', 'jp@magneticbear.com', 'stu@magneticbear.com', 'mo@magneticbear.com'];
+
+var admins = 
+[
+	'adrian@magneticbear.com', 
+	'jp@magneticbear.com', 
+	'stu@magneticbear.com', 
+	'mo@magneticbear.com'
+];
 
 app.use(express.bodyParser());
 
-app.get('/cp/:project/:email',  serve_cp);
-app.post('/cp/:project/:email', make_post);
+app.all('/cp/:email/:auth/:project/*',      auth_user);
+app.all('/cp/admin/:email/:auth/:project/*' auth_admin);
 
-function is_admin_on_project(email, url, callback)
+app.get ('/cp/:email/:auth/:project/serve',     serve_cp);
+app.post('/cp/:email/:auth/:project/postfeed',  postfeed);
+app.post('/cp/admin/:email/:auth/:project/new', newproj);
+
+function auth_user(req, res, next)
 {
-	if(contains_tag(admins, email))
-	{
-		callback(err, true);
-	}
-	else
-	{
-		callback(err, false);
-	}
+	if(contains_tag())
 }
-function is_user_on_project(email, url, callback)
+function auth_admin(req, res, next)
 {
-	db.projects.findOne({project_url: url}, 
-		function (err, doc)
-		{
-			if(err)
-			{ 
-				callback(err, false);
-			}
-			else if(!doc)
-			{
-				callback('Project not found', false);
-			}
-			else
-			{
-				if(contains_tag(doc.users, email) || contains_tag(admins, email))
-				{
-					callback(err, true);
-				}
-				else
-				{
-					callback(err, false);
-				}
-			}
-		}
-	);
+	if(!req.params.email || !req.params.auth) serve(req, res, 403, html_403, now())
 }
-function make_post(req, res)
+
+function postfeed(req, res)
 {	
 	is_user_on_project(req.params.email, req.params.project, 
 		function(err, result)
 		{
-			if(err) serve(req, res, 500, html_500, new Date().getTime());
+			if(err) serve(req, res, 500, html_500, now());
 			else if (result)
 			{
-				post_to_project(req.params.project, fs.readFileSync('md/test.MD', 'utf8'), 'Adrian', ['meeting', 'problem'], 
-					function(err)
+				db.projects.findOne({project_url: req.params.url}, 
+					function(err, doc)
 					{
-						if(err) serve(req, res, 500, html_500, new Date().getTime());
-						else serve_cp(req, res);
+							 if(err)  serve(req, res, 500, html_500, now());
+						else if(!doc) serve(req, res, 500, html_500, now());
+						else
+						{
+							doc.feed.entries.push({ last_change: new Date(), markdown: req.params.markdown, short_name: req.params.email.slice(0, req.params.email.indexOf('@')), tags: req.params.tags.split(',') });
+							db.projects.save(doc, 
+								function(err)
+								{
+									if(err) serve(req, res, 500, html_500, now());
+									else serve_cp(req, res);
+								}
+							);
+						}
 					}
 				);
 			}
 			else
 			{
-				serve(req, res, 666, html_666, new Date().getTime());
+				serve(req, res, 403, html_403, now());
 			}
 		}
 	);
 }
-function post_to_project(url, markdown, short_name, tags, callback)
+function delete_project(req, res, url)
 {
-	db.projects.findOne({project_url: url}, 
-		function(err, doc)
+
+			db.projects.remove({project_url: url}, 
+				function(err)
+				{
+					if(err) console.log(err);
+				}
+			);
+
+}
+function create_new_project(req, res, url, name)
+{
+	is_admin('', '', //req.params.email, req.params.project, 
+		function(err, result)
 		{
-				 if(err)  callback(err);
-			else if(!doc) callback('Project not found');
-			else
-			{
-				doc.feed.entries.push({ last_change: new Date(), markdown: markdown, short_name: short_name, tags: tags });
-				db.projects.save(doc, 
-					function(err)
+			db.projects.save(
+				{
+					project_url:  url, 
+					project_name: name, 
+
+					stage_completions:
 					{
-						if(callback) callback(err);
-					}
-				);
-			}
-		}
-	);
-}
-function delete_project(url)
-{
-	db.projects.remove({project_url: url}, 
-		function(err)
-		{
-			if(err) console.log(err);
-		}
-	);
-}
-function create_new_project(url, name)
-{
-	//is_admin_on_project(req.params.email, req.params.project, 
-	//function(err, result)
-	//{
-	db.projects.save(
-		{
-			project_url:  url, 
-			project_name: name, 
+						meeting:  	   0,
+						problem:  	   0,
+						solution: 	   0,
+						flow: 		   0,
+						wireframe: 	   0,
+						ia: 		   0,
+						data_model:    0,
+						ux_demo: 	   0,
+						style_guide:   0,
+						ui: 		   0,
+						api_structure: 0,
+						network: 	   0,
+						functionality: 0,
+						ui_demo: 	   0,
+						web_design:    0,
+						web_frontend:  0,
+						polish: 	   0,
+						testing: 	   0,
+						beer: 		   0,
+						delivery: 	   0
+					},
 
-			stage_completions:
-			{
-				meeting:  	   0,
-				problem:  	   0,
-				solution: 	   0,
-				design: 	   0,
-				flow: 		   0,
-				wireframe: 	   0,
-				development:   0,
-				ia: 		   0,
-				data_model:    0,
-				ux_demo: 	   0,
-				branding: 	   0,
-				style_guide:   0,
-				ui: 		   0,
-				api_structure: 0,
-				network: 	   0,
-				functionality: 0,
-				ui_demo: 	   0,
-				web_design:    0,
-				web_frontend:  0,
-				polish: 	   0,
-				testing: 	   0,
-				beer: 		   0,
-				delivery: 	   0
-			},
+					users: 
+					[
+						'abseeley@gmail.com',
+						'adrian@gatosomina.com'
+					],
 
-			users: 
-			[
-				'abseeley@gmail.com',
-				'adrian@gatosomina.com'
-			],
-
-			feed: 
-			{
-				last_change: new Date(),
-				entries: 
-				[
+					feed: 
 					{
 						last_change: new Date(),
-						markdown:    'Project Start!',
-						short_name:  'Adrian',
-						tags: 		 []
+						entries: 
+						[
+							{
+								last_change: new Date(),
+								markdown:    'Project Start!',
+								short_name:  'adrian',
+								tags: 		 []
+							}
+						]
 					}
-				]
-			}
-		},
+				},
 
-		function(err)
-		{
-			if(err) console.log(err);
+				function(err)
+				{
+					if(err) console.log(err);
+				}
+			);
 		}
 	);
 }
@@ -182,22 +156,19 @@ function serve_cp(req, res)
 		function(err, doc)
 		{
 
-				 if(err)  serve(req, res, 500, html_500, new Date().getTime());
-			else if(!doc) serve(req, res, 404, html_404, new Date().getTime());
+				 if(err)  serve(req, res, 500, html_500, now());
+			else if(!doc) serve(req, res, 404, html_404, now());
 			else
 			{
 				var content  = '';
 				if(doc.stage_completions.meeting       != null) content += build_meeting(doc);
 				if(doc.stage_completions.problem       != null) content += build_problem(doc);
 				if(doc.stage_completions.solution 	   != null) content += build_solution(doc);
-				if(doc.stage_completions.design 	   != null) content += build_design(doc);
 				if(doc.stage_completions.flow 		   != null) content += build_flow(doc);
 				if(doc.stage_completions.wireframe 	   != null) content += build_wireframe(doc);
-				if(doc.stage_completions.development   != null) content += build_development(doc);
 				if(doc.stage_completions.ia 		   != null) content += build_ia(doc);
 				if(doc.stage_completions.data_model    != null) content += build_data_model(doc);
 				if(doc.stage_completions.ux_demo 	   != null) content += build_ux_demo(doc);
-				if(doc.stage_completions.branding 	   != null) content += build_branding(doc);
 				if(doc.stage_completions.style_guide   != null) content += build_style_guide(doc);
 				if(doc.stage_completions.ui 		   != null) content += build_ui(doc);
 				if(doc.stage_completions.api_structure != null) content += build_api_structure(doc);
@@ -213,7 +184,7 @@ function serve_cp(req, res)
 
 				html_wrap_stage_entry;
 				var to_serve = html_cp.replace('{{content}}', content);
-				serve(req, res, 200, to_serve, new Date().getTime());
+				serve(req, res, 200, to_serve, now());
 			}
 		}
 	);
@@ -221,14 +192,11 @@ function serve_cp(req, res)
 function build_meeting(doc) 	  { return setup_feed(doc, setup_stage('Meeting', 		'/client-portal/images/meeting.png', 		'<b>Meetings are a real fun time.</b>'), 			     'meeting');       }
 function build_problem(doc) 	  { return setup_feed(doc, setup_stage('Problem', 		'/client-portal/images/problem-space.png',  '<b>99 problems and your app aint one of them.</b>'), 	 'problem');       }
 function build_solution(doc) 	  { return setup_feed(doc, setup_stage('Solution', 		'/client-portal/images/solution-space.png', '<b>Solutions are okay, I prefer solvents though.</b>'), 'solution');      }
-function build_design(doc) 		  { return setup_feed(doc, setup_stage('Design', 		'/client-portal/images/404.png', 	        '<b>Why design when you can watch television?</b>'),     'design');        }
 function build_flow(doc) 		  { return setup_feed(doc, setup_stage('Flow', 			'/client-portal/images/flow.png', 		    '<b>Mihály Csíkszentmihályi was here.</b>'), 			 'flow');          }
 function build_wireframe(doc)     { return setup_feed(doc, setup_stage('Wireframe', 	'/client-portal/images/wireframe.png', 	    '<b>No filler here, straight killer b.</b>'), 			 'wireframe');     }
-function build_development(doc)   { return setup_feed(doc, setup_stage('Development',   '/client-portal/images/404.png', 	        '<b>By development we mean fooseball.</b>'), 			 'development');   }
 function build_ia(doc) 			  { return setup_feed(doc, setup_stage('IA', 			'/client-portal/images/ia.png', 		    '<b>If you build it, they will come.</b>'), 			 'ia');            }
 function build_data_model(doc)    { return setup_feed(doc, setup_stage('Data Model', 	'/client-portal/images/data-model.png',     '<bThats one fine looking data model.</b>'), 			 'data_model');    }
 function build_ux_demo(doc) 	  { return setup_feed(doc, setup_stage('UX Demo', 		'/client-portal/images/ux-demo.png', 	    '<b>Ux and Them - Pink Floyd</b>'), 					 'ux_demo');       }
-function build_branding(doc) 	  { return setup_feed(doc, setup_stage('Branding', 		'/client-portal/images/404.png', 	        '<b>Branding, get it while its hot!</b>'), 				 'branding');      }
 function build_style_guide(doc)   { return setup_feed(doc, setup_stage('Style Guide',   '/client-portal/images/style-guide.png',    '<b>How to look like Mo, just 5 easy payments!</b>'),    'style_guide');   }
 function build_ui(doc) 			  { return setup_feed(doc, setup_stage('UI', 			'/client-portal/images/ui-design.png', 	    '<b>Still watching television.</b>'), 					 'ui'); 		   }
 function build_api_structure(doc) { return setup_feed(doc, setup_stage('API Structure', '/client-portal/images/api.png', 		    '<b>The API is actually a small rodent from Peru.</b>'), 'api_structure'); }
@@ -263,15 +231,57 @@ function serve(req, res, http_response_code, html_response, response_timer)
   	res.setHeader('Content-Length', html_response.length);
   	res.end(html_response);
 
-	var entry = {method: req.method, endpoint: req.url, http_response_code: http_response_code, response_time: new Date().getTime() - response_timer};
-  	db.log.save({date: new Date().getTime(), entry: entry});
+	var entry = {method: req.method, endpoint: req.url, http_response_code: http_response_code, response_time: now() - response_timer};
+  	db.log.save({date: now(), entry: entry});
   	console.log(entry);
+}
+function is_admin(email, url, callback)
+{
+	if(contains_tag(admins, email))
+	{
+		callback(null, true);
+	}
+	else
+	{
+		callback(null, false);
+	}
+}
+function is_user_on_project(email, url, callback)
+{
+	db.projects.findOne({project_url: url}, 
+		function (err, doc)
+		{
+			if(err)
+			{ 
+				callback(err, false);
+			}
+			else if(!doc)
+			{
+				callback('Project not found', false);
+			}
+			else
+			{
+				if(contains_tag(doc.users, email) || contains_tag(admins, email))
+				{
+					callback(err, true);
+				}
+				else
+				{
+					callback(err, false);
+				}
+			}
+		}
+	);
+}
+function now()
+{
+	return new Date().getTime();
 }
 
 db.projects.ensureIndex({project_url:1});
 
-delete_project('test');
-create_new_project('test', 'Test Project');
+//delete_project('test');
+//create_new_project('test', 'Test Project');
 
 app.listen(port);
 console.log('msbweb serving: ' + port);
