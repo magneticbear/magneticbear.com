@@ -5,16 +5,6 @@ $(document).ready(function() {
 	$(".menu").toggle(function(){$(".menu").css("background","#999 url(images/menu-icon-back.png) no-repeat center center");}, function(){$(".menu").css("background","#999 url(images/menu-icon.png) no-repeat center center");})	
 	$(".menu").click(function() {$('.menu').css('background-size','60%')});
 	
-	$('.avatar').mouseenter(function() {
-		$(this).children('.avatar a').css('display','block');
-		$(this).children('.avatar img').css('opacity','0.5');
-	});
-	
-	$('.avatar').mouseleave(function() {
-		$('.avatar a').css('display','none');
-		$('.avatar img').css('opacity','1');	
-	});
-	
 	$('.icon').mouseenter(function() {
   		$(this).children('.progress').css('height','140px');
 	});

@@ -43,11 +43,10 @@
 		</ul>
 	</nav>
 
-	<div class="content">
+	<div class="content lab">
 		<article>
 			<div class="avatar">
 				<img src="/images/<%= @getAuthorPic @document.author %>" alt="<%= @getAuthorName @document.author %>">
-				<a href="#"><img src="/images/twitter-icon.png" alt="Twitter"><%= @getAuthorTwitter @document.author %></a>
 			</div>
 			<h1><%- @document.title %></h1>
 			<cite>by <%= @getAuthorName @document.author %></cite>

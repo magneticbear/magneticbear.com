@@ -1,5 +1,5 @@
 ---
-layout: 'post'
+layout: 'post-lab'
 title: 'How to kill ideas in 8 seconds'
 author: 'jp'
 nav: 'lab'

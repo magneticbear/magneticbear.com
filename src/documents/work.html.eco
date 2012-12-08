@@ -47,7 +47,7 @@ nav: 'work'
 						</figure>
 					<% end %>
 				<% end %>
-				<figure><a href="http://dribbble.com/magneticbear">
+				<figure><a href="http://dribbble.com/magneticbear" target="_blank">
 					<img src="images/portfolio/dribbble-app-icon.png">
 					<figcaption>More on Dribbble</figcaption></a>
 				</figure>

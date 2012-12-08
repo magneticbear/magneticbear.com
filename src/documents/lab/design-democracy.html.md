@@ -1,5 +1,5 @@
 ---
-layout: 'post'
+layout: 'post-lab'
 title: 'Design aint Democracy'
 author: 'mo'
 nav: 'lab'

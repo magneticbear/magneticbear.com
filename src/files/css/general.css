@@ -196,6 +196,9 @@ article li {
 
 article a {
 	color: #333;
+}
+
+.jobs article a, .lab article a {
 	text-decoration: underline;
 }
 
@@ -401,6 +404,7 @@ figure h1 {
 	background-color: #D4D4D4;
 	border-radius: 4px;
 	cursor: default;
+	line-height: 2.2em;
 }
 
 blockquote {
@@ -505,6 +509,11 @@ aside figcaption {
 .lab section {
 	margin-left: 7.1em;
  }
+
+
+.lab article li {
+	margin-bottom: 0.8em;
+}
  
 .avatar {
 	position: relative;
@@ -531,29 +540,8 @@ aside figcaption {
 
 }
 
-.avatar a {
-	font-size: 0.8em;
-	background-color: #28aae1;
-	padding: 0.5em;
-	padding-left: 2em;
-	position: absolute;
-	top: 35%;
-	left: -20%;
-	color: #FFF;
-	display: none;
-}
-
-.avatar a img {
-	box-shadow: none;
-	width: 24px;
-	position: absolute;
-	top: 1px;
-	left: 0;
-}
-
-.avatar a:hover {
-	color: #FFF;
-	text-decoration: none;
+.lab .avatar:hover {
+	opacity: 0.6;
 }
 
 .lab h1 {
@@ -673,6 +661,18 @@ aside figcaption {
 
 /* --Team Ends-- */
 
+/* -----------------Jobs Begins--------------- */
+
+.jobs article p, .jobs article ul {
+	margin-left: 0;
+}
+
+.jobs h2 {
+	margin-top: 2em;
+}
+
+/* --Jobs Ends-- */
+
 /* -----------------Contact Begins--------------- */
 
 .contact iframe {
@@ -748,7 +748,7 @@ form button:hover {
 	border-radius: 6px;
 }
 
-.contact section span {
+.contact section span, .inline {
 	width: 24px;
 	height: 24px;
 	position: absolute;
@@ -756,7 +756,7 @@ form button:hover {
 	top: 2px;
 }
 
-.contact section span img {
+.contact section span img, .inline img {
 	width: 100%;
 }
 
@@ -992,10 +992,6 @@ footer span {
 		margin-bottom: 1em;
 	}
 	
-	.lab cite{
-		display: inline;
-		margin-right: 1em;
-	}
 	
 	form {
 		margin-left: 0;	

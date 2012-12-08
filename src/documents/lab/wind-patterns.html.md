@@ -1,5 +1,5 @@
 ---
-layout: 'post'
+layout: 'post-lab'
 title: 'Wind patterns'
 author: 'adrian'
 nav: 'lab'

@@ -5,7 +5,7 @@ nav: 'team'
 ---
 <div class="content team">
 	<% for author in @site.authors: %>
-		<article>
+		<article id="<%= author.twitter %>">
 			<div class="avatar">
 				<img src="images/<%= author.pic %>" alt="<%= author.name %>">
 			</div>
@@ -14,7 +14,7 @@ nav: 'team'
 			<i>— <%= author.title %></i>
 			<p><%= author.bio %></p>
 			<section>
-				<a href="#"><%= author.tagline %></a>
+				<a href="lab.html#<%= author.twitter %>"><%= author.tagline %></a>
 			</section>
 		</article>
 	<% end %>
