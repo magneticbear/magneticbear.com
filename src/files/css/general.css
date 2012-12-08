@@ -957,7 +957,7 @@ footer span {
 	.app-icon {
 		display: block;
 		float: none;
-		margin:  2em 0;
+		margin:  10em 0 0.8em;
 	}
 	
 	.content {

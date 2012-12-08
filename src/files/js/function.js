@@ -14,15 +14,15 @@ $(document).ready(function() {
 	});	
 	
 	setTimeout(function (){	
-	$(".home li:nth-child(1)").css('right','-3%')}, 1600);
+	$(".home li:nth-child(1)").css('right','4%')}, 1600);
 	setTimeout(function (){	
-	$(".home li:nth-child(2)").css('right','-3%')}, 1600);
+	$(".home li:nth-child(2)").css('right','4%')}, 1600);
 	setTimeout(function (){	
-	$(".home li:nth-child(3)").css('right','10.5%')}, 1600);
+	$(".home li:nth-child(3)").css('right','14.5%')}, 1600);
 	setTimeout(function (){	
-	$(".home li:nth-child(4)").css('right','27.5%')}, 1600);
+	$(".home li:nth-child(4)").css('right','30.5%')}, 1600);
 	setTimeout(function (){	
-	$(".home li:nth-child(5)").css('right','44%')}, 1600);
+	$(".home li:nth-child(5)").css('right','47%')}, 1600);
 	setTimeout(function (){	
-	$(".home li:nth-child(6)").css('right','60%')}, 1600);
+	$(".home li:nth-child(6)").css('right','63%')}, 1600);
 });
