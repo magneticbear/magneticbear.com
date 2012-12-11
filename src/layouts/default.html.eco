@@ -38,7 +38,7 @@
 			<li <%= "class=selected" if @document.nav == 'work' %>><a href="/work.html">WORK</a></li>
 			<li <%= "class=selected" if @document.nav == 'team' %>><a href="/team.html">TEAM</a></li>
 			<li <%= "class=selected" if @document.nav == 'lab' %>><a href="/lab.html">LAB</a></li>
-			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs.html">JOBS</a></li>
+			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs.html">CAREER</a></li>
 			<li <%= "class=selected" if @document.nav == 'contact' %>><a href="/contact.html">CONTACT</a></li>
 		</ul>
 	</nav>

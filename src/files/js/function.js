@@ -25,4 +25,12 @@ $(document).ready(function() {
 	$(".home li:nth-child(5)").css('right','47%')}, 1600);
 	setTimeout(function (){	
 	$(".home li:nth-child(6)").css('right','63%')}, 1600);
+
+
+	$(".home li").css('opacity','0');
+	$(".home li:first-child").css('opacity','1');
+	$(".home li:last-child").css('opacity','1');
+
+	setTimeout(function (){	
+	$(".home li").css('opacity','1')}, 1600);
 });

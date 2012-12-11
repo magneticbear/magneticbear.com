@@ -46,12 +46,17 @@
 	<div class="content lab">
 		<article>
 			<div class="avatar">
-				<img src="/images/<%= @getAuthorPic @document.author %>" alt="<%= @getAuthorName @document.author %>">
+				<a href="../team.html#<%= @getAuthorTwitter @document.author %>"><img src="/images/<%= @getAuthorPic @document.author %>" alt="<%= @getAuthorName @document.author %>"></a>
 			</div>
 			<h1><%- @document.title %></h1>
-			<cite>by <%= @getAuthorName @document.author %></cite>
+			<cite>by <%= @getAuthorName @document.author %> (<img width='24' style="vertical-align: middle;" src="../images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter @document.author %>" style="text-decoration: none;" target="_blank">@<%= @getAuthorTwitter @document.author %></a>)</cite>
 			<time><%- @document.date.toShortDateString() %></time>
 			<p><%- @content %></p>
+			<section>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%= @document.title %>" data-via="<%= @getAuthorTwitter @document.author %>" data-related="magneticbear" data-count="none" data-hashtags="MBSLab">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+				</script>
+			</section>
 		</article>
 	</div>
 	

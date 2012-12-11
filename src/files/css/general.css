@@ -20,6 +20,7 @@ body {
 h1, h2 {
 	font-family: 'OstrichSansMedium', Helvetica, sans-serif;
 	letter-spacing: 0.1em;
+	font-weight: normal;
 }
 
 ul {
@@ -340,7 +341,7 @@ figure {
 
 .iphone {
 	width: 194px;
-	padding: 83px 22px 20px;
+	padding: 83px 22px 40px;
 	position: absolute;
 	right: 12%;
 	top: 5%;
@@ -968,6 +969,10 @@ footer span {
 	
 	.content p, blockquote {
 		margin-left: 0;
+	}
+
+	.read-more {
+	width: 7.6em;
 	}
 	
 	.contact section, .lab section {
