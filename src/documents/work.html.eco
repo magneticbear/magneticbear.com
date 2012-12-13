@@ -13,17 +13,17 @@ nav: 'work'
 						<div class="iphone white">
 							<div class="flexslider">
 								<ul class="slides">
-									<li><img src="images/portfolio/scala1/screen-1.png" alt=""/></li>
-									<li><img src="images/portfolio/scala1/screen-2.png" alt=""/></li>
-									<li><img src="images/portfolio/scala1/screen-3.png" alt=""/></li>
-									<li><img src="images/portfolio/scala1/screen-4.png" alt=""/></li>
-									<li><img src="images/portfolio/scala1/screen-5.png" alt=""/></li>
+									<li><img src="work/<%= post.dir %>/screen-1.png" alt=""/></li>
+									<li><img src="work/<%= post.dir %>/screen-2.png" alt=""/></li>
+									<li><img src="work/<%= post.dir %>/screen-3.png" alt=""/></li>
+									<li><img src="work/<%= post.dir %>/screen-4.png" alt=""/></li>
+									<li><img src="work/<%= post.dir %>/screen-5.png" alt=""/></li>
 								</ul>
 							</div>
 						</div>
 					</div>
 						<figcaption>
-							<img class="app-icon" src="images/portfolio/app-icon.png">
+							<img class="app-icon" src="work/<%= post.dir %>/app-icon.png">
 							<h1><%= post.title %></h1>
 							<ul class="tags">
 								<% for tag in post.tags: %>
@@ -41,10 +41,14 @@ nav: 'work'
 			<div class="wrap">
 				<% for post in @getFilesAtPath("work").toJSON(): %>
 					<% if post.title != 'Work': %>
-						<figure><a href="#">
-							<img src="images/portfolio/app-icon.png">
-							<figcaption><%= post.title %></figcaption></a>
-						</figure>
+
+						<% if post.dir: %>
+							<figure><a href="#">
+								<img src="work/<%= post.dir %>/app-icon.png">
+								<figcaption><%= post.title %></figcaption></a>
+							</figure>
+						<% end %>
+					
 					<% end %>
 				<% end %>
 				<figure><a href="http://dribbble.com/magneticbear" target="_blank">
