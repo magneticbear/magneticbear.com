@@ -36,17 +36,26 @@ app.get('/cpadmin/:email/:auth/:project/delete', delete_project);
 
 function auth_user(req, res, next)
 {
-	console.log('user');
-	console.log(req.params.email);
-	console.log(req.params.auth);
-	if(!req.params.email || !req.params.auth || !req.params.project) serve(req, res, 403, html_403, now());
+	if(!req.params.email || !req.params.auth || !req.params.project)
+	{
+		serve(req, res, 403, html_403, now());
+		return;
+	}
 	else
 	{
 		db.projects.findOne({project_url: req.params.project}, 
 			function(err, doc)
 			{
-					 if(err)  serve(req, res, 500, html_500, now());
-				else if(!doc) serve(req, res, 403, html_403, now());
+				if(err) 
+				{ 
+					serve(req, res, 500, html_500, now());
+					return;
+				}
+				else if(!doc) 
+				{
+					serve(req, res, 403, html_403, now());
+					return;
+				}
 				else
 				{
 					for(var u = 0; u < doc.users.length; u++)
@@ -74,15 +83,17 @@ function auth_user(req, res, next)
 }
 function auth_admin(req, res, next)
 {
-	console.log('auth_admin');
-	if(!req.params.email || !req.params.auth) serve(req, res, 403, html_403, now());
+	if(!req.params.email || !req.params.auth)
+	{ 
+		serve(req, res, 403, html_403, now());
+		return;
+	}
 	else
 	{
 		for(var a = 0; a < admins.length; a++)
 		{
 			if(admins[a].email.toLowerCase() === req.params.email.toLowerCase())
 			{
-
 				if(admins[a].auth === req.params.auth) 
 				{
 					next();
@@ -105,22 +116,42 @@ function postfeed(req, res)
 	is_user_on_project(req.params.email, req.params.project, 
 		function(err, result)
 		{
-			if(err) serve(req, res, 500, html_500, now());
+			if(err)
+			{ 
+				serve(req, res, 500, html_500, now());
+				return;
+			}
 			else if (result)
 			{
 				db.projects.findOne({project_url: req.params.url}, 
 					function(err, doc)
 					{
-							 if(err)  serve(req, res, 500, html_500, now());
-						else if(!doc) serve(req, res, 500, html_500, now());
+					 	if(err)  
+					 	{
+					 		serve(req, res, 500, html_500, now());
+					 		return;
+					 	}
+						else if(!doc) 
+						{
+							serve(req, res, 500, html_500, now());
+							return;
+						}
 						else
 						{
 							doc.feed.entries.push({ last_change: new Date(), markdown: req.params.markdown, short_name: req.params.email.slice(0, req.params.email.indexOf('@')), tags: req.params.tags.split(',') });
 							db.projects.save(doc, 
 								function(err)
 								{
-									if(err) serve(req, res, 500, html_500, now());
-									else serve_cp(req, res);
+									if(err) 
+									{
+										serve(req, res, 500, html_500, now());
+										return;
+									}
+									else 
+									{
+										serve_cp(req, res);
+										return;
+									}
 								}
 							);
 						}
@@ -130,6 +161,7 @@ function postfeed(req, res)
 			else
 			{
 				serve(req, res, 403, html_403, now());
+				return;
 			}
 		}
 	);
@@ -137,7 +169,11 @@ function postfeed(req, res)
 function delete_project(req, res)
 {
 	console.log('del');
-	if(!req.params.email || !req.params.auth || !req.params.project) serve(req, res, 403, html_403, now());
+	if(!req.params.email || !req.params.auth || !req.params.project) 
+	{
+		serve(req, res, 403, html_403, now());
+		return;
+	}
 	else
 	{
 		db.projects.remove({project_url: req.params.project}, 
@@ -230,8 +266,16 @@ function serve_cp(req, res)
 		function(err, doc)
 		{
 
-				 if(err)  serve(req, res, 500, html_500, now());
-			else if(!doc) serve(req, res, 404, html_404, now());
+			if(err) 
+			{
+				serve(req, res, 500, html_500, now());
+				return;
+			}
+			else if(!doc)
+			{
+				serve(req, res, 404, html_404, now());
+				return;
+			}
 			else
 			{
 				var content  = '';
@@ -259,6 +303,7 @@ function serve_cp(req, res)
 				html_wrap_stage_entry;
 				var to_serve = html_cp.replace('{{content}}', content);
 				serve(req, res, 200, to_serve, now());
+				return;
 			}
 		}
 	);
