@@ -53,11 +53,20 @@ function auth_user(req, res, next)
 					{
 						if(doc.users[u].email.toLowerCase() === req.params.email.toLowerCase())
 						{
-							if(users[u].auth === req.params.auth) next();
-							else serve(req, res, 403, html_403, now());
+							if(users[u].auth === req.params.auth) 
+							{
+								next();
+								return;
+							}
+							else
+							{
+								serve(req, res, 403, html_403, now());
+								return;
+							}
 						}
 					}
 					auth_admin(req, res, next());
+					return;
 				}
 			}
 		);
@@ -76,18 +85,18 @@ function auth_admin(req, res, next)
 
 				if(admins[a].auth === req.params.auth) 
 				{
-										console.log('here');
 					next();
 					return;
 				}
 				else 
 				{
-					console.log('403');
 					serve(req, res, 403, html_403, now());
+					return;
 				}
 			}
 		}
 		serve(req, res, 403, html_403, now());
+		return;
 	}
 }
 
@@ -138,10 +147,12 @@ function delete_project(req, res)
 				{
 					 console.log(err);
 					 serve(req, res, 500, html_500, now());
+					 return;
 				}
 				else
 				{
 					 serve(req, res, 200, html_200, now());
+					 return;
 				}
 			}
 		);
