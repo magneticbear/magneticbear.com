@@ -14,6 +14,8 @@ var html_403 			  = '<html><b>403</b> BAD AUTH!</html>';
 var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
 var html_200 			  = '<html><b>200</b></html>';
 
+var html_new_project = '<html>hheeere</html>';
+
 var admins = 
 [
 	{email: 'adrian@magneticbear.com', auth: 'foobar'},
@@ -26,13 +28,13 @@ var admins =
 
 app.use(express.bodyParser());
 
-app.all('/cp/:email/:auth/:project/*',      	 auth_user);
-app.all('/cpadmin/:email/:auth/:project/*', 	 auth_admin);
+app.all('/cp/:email/:auth/:project/*',      	  auth_user);
+app.all('/cpadmin/:email/:auth/:project/*', 	  auth_admin);
 
-app.get ('/cp/:email/:auth/:project/serve',      serve_cp);
-app.post('/cp/:email/:auth/:project/postfeed',   postfeed);
-app.get('/cpadmin/:email/:auth/:project/new',    new_project);
-app.get('/cpadmin/:email/:auth/:project/delete', delete_project);
+app.get ('/cp/:email/:auth/:project/serve',       serve_cp);
+app.post('/cp/:email/:auth/:project/postfeed',    postfeed);
+app.post('/cpadmin/:email/:auth/new',    new_project);
+app.post('/cpadmin/:email/:auth/delete', delete_project);
 
 function auth_user(req, res, next)
 {
@@ -169,7 +171,7 @@ function postfeed(req, res)
 function delete_project(req, res)
 {
 	console.log('del');
-	if(!req.params.email || !req.params.auth || !req.params.project) 
+	if(!req.params.project) 
 	{
 		serve(req, res, 403, html_403, now());
 		return;
@@ -196,67 +198,70 @@ function delete_project(req, res)
 }
 function new_project(req, res)
 {
-	//name url
-	is_admin('', '', //req.params.email, req.params.project, 
-		function(err, result)
-		{
-			db.projects.save(
+	if(!req.params.project || !req.body.name) 
+	{
+		console.log(req.body.name);
+		serve(req, res, 403, html_403, now());
+		return;
+	}
+	else
+	{
+		db.projects.save(
+			{
+				project_url:  req.params.project, 
+				project_name: req.body.name, 
+
+				stage_completions:
 				{
-					project_url:  url, 
-					project_name: name, 
-
-					stage_completions:
-					{
-						meeting:  	   0,
-						problem:  	   0,
-						solution: 	   0,
-						flow: 		   0,
-						wireframe: 	   0,
-						ia: 		   0,
-						data_model:    0,
-						ux_demo: 	   0,
-						style_guide:   0,
-						ui: 		   0,
-						api_structure: 0,
-						network: 	   0,
-						functionality: 0,
-						ui_demo: 	   0,
-						web_design:    0,
-						web_frontend:  0,
-						polish: 	   0,
-						testing: 	   0,
-						beer: 		   0,
-						delivery: 	   0
-					},
-
-					users: 
-					[
-						{email: 'abseeley@gmail.com',    auth: 'foobar'},
-						{email: 'adrian@gatosomina.com', auth: 'foobar'}
-					],
-
-					feed: 
-					{
-						last_change: new Date(),
-						entries: 
-						[
-							{
-								last_change: new Date(),
-								markdown:    'Project Start!',
-								short_name:  'adrian',
-								tags: 		 []
-							}
-						]
-					}
+					meeting:  	   0,
+					problem:  	   0,
+					solution: 	   0,
+					flow: 		   0,
+					wireframe: 	   0,
+					ia: 		   0,
+					data_model:    0,
+					ux_demo: 	   0,
+					style_guide:   0,
+					ui: 		   0,
+					api_structure: 0,
+					network: 	   0,
+					functionality: 0,
+					ui_demo: 	   0,
+					web_design:    0,
+					web_frontend:  0,
+					polish: 	   0,
+					testing: 	   0,
+					beer: 		   0,
+					delivery: 	   0
 				},
 
-				function(err)
+				users: 
+				[
+					{email: 'abseeley@gmail.com',    auth: 'foobar'},
+					{email: 'adrian@gatosomina.com', auth: 'foobar'}
+				],
+
+				feed: 
 				{
-					if(err) console.log(err);
+					last_change: new Date(),
+					entries: 
+					[
+						{
+							last_change: new Date(),
+							markdown:    'Project Start!',
+							short_name:  'adrian',
+							tags: 		 []
+						}
+					]
 				}
-			);
-		}
-	);
+			},
+
+			function(err)
+			{
+				if(err) console.log(err);
+			}
+		);
+	}
 }
 function serve_cp(req, res)
 {
