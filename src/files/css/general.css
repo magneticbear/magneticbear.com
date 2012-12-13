@@ -91,13 +91,13 @@ header h1 {
 }
 
 .tagline h2 {
-	font-size: 1em;	
+	font-size: 1.3em;	
 	letter-spacing: 0.2em;
-	line-height: 1.23em;
+	line-height: 1.28em;
 	width: 8em;
 	text-align: right;
 	float: right;
-	margin: 2em 20px;
+	margin: 1.6em 20px;
 	color: #333;
 }
 

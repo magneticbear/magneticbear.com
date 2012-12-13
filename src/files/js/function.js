@@ -22,7 +22,7 @@ $(document).ready(function() {
 	setTimeout(function (){	
 	$(".home li:nth-child(4)").css('right','30.5%')}, 1600);
 	setTimeout(function (){	
-	$(".home li:nth-child(5)").css('right','47%')}, 1600);
+	$(".home li:nth-child(5)").css('right','46%')}, 1600);
 	setTimeout(function (){	
 	$(".home li:nth-child(6)").css('right','63%')}, 1600);
 
