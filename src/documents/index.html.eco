@@ -23,6 +23,21 @@ nav: 'home'
 		<h1>We create beautifully crafted apps for iOS & Android</h1>
 		<a href="#">Get a Quote</a>
 
+
+		<SCRIPT LANGUAGE="JavaScript">
+			var quotes = [];
+			quotes.push({body: 'Magnetic Bear Studios helped us figure out exactly what we wanted and built us a beautiful and functional tool, providing a durable competitive advantage. I cannot recommend them highly enough.', cite: '— Luc Lendrum, CPO'});
+			quotes.push({body: 'This one time at band camp, I got a sweet app developed by Magnetic Bear Studios.  You sick bastard.', cite: '— Adrian Seeley, Grand Conjur\'r Extrodinaire'});
+			quotes.push({body: 'Mo does them web jangles like a spandex rocket ship, CAPITALISM!', cite: '— Mo Money'});
+			quotes.push({body: 'No no really that\'s a great idea! Why are you giving me that look of disbelief?', cite: '— JP Whislst Loading His Shotgun'});
+
+			// Copy / Paste to add your own quotes Mo!
+			// quotes.push({body: 'Your quote here.', cite: '— Your Name Here'});
+
+			var random_quote_index = Math.floor(Math.random() * quotes.length);
+			document.write('<blockquote>' + quotes[random_quote_index].body + '<cite>' + quotes[random_quote_index].cite + '</cite></blockquote>');
+		</SCRIPT>
+
 		<h3>Some clients we have helped</h3>
 		<ul>
 			<li></li>
