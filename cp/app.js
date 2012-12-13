@@ -12,6 +12,7 @@ var html_wrap_feed_entry  = fs.readFileSync('html/wrap_feed_entry.html',  'utf8'
 var html_500 			  = '<html><b>500</b> DB IS DOWN!</html>';
 var html_403 			  = '<html><b>403</b> BAD AUTH!</html>';
 var html_404 			  = '<html><b>404</b> PAGE NOT FOUND!</html>';
+var html_200 			  = '<html><b>200</b></html>';
 
 var admins = 
 [
@@ -21,14 +22,17 @@ var admins =
 	{email: 'mo@magneticbear.com',     auth: 'foobar'}
 ];
 
+
+
 app.use(express.bodyParser());
 
-app.all('/cp/:email/:auth/:project/*',      	auth_user);
-app.all('/cpadmin/:email/:auth/:project/*', 	auth_admin);
+app.all('/cp/:email/:auth/:project/*',      	 auth_user);
+app.all('/cpadmin/:email/:auth/:project/*', 	 auth_admin);
 
-app.get ('/cp/:email/:auth/:project/serve',     serve_cp);
-app.post('/cp/:email/:auth/:project/postfeed',  postfeed);
-app.post('/cpadmin/:email/:auth/:project/new', newproj);
+app.get ('/cp/:email/:auth/:project/serve',      serve_cp);
+app.post('/cp/:email/:auth/:project/postfeed',   postfeed);
+app.get('/cpadmin/:email/:auth/:project/new',    new_project);
+app.get('/cpadmin/:email/:auth/:project/delete', delete_project);
 
 function auth_user(req, res, next)
 {
@@ -61,8 +65,7 @@ function auth_user(req, res, next)
 }
 function auth_admin(req, res, next)
 {
-	console.log(req.params.email);
-	console.log(req.params.auth);
+	console.log('auth_admin');
 	if(!req.params.email || !req.params.auth) serve(req, res, 403, html_403, now());
 	else
 	{
@@ -70,8 +73,18 @@ function auth_admin(req, res, next)
 		{
 			if(admins[a].email.toLowerCase() === req.params.email.toLowerCase())
 			{
-				if(admins[a].auth === req.params.auth) next();
-				else serve(req, res, 403, html_403, now());
+
+				if(admins[a].auth === req.params.auth) 
+				{
+										console.log('here');
+					next();
+					return;
+				}
+				else 
+				{
+					console.log('403');
+					serve(req, res, 403, html_403, now());
+				}
 			}
 		}
 		serve(req, res, 403, html_403, now());
@@ -112,17 +125,31 @@ function postfeed(req, res)
 		}
 	);
 }
-function delete_project(req, res, url)
+function delete_project(req, res)
 {
-	db.projects.remove({project_url: url}, 
-		function(err)
-		{
-			if(err) console.log(err);
-		}
-	);
+	console.log('del');
+	if(!req.params.email || !req.params.auth || !req.params.project) serve(req, res, 403, html_403, now());
+	else
+	{
+		db.projects.remove({project_url: req.params.project}, 
+			function(err)
+			{
+				if(err)
+				{
+					 console.log(err);
+					 serve(req, res, 500, html_500, now());
+				}
+				else
+				{
+					 serve(req, res, 200, html_200, now());
+				}
+			}
+		);
+	}
 }
-function newproj(req, res, url, name)
+function new_project(req, res)
 {
+	//name url
 	is_admin('', '', //req.params.email, req.params.project, 
 		function(err, result)
 		{
