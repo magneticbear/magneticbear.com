@@ -31,7 +31,12 @@ nav: 'work'
 								<% end %>
 							</ul>
 							<p><%- post.content %></p>
-							<blockquote>Magnetic Bear Studios helped us figure out exactly what we wanted and built us a beautiful and functional tool, providing a durable competitive advantage. I cannot recommend them highly enough. <cite>— Luc Lendrum, CPO</cite></blockquote>
+
+							<% if post.quote: %>
+								<blockquote><%= post.quote %><cite><%= post.quote_cite %></cite></blockquote>
+							<% end %>
+
+
 						</figcaption>
 					</figure>
 				<% end %>
@@ -52,7 +57,7 @@ nav: 'work'
 					<% end %>
 				<% end %>
 				<figure><a href="http://dribbble.com/magneticbear" target="_blank">
-					<img src="images/portfolio/dribbble-app-icon.png">
+					<img src="images/portfolio/dribbble-app-icon.png" alt="More on Dribbble">
 					<figcaption>More on Dribbble</figcaption></a>
 				</figure>
 			</div>
