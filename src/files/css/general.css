@@ -32,6 +32,11 @@ a {
 	text-decoration: none;
 }
 
+article h2 {
+	margin-top: 2em;
+	margin-left: 4.7em;
+}
+
 /* --General Ends-- */
 
 /* -----------------Fonts Begins--------------- */
@@ -445,7 +450,7 @@ aside a {
 	padding-top: 1.6em;
 }
 
-aside a:hover {
+aside a:hover, .selected-app {
 	-webkit-box-shadow: inset 0px 0px 6em 0px #F0F0F0;
     box-shadow: inset 0px 0px 6em 0px #F0F0F0;
 	
@@ -456,14 +461,9 @@ aside a:hover {
 	-ms-transition: all ease-in-out 200ms;
 }
 
-.sel {
-	-webkit-box-shadow: inset 0px 0px 6em 0px #E1E1E1;
-    box-shadow: inset 0px 0px 6em 0px #E1E1E1;
-}
-
 aside figure {
 	width: 10em;
-	margin: 0em 0.2em;
+	margin: 0em 1px;
 	text-align: center;
 	float: left;
 }
@@ -498,6 +498,11 @@ aside figcaption {
 	height: auto;
 }
 
+
+.lab img {
+	width: 100%;
+}
+
 .lab article cite {
 	color: #666;
 }
@@ -505,6 +510,7 @@ aside figcaption {
 .lab article time {
 	color: #666;
 	font-size: 0.8em;
+	margin-left:  8.8em;
 }
 
 .lab section {
@@ -522,12 +528,14 @@ aside figcaption {
 	height: 5.5em;
 	width: 5.5em;
 	float: left;
-	margin: 1em 1.6em 4em 0;
+	margin: 1em 1.6em 0 0;
 }
 
 .avatar img {
 	width: 100%;
 	max-width: 5.5em;
+	margin-left: 0em;
+
 	
 	border-radius: 8em;
 	-webkit-box-shadow: 0px 0px 0px 2px #D4D4D4;
@@ -555,6 +563,12 @@ aside figcaption {
 	display: block;
 	margin-bottom: 0.5em;
 }
+
+cite img, .lab cite img {
+	max-width: 24px;
+	vertical-align: middle;
+}
+
 
 .read-more {
 	width: 24px;
@@ -591,6 +605,7 @@ aside figcaption {
 .read-more img {
 	width: 24px;
 	height: 24px;
+	margin-left: 0;
 	position: absolute;
 	left: 0;
 	top: 1px;
@@ -609,7 +624,7 @@ aside figcaption {
 /* -----------------Team Begins--------------- */
 
 .team article {
-	width: 39.4%;
+	width: 23.4%;
 	height: 35em;
 	margin-right: 0%;
 	position: relative;
@@ -622,9 +637,9 @@ aside figcaption {
 .team .avatar {
 	width: 100%;
 	height: 100%;
-	max-width: 10em;
-	max-height: 10em;
-	margin: 1em auto;
+	max-width: 8em;
+	max-height: 8em;
+	margin: 1em auto 2em;
 	display: block;
 	float: none;
 }
@@ -664,13 +679,6 @@ aside figcaption {
 
 /* -----------------Jobs Begins--------------- */
 
-.jobs article p, .jobs article ul {
-	margin-left: 0;
-}
-
-.jobs h2 {
-	margin-top: 2em;
-}
 
 /* --Jobs Ends-- */
 
@@ -679,6 +687,11 @@ aside figcaption {
 .contact iframe {
 	margin-bottom: 3.5em;
 	border: solid 2px #CCCCCC;
+	margin-top: 3.5em;
+}
+
+.contact h2 {
+	margin-left: 0;
 }
 
 .contact small {
@@ -951,7 +964,7 @@ footer span {
 		padding: 4%;
 	}
 
-	article ul, .tags {
+	article ul, .tags, article h2, .lab article time {
 		margin-left:  0;
 	}
 
@@ -970,6 +983,7 @@ footer span {
 	.content p, blockquote {
 		margin-left: 0;
 	}
+
 
 	.read-more {
 	width: 7.6em;
@@ -1053,6 +1067,24 @@ footer span {
 	}
 }
 ------------------------------------ */
+@media screen and (max-width:675px) {
+	.cca, .pr {
+		height: 250px;
+	}
+}
+
+@media screen and (max-width:450px) {
+	.cca, .pr {
+		height: 200px;
+	}
+	.app-icon {
+		margin: 2em 0 0.8em; 
+	}
+}
+
+@media screen and (max-width:450px) {
+	
+}
 
 @media screen and (max-width:320px) {
 	.tagline {

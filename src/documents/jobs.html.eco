@@ -3,10 +3,13 @@ layout: 'default'
 title: 'Jobs'
 nav: 'jobs'
 ---
-<div class="content lab jobs">
+<div class="content lab">
 	<% for post in @getFilesAtPath("jobs").toJSON(): %>
 		<% if post.type: %>
 			<article>
+				<div class="avatar">
+					<a href="team.html#<%= @getAuthorTwitter post.author %>"><img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>"></a>
+				</div>
 				<a href="<%= post.url %>" style="text-decoration:none"><h1><%- post.title %></h1></a>
 				<p><%- post.content %></p>
 				<div class="fade"></div>

@@ -38,16 +38,25 @@
 			<li <%= "class=selected" if @document.nav == 'work' %>><a href="/work.html">WORK</a></li>
 			<li <%= "class=selected" if @document.nav == 'team' %>><a href="/team.html">TEAM</a></li>
 			<li <%= "class=selected" if @document.nav == 'lab' %>><a href="/lab.html">LAB</a></li>
-			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs.html">JOBS</a></li>
+			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs.html">CAREER</a></li>
 			<li <%= "class=selected" if @document.nav == 'contact' %>><a href="/contact.html">CONTACT</a></li>
 		</ul>
 	</nav>
 
-	<div class="content lab jobs">
+	<div class="content lab">
 		<article>
+			<div class="avatar">
+				<a href="../team.html#<%= @getAuthorTwitter @document.author %>"><img src="/images/<%= @getAuthorPic @document.author %>" alt="<%= @getAuthorName @document.author %>"></a>
+			</div>
 			<h1><%- @document.title %></h1>
 			<p><%- @content %></p>
+			<section>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-text="<%= @document.title %>" data-via="magneticbear" data-count="none" data-hashtags="MBSCareer">Tweet</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+				</script>
+			</section>
 		</article>
+
 	</div>
 	
 	<footer>

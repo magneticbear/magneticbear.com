@@ -38,7 +38,7 @@
 			<li <%= "class=selected" if @document.nav == 'work' %>><a href="/work.html">WORK</a></li>
 			<li <%= "class=selected" if @document.nav == 'team' %>><a href="/team.html">TEAM</a></li>
 			<li <%= "class=selected" if @document.nav == 'lab' %>><a href="/lab.html">LAB</a></li>
-			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs.html">JOBS</a></li>
+			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs.html">CAREER</a></li>
 			<li <%= "class=selected" if @document.nav == 'contact' %>><a href="/contact.html">CONTACT</a></li>
 		</ul>
 	</nav>
@@ -49,7 +49,7 @@
 				<a href="../team.html#<%= @getAuthorTwitter @document.author %>"><img src="/images/<%= @getAuthorPic @document.author %>" alt="<%= @getAuthorName @document.author %>"></a>
 			</div>
 			<h1><%- @document.title %></h1>
-			<cite>by <%= @getAuthorName @document.author %> (<img width='24' style="vertical-align: middle;" src="../images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter @document.author %>" style="text-decoration: none;" target="_blank">@<%= @getAuthorTwitter @document.author %></a>)</cite>
+			<cite>by <%= @getAuthorName @document.author %> (<img src="../images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter @document.author %>" style="text-decoration: none;" target="_blank">@<%= @getAuthorTwitter @document.author %></a>)</cite>
 			<time><%- @document.date.toShortDateString() %></time>
 			<p><%- @content %></p>
 			<section>

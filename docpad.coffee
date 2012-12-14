@@ -27,10 +27,13 @@ docpadConfig = {
 				apps, mobile, ios, iphone, android, ipad, ux, user experience, ottawa
 				"""
 
-			authors: [{'nick': 'jp', 'pic': 'JP.jpeg', 'name': 'JP Simard', 'email': 'jp@magneticbear.com', 'github': 'jpsim', 'twitter': 'simjp', 'title': 'Founder & CEO', 'tagline': 'No time for this shit...', 'bio': 'iOS+Android developer at @magneticbear studios (founder), electrical engineer, musician, runner, jazz aficionado, fake graphic designer'},
+			authors: [
+						{'nick': 'mbs', 'pic': 'mbs.png', 'name': 'MBS', 'email': 'info@magneticbear.com', 'github': 'magneticbear', 'twitter': 'magneticbear', 'title': '', 'tagline': 'BEAUTIFULLY CRAFTED APPS','bio': ''},
+						{'nick': 'jp', 'pic': 'JP.jpeg', 'name': 'JP Simard', 'email': 'jp@magneticbear.com', 'github': 'jpsim', 'twitter': 'simjp', 'title': 'Founder & CEO', 'tagline': 'No time for this shit...', 'bio': 'iOS+Android developer at @magneticbear studios (founder), electrical engineer, musician, runner, jazz aficionado, fake graphic designer'},
 						{'nick': 'mo', 'pic': 'Mo.jpeg', 'name': 'Mo Mozafarian', 'email': 'mo@magneticbear.com', 'github': 'mo-mozafarian', 'twitter': 'M_Mozafarian', 'title': 'Creative Director', 'tagline': 'Stuff I think of .oO','bio': 'Multimedia Designer'},
 						{'nick': 'adrian', 'pic': 'Adrian.jpeg', 'name': 'Adrian Seeley', 'email': 'adrian@magneticbear.com', 'github': 'adrianseeley', 'twitter': 'adrnsly', 'title': 'Lead Developer', 'tagline': 'I\'m the big data guy...','bio': 'Data Scientist, and Magnetic Bear, at Magnetic Bear Studios'},
-						{'nick': 'stu', 'pic': 'Stu.jpeg', 'name': 'Stuart Macgregor', 'email': 'stuart@magneticbear.com', 'github': 'stumac', 'twitter': 'macgregor_stu', 'title': 'Developer', 'tagline': 'I write stuff...','bio': 'Mobile Applications Developers at Magnetic Bear Studios. Programmer, strength enthusiast, hater of all things functional'}]
+						{'nick': 'stu', 'pic': 'Stu.jpeg', 'name': 'Stuart Macgregor', 'email': 'stuart@magneticbear.com', 'github': 'stumac', 'twitter': 'macgregor_stu', 'title': 'Developer', 'tagline': 'I write stuff...','bio': 'Mobile Applications Developers at Magnetic Bear Studios. Programmer, strength enthusiast, hater of all things functional'},
+						{'nick': 'wendy', 'pic': 'Wendy.jpeg', 'name': 'Wendy Ly', 'email': 'wendy@magneticbear.com', 'github': '', 'twitter': 'lovewendyxo', 'title': 'Designer', 'tagline': 'I love stuff...','bio': 'I’m a 22 year old graphic designer residing in Ottawa, Ontario. I graduated from the graphic design program in 2012 at Algonquin College.'}]
 
 		# -----------------------------
 		# Helper Functions
