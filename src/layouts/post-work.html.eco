@@ -79,7 +79,7 @@
 						<% if post.title != 'Work': %>
 
 							<% if post.dir: %>
-								<figure><a <%= "class=selected-app" if @document.title == post.title %> href="../../work/<%= post.dir %>/index.html">
+								<figure><a <%= "class=selected-app" if @document.title == post.title %> href="../../work/<%= post.dir %>/">
 									<img src="../../work/<%= post.dir %>/app-icon.png" alt="<%= post.title %>">
 									<figcaption><%= post.title %></figcaption></a>
 								</figure>

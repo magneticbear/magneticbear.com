@@ -263,8 +263,9 @@ section a {
 }
 
 .home h1 {
+	font-size:  2.5em;
 	text-align: center;
-	width: 85%; 
+	width: 75%; 
 	margin: 0 auto;
 }
 
@@ -273,8 +274,8 @@ section a {
 	font-size: 0.8em;
 	font-weight: normal;
 	background-color: #FFF;
-	border-bottom: 1px solid #D5D5D5;
-	margin-top: 8em;
+	border-top: 2px solid #CCC;
+	margin-bottom: 0;
 }
 
 .home a {
@@ -289,12 +290,11 @@ section a {
 }
 
 .home a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 	color: #fff;
-	background-color: #EB5B9A;
 }
 
-.home li {
+.home figure li {
 	bottom: -23%;
 	width: 35%;
 	list-style-type: none;
@@ -308,12 +308,43 @@ section a {
 
 }
 
-.home li img {
+.home figure li img {
 	width: 100%;
 }
 
-.home li:last-child {
+.home figure li:last-child {
 	right: 24.1%;
+}
+
+.home section {
+	margin-top: 6em;
+	border: none;
+	font-size: 13px;
+	color: #666;
+}
+
+.home section li {
+	list-style-type: none;
+	width: 30%;
+	height: 16em;
+	float: left;
+	padding-bottom: 1em;
+	position: relative;
+	overflow: hidden;
+}
+
+.home section blockquote, .home section p {
+	width: 100%;
+	margin-left: 0;
+	margin-top: 0;
+}
+
+.home .fade {
+	width: 100%;
+}
+
+.home section p {
+	padding-top: 0.6em;
 }
 
 /* -- Content Ends-- */
@@ -461,9 +492,15 @@ aside a:hover, .selected-app {
 	-ms-transition: all ease-in-out 200ms;
 }
 
+.selected-app {
+	border-right: 1px solid #EBEBEB;
+	border-left: 1px solid #EBEBEB;
+
+}
+
 aside figure {
 	width: 10em;
-	margin: 0em 1px;
+	margin: 0;
 	text-align: center;
 	float: left;
 }
@@ -472,10 +509,6 @@ aside figure:last-child {
 	margin-right: 15em;
 }
 aside figure img {
-	width: 40%;
-}
-
-aside figure img:hover {
 	width: 40%;
 }
 
@@ -587,13 +620,17 @@ cite img, .lab cite img {
 
 .read-more a {
 	height: 24px;
+	min-width: 68px;
 	background-color:#D4D4D4;
 	display: block;
 	color: #FFF;
 	padding-top: 0.2em;
 	padding-left: 1.8em;
+	padding-bottom: 0;
+	margin-bottom: 0;
 	position: relative;
 	text-decoration: none;
+	line-height: 1.4em;
 
 }
 .read-more a:hover {
@@ -700,7 +737,7 @@ cite img, .lab cite img {
 
 form {
 	width: 30%;
-	min-width: 15em;
+	min-width: 14.6em;
 	float: left;
 	margin-left: 7.1em;
 	display: inline-block;
@@ -1035,38 +1072,7 @@ footer span {
 	}
 }
 
-/* Coloured nav bar for mobile */
-/* ------------------------------------
-@media screen and (max-width:568px) {
-	header {
-		height: 20px;
-		background-color: #ec1d78;
-	}
-
-	header h1 {
-		text-indent: 0;
-		color: #fff;
-		margin-top: -30px;
-		background: none;
-		width: 100%;
-		text-align: center;
-		font-size: 22px;
-	}
-
-	header button {
-		margin-top: -38px;
-		height: 20px;
-	}
-
-	.content {
-		padding: 10px 0 5%;
-	}
-
-	.tagline {
-		visibility: hidden;
-	}
-}
------------------------------------- */
+/* ------------------------------------ */
 @media screen and (max-width:675px) {
 	.cca, .pr {
 		height: 250px;
