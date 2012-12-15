@@ -35,7 +35,14 @@ nav: 'home'
 
 			<li>
 				<h3>Stuff happening in the lab</h3>
-				<p>Something's popping in the lab by Mo Mozafarian</p>
+
+				<% for post in @getFilesAtPath("lab").toJSON(): %>
+					<% if post.description: %>
+						<p><%= post.title %> by <%= post.author %></p>
+						<% break %>
+					<% end %>
+				<% end %>
+
 				<div class="fade"></div>
 				<div class="read-more"><a href="" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">Read More</a></div>
 			</li>

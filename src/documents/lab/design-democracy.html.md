@@ -3,6 +3,7 @@ layout: 'post-lab'
 title: 'Design aint Democracy'
 author: 'mo'
 nav: 'lab'
+description: 'Learn to clean your shotgun with nothing but coffee grounds and simple wizardry.'
 ---
 <p>My money's in that office, right? If she start giving me some bullshit about it ain't there, and we got to go someplace else and get it, I'm gonna shoot you in the head then and there.</p>
 
