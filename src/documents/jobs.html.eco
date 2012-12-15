@@ -13,7 +13,7 @@ nav: 'jobs'
 				<a href="<%= post.url %>" style="text-decoration:none"><h1><%- post.title %></h1></a>
 				<p><%- post.content %></p>
 				<div class="fade"></div>
-				<div class="read-more"><a href="<%= post.url %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">Read More</a></div>
+				<div class="read-more"><a href="<%= post.url %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</article>
 		<% end %>
 	<% end %>

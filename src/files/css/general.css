@@ -343,6 +343,22 @@ section a {
 	width: 100%;
 }
 
+.home section h2 {
+	margin: 0 0 1em;
+	font-size: 1.5em;
+}
+
+.home section .read-more a {
+	padding-left: 0.5em;
+}
+
+.home section cite, .home section time {
+	font-size: 12px;
+	color: #999;
+	line-height: 1.5em;
+	display: block;
+}
+
 .home section p {
 	padding-top: 0.6em;
 }
@@ -649,7 +665,7 @@ cite img, .lab cite img {
 }
 
 .read-more:hover {
-	width: 7.6em;
+	width: 5em;
 }
 
 .lab time {

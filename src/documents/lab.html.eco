@@ -13,9 +13,9 @@ nav: 'lab'
 				<a href="<%= post.url %>" style="text-decoration:none"><h1><%- post.title %></h1></a>
 				<cite>by <%= @getAuthorName post.author %> (<img src="images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter post.author %>" style="text-decoration: none;" target="_blank">@<%= @getAuthorTwitter post.author %></a>)</cite>
 				<time><%- post.date.toShortDateString() %></time>
-				<p><%- post.content %></p>
+				<p><%- post.description %></p>
 				<div class="fade"></div>
-				<div class="read-more"><a href="<%= post.url %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">Read More</a></div>
+				<div class="read-more"><a href="<%= post.url %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</article>
 		<% end %>
 	<% end %>

@@ -30,7 +30,7 @@ nav: 'home'
 				<h3>Clients we have helped</h3>
 				<img src="images/all-clients.gif">
 				<div class="fade"></div>
-				<div class="read-more"><a href="" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">Our Work</a></div>
+				<div class="read-more"><a href="work.html" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>
 
 			<li>
@@ -38,13 +38,15 @@ nav: 'home'
 
 				<% for post in @getFilesAtPath("lab").toJSON(): %>
 					<% if post.description: %>
-						<p><%= post.title %> by <%= post.author %></p>
+						<h2><%= post.title %></h2>
+							<time>Posted on <%- post.date.toShortDateString() %></time>
+							<cite>by <%= @getAuthorName post.author %></cite>
 						<% break %>
 					<% end %>
 				<% end %>
 
 				<div class="fade"></div>
-				<div class="read-more"><a href="" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">Read More</a></div>
+				<div class="read-more"><a href="../lab/<%= post.name %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>
 
 			<li>
@@ -53,15 +55,15 @@ nav: 'home'
 					var quotes = [];
 					<% for post in @getFilesAtPath("work").toJSON(): %>
 						<% if post.quote: %>
-							quotes.push({body: '<%= post.quote %>', cite: '<%= post.quote_cite %>'});
+							quotes.push({body: '<%= post.quote %>', cite: '<%= post.quote_cite %>', url: '<%= post.dir %>'});
 						<% end %>
 					<% end %>
 
 					var random_quote_index = Math.floor(Math.random() * quotes.length);
 					document.write('<blockquote>' + quotes[random_quote_index].body + '<cite>' + quotes[random_quote_index].cite + '</cite></blockquote>');
+					document.write('<div class="fade"></div>');
+					document.write('<div class="read-more"><a href="../work/' +  quotes[random_quote_index].url + '" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>');
 				</script>
-				<div class="fade"></div>
-				<div class="read-more"><a href="" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">See Project</a></div>
 			</li>
 			</ul>
 		</section>
