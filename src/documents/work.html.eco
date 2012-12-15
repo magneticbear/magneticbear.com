@@ -6,51 +6,31 @@ nav: 'work'
 <div class="content">
 	<article>
 
-
-		<script type="text/javascript">
-			var posts = [];
-			<% for post in @getFilesAtPath("work").toJSON(): %>
-				<% if post.dir: %>
-					posts.push({title: '<%= post.title %>', tags: [], quote: '<%= post.quote %>', quote_cite: '<%= post.quote_cite %>', device: '<%= post.device %>'});
-					
-					<% for tag in post.tags: %>
-						posts[posts.length - 1].tags.push(<%= tag %>);
-					<% end %>
-				<% end %>
-			<% end %>
-
-			var random_post_index = Math.floor(Math.random() * posts.length);
-			var post = posts[random_post_index];
-
-			document.write('
-
+		<% for post in @getFilesAtPath("work").toJSON(): %>
+			<% if post.dir: %>
 				<figure>
-				<div class="bg ' + post.dir + '">
-					<div class="' + post.device + '">
+				<div class="bg <%= post.dir %>">
+					<div class="<%= post.device %>">
 						<div class="flexslider">
 							<ul class="slides">
-								<li><img src="work/' + post.dir + '/slides/screen-1.png" alt="' + post.title + '"/></li>
-								<li><img src="work/' + post.dir + '/slides/screen-2.png" alt="' + post.title + '"/></li>
-								<li><img src="work/' + post.dir + '/slides/screen-3.png" alt="' + post.title + '"/></li>
-								<li><img src="work/' + post.dir + '/slides/screen-4.png" alt="' + post.title + '"/></li>
-								<li><img src="work/' + post.dir + '/slides/screen-5.png" alt="' + post.title + '"/></li>
+								<li><img src="work/<%= post.dir %>/slides/screen-1.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/screen-2.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/screen-3.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/screen-4.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/screen-5.png" alt="<%= post.title %>"/></li>
 							</ul>
 						</div>
 					</div>
 				</div>
 					<figcaption>
-						<img class="app-icon" src="work/' + post.dir + '/app-icon.png" alt="' + post.title + '">
-						<h1>' + post.title + '</h1>
+						<img class="app-icon" src="work/<%= post.dir %>/app-icon.png" alt="<%= post.title %>">
+						<h1><%= post.title %></h1>
 						<ul class="tags">
-			');
-			for(var t = 0; t < post.tags; t++)
-			{
 							<% if post.tags: %>
 								<% for tag in post.tags: %>
 									<li><%= tag %></li>
 								<% end %>
 							<% end %>
-						}
 						</ul>
 						<p><%- post.content %></p>
 
@@ -61,14 +41,9 @@ nav: 'work'
 
 					</figcaption>
 				</figure>
-			');
-
-		</script>
-
-
-
-
-
+				<% break %>
+			<% end %>
+		<% end %>
 		<aside>
 			<div class="wrap">
 				<% idx = 0 %>
