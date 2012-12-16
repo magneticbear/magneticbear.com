@@ -13,11 +13,12 @@ nav: 'work'
 					<div class="<%= post.device %>">
 						<div class="flexslider">
 							<ul class="slides">
-								<li><img src="work/<%= post.dir %>/slides/screen-1.png" alt="<%= post.title %>"/></li>
-								<li><img src="work/<%= post.dir %>/slides/screen-2.png" alt="<%= post.title %>"/></li>
-								<li><img src="work/<%= post.dir %>/slides/screen-3.png" alt="<%= post.title %>"/></li>
-								<li><img src="work/<%= post.dir %>/slides/screen-4.png" alt="<%= post.title %>"/></li>
-								<li><img src="work/<%= post.dir %>/slides/screen-5.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/01-splash.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/02-news.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/03-events.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/04-events-news.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/05-slideshow.png" alt="<%= post.title %>"/></li>
+								<li><img src="work/<%= post.dir %>/slides/06-map.png" alt="<%= post.title %>"/></li>
 							</ul>
 						</div>
 					</div>
@@ -37,8 +38,6 @@ nav: 'work'
 						<% if post.quote: %>
 							<blockquote><%= post.quote %><cite><%= post.quote_cite %></cite></blockquote>
 						<% end %>
-
-
 					</figcaption>
 				</figure>
 				<% break %>
