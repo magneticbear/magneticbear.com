@@ -26,7 +26,7 @@ nav: 'home'
 		<section>
 			<ul>
 			
-			<li>
+			<li class="clients">
 				<h3>Clients we have helped</h3>
 				<img src="images/all-clients.gif">
 				<div class="fade"></div>

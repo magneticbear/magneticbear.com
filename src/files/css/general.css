@@ -339,6 +339,10 @@ section a {
 	margin-top: 0;
 }
 
+.clients img {
+	width: 100%;
+}
+
 .home .fade {
 	width: 100%;
 }
@@ -1111,6 +1115,9 @@ footer span {
 	.cca, .pr {
 		height: 250px;
 	}
+	.home section li {
+	width: 28%;
+}
 }
 
 @media screen and (max-width:450px) {
@@ -1120,10 +1127,17 @@ footer span {
 	.app-icon {
 		margin: 2em 0 0.8em; 
 	}
-}
 
-@media screen and (max-width:450px) {
-	
+	.home section li {
+	list-style-type: none;
+	width: 80%;
+	height: 15em;
+	float: none;
+	margin: 0 auto 5em;
+	padding-bottom: 1em;
+	position: relative;
+	overflow: hidden;
+}
 }
 
 @media screen and (max-width:320px) {
