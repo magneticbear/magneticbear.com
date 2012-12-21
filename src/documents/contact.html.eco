@@ -43,24 +43,3 @@ nav: 'contact'
 		<h1>Thanks for getting in touch!</h1>
 	</div>
 </div>
-
-<script type="text/javascript">
-	var frm = $('#contactForm');
-	frm.submit(function () {
-			$('.popup').css('display', 'block');
-			setTimeout( function (){
-				$('.popup').css('display', 'none');
-			},1200);
-
-			$.ajax({
-			type: frm.attr('method'),
-			url: frm.attr('action'),
-			data: frm.serialize()
-		});
-		$('#full_name').val('');
-		$('#email_addr').val('');
-		$('#message').val('');
-
-		return false;
-	});
-</script>
