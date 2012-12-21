@@ -46,7 +46,7 @@ nav: 'home'
 				<% end %>
 
 				<div class="fade"></div>
-				<div class="read-more"><a href="../lab/<%= post.name %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
+				<div class="read-more"><a href="/lab/<%= post.name %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>
 
 			<li>
@@ -62,7 +62,7 @@ nav: 'home'
 					var random_quote_index = Math.floor(Math.random() * quotes.length);
 					document.write('<blockquote>' + quotes[random_quote_index].body + '<cite>' + quotes[random_quote_index].cite + '</cite></blockquote>');
 					document.write('<div class="fade"></div>');
-					document.write('<div class="read-more"><a href="../work/' +  quotes[random_quote_index].url + '" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>');
+					document.write('<div class="read-more"><a href="/work/' +  quotes[random_quote_index].url + '" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>');
 				</script>
 			</li>
 			</ul>

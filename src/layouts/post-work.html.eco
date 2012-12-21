@@ -58,7 +58,7 @@
 						</div>
 					</div>
 						<figcaption>
-							<img class="app-icon" src="../../work/<%= @document.dir %>/app-icon.png" alt="<%= @document.title %>">
+							<img class="app-icon" src="/work/<%= @document.dir %>/app-icon.png" alt="<%= @document.title %>">
 							<h1><%= @document.title %></h1>
 							<ul class="tags">
 								<% for tag in @document.tags: %>
@@ -79,8 +79,8 @@
 						<% if post.title != 'Work': %>
 
 							<% if post.dir: %>
-								<figure><a <%= "class=selected-app" if @document.title == post.title %> href="../../work/<%= post.dir %>/">
-									<img src="../../work/<%= post.dir %>/app-icon.png" alt="<%= post.title %>">
+								<figure><a <%= "class=selected-app" if @document.title == post.title %> href="/work/<%= post.dir %>/">
+									<img src="/work/<%= post.dir %>/app-icon.png" alt="<%= post.title %>">
 									<figcaption><%= post.title %></figcaption></a>
 								</figure>
 							<% end %>
@@ -88,7 +88,7 @@
 						<% end %>
 					<% end %>
 					<figure><a href="http://dribbble.com/magneticbear" target="_blank">
-						<img src="../../images/portfolio/dribbble-app-icon.png" alt="More on Dribbble">
+						<img src="/images/portfolio/dribbble-app-icon.png" alt="More on Dribbble">
 						<figcaption>More on Dribbble</figcaption></a>
 					</figure>
 				</div>

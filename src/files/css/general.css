@@ -448,7 +448,7 @@ figure {
 	background: transparent url(/images/portfolio/ipad.png) no-repeat;
 	background-size: 100%;
 	left: 6%;
-	top: 8%;
+	bottom: -30%;
 }
 
 .app-icon {
