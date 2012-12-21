@@ -971,6 +971,38 @@ footer span {
 
 /* --Social Media Ends-- */
 
+
+/* -----------------Pop up Begins--------------- */
+
+.popup {
+	width: 100%;
+	position: absolute;
+	height: 100%;
+	background-color: rgba(255,255,255,0.8);
+	top: 0;
+	display: none;
+}
+
+.dialog {
+	width: 50%;
+	margin: 30% auto;
+	background-color: #fff;
+	display: block;
+	padding: 1em 2em;
+	box-shadow: 0 0 5px 0 #d0d0d0;
+
+}
+
+.dialog h1 {
+	text-align: center;
+	border: 1px solid #ebebeb;
+	padding: 2em;
+
+}
+
+
+/* --Pop up Ends-- */
+
 @media screen and (max-width:850px) {
 	html {
 		border-left: 1px #CCCCCC solid;
