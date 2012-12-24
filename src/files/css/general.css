@@ -396,6 +396,22 @@ figure {
 	background: transparent url(/work/cca/bg.png) no-repeat;
 }
 
+.openera {
+	background: transparent url(/work/openera/bg.png) no-repeat;
+}
+
+.idelete {
+	background: transparent url(/work/idelete/bg.png) no-repeat;
+}
+
+.ndstorefront {
+	background: transparent url(/work/ndstorefront/bg.png) no-repeat;
+}
+
+.pinxto {
+	background: transparent url(/work/pinxto/bg.png) no-repeat;
+}
+
 .bg {
 	width: 100%;
 	height: 380px;
