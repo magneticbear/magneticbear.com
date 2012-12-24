@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
 	$(".menu").toggle(function(){$("html").css("margin-left","8em");}, function(){$("html").css("margin-left","0");})	
-	$(".menu").toggle(function(){$(".menu").css("background","#999 url(images/menu-icon-back.png) no-repeat center center");}, function(){$(".menu").css("background","#999 url(images/menu-icon.png) no-repeat center center");})	
+	$(".menu").toggle(function(){$(".menu").css("background","#999 url(/images/menu-icon-back.png) no-repeat center center");}, function(){$(".menu").css("background","#999 url(/images/menu-icon.png) no-repeat center center");})	
 	$(".menu").click(function() {$('.menu').css('background-size','60%')});
 	
 	$('.icon').mouseenter(function() {

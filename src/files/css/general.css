@@ -251,7 +251,7 @@ section a {
 /* -----------------Home Begins--------------- */
 
 .pr {
-	background: transparent url(/images/portfolio/cca/bg.png) no-repeat;
+	background: transparent url(/images/home-banner/bg.png) no-repeat;
 }
 
 .process {
@@ -323,15 +323,25 @@ section a {
 	color: #666;
 }
 
+.home section h3 {
+	line-height: 1.6em;
+	padding: 1em 0;
+}
+
 .home section li {
 	list-style-type: none;
-	width: 30%;
+	width: 32%;
 	height: 15em;
+	margin: 0;
 	float: left;
 	padding-bottom: 1em;
 	position: relative;
 	overflow: hidden;
 }
+
+.home section li:nth-child(2) {
+	margin: 0 2%;
+	}
 
 .home section blockquote, .home section p {
 	width: 100%;
@@ -448,7 +458,7 @@ figure {
 	background: transparent url(/images/portfolio/ipad.png) no-repeat;
 	background-size: 100%;
 	left: 6%;
-	bottom: -30%;
+	bottom: -35%;
 }
 
 .app-icon {
@@ -785,7 +795,7 @@ form {
 input, textarea {
 	width: 92%;
 	display: block;
-	padding: 0.8em 1em;
+	padding: 0.8em;
 	margin-bottom: 1em;
 	font-size: 1em;
 	border: 1px solid #CCC;
@@ -793,7 +803,7 @@ input, textarea {
 
 form button {
 	border: 1px solid #D3D3D3;
-	width: 222px;
+	width: 213px;
 	padding: 1.2em 0;
 	margin: 1em auto;
 	font-weight: bold;
@@ -997,6 +1007,7 @@ footer span {
 	text-align: center;
 	border: 1px solid #ebebeb;
 	padding: 2em;
+	line-height:  1.2em;
 
 }
 
@@ -1108,8 +1119,13 @@ footer span {
 	aside figure:last-child {
 		margin-right: 2em;
 	}
-		
-	.team article, .lab article, article, form {
+
+	.team article {
+		width: 37.5%;
+
+	}
+
+	.lab article, article, form {
 		width: 85.8%;
 	}
 	
@@ -1144,7 +1160,7 @@ footer span {
 
 /* ------------------------------------ */
 @media screen and (max-width:675px) {
-	.cca, .pr {
+	.cca, .pr, .ndstorefront {
 		height: 250px;
 	}
 	.home section li {
@@ -1163,13 +1179,37 @@ footer span {
 	.home section li {
 	list-style-type: none;
 	width: 80%;
-	height: 15em;
+	height: 17em;
 	float: none;
-	margin: 0 auto 5em;
+	margin: 0 auto 3em;
 	padding-bottom: 1em;
 	position: relative;
 	overflow: hidden;
-}
+	}
+
+	.home section li:nth-child(2) {
+	margin: 0 auto 3em;
+	}
+
+	.team article {
+		width: 85.8%;
+
+	}
+
+	.dialog {
+	width: 80%;
+	margin: auto;
+	position: fixed;
+	top: 40%;
+	left: 6%;
+	padding: 0% 4%;
+	}
+
+	.dialog h1 {
+	padding: 6%;
+
+	}
+
 }
 
 @media screen and (max-width:320px) {

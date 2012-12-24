@@ -4,6 +4,7 @@ title: 'Senior Mobile Developer'
 nav: 'jobs'
 type: 'dev'
 author: 'mbs'
+description: 'Learn to clean your shotgun with nothing but coffee grounds and simple wizardry.'
 ---
 <h2>We’re seeking experienced mobile developers who:</h2>
 <ul>
