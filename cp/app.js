@@ -55,7 +55,7 @@ function admin(req, res)
 		{
 			var projects = ''; for(var p = 0; p < usr.projects.length; p++) projects += '<a href="/project/' + usr.projects[p] + '/' + usr.token + '">' + usr.projects[p] + '</a><br>';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
-			res.end(HTML_admin_panel.toString().replace('{{token}}', 'token: ' + usr.token).replace('{{projects}}', projects));
+			res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace('{{token}}', 'token: ' + usr.token).replace('{{projects}}', projects));
 		}
 	);
 }
@@ -111,7 +111,7 @@ function delete_project(req, res)
 						function(err)
 						{
 							if(err)  { error (req, res, err); return; }
-							res.redirect('/admin/'  + doc.token);
+							res.redirect('/admin/' + encodeURI('Successfully Deleted: ' + req.body.project_url) + '/' + usr.token);
 						}
 					);
 				}
