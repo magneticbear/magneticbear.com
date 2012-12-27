@@ -18,6 +18,7 @@ app.get ('/', 	  		   			 	 login 	 	    );
 app.get ('/login', 		   		     	 login 		    );
 app.post('/process_login', 			 	 process_login  );
 app.get ('/admin/:token',            	 admin 		    );
+app.get ('/admin/:extra/:token'          admin          );
 app.get ('/client/:token',           	 client         );
 app.get ('/project/:project/:token', 	 project 	    );
 app.post('/admin/new_project/:token', 	 new_project    );
@@ -106,6 +107,14 @@ function delete_project(req, res)
 				{
 					if(err)  { error (req, res, err);  													return; }
 					if(!doc) { error (req, res, 'Attempted to delete a project that does not exist.');  return; }
+					db.projects.remove({url: req.body.project_url}, 
+						function(err)
+						{
+							if(err)  { error (req, res, err); return; }
+							res.status(200); res.setHeader('Content-Type', 'text/html');
+							res.end(HTML_login + (failed == true ? ' FAILED ' : ''));
+						}
+					);
 				}
 			);
 		}
