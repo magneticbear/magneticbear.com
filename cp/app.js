@@ -52,23 +52,29 @@ function admin(req, res)
 
 			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
-			res.end(HTML_admin_panel.toString().replace('{{token}}', doc.token).replace('{{projects}}', projects));
-
+			res.end(HTML_admin_panel.toString().replace('{{token}}', 'token: ' + doc.token).replace('{{projects}}', projects));
 		}
 	);
-
 }
 function client(req, res)
 {
-	res.status(200); res.setHeader('Content-Type', 'text/html');
-	res.end(HTML_client_panel.toString().replace('{{token}}', req.token));
+	db.users.findOne({token: req.params.token}, 
+		function(err, doc)
+		{
+			if (err)  	    { error  (req, res, err);  return; }
+			if (!doc) 	    { login  (req, res, true); return; }
+
+			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
+			res.status(200); res.setHeader('Content-Type', 'text/html');
+			res.end(HTML_client_panel.toString().replace('{{token}}', 'token: ' + doc.token).replace('{{projects}}', projects));
+		}
+	);
 }
 function project(req, res)
 {
 	db.users.findOne({token: req.params.token}, 
 		function(err, doc)
 		{
-			console.log('post user');
 			if (err)  { error  (req, res, err);  return; }
 			if (!doc) { login  (req, res, true); return; }
 
@@ -77,7 +83,7 @@ function project(req, res)
 				if(req.params.project === doc.projects[p])
 				{
 					res.status(200); res.setHeader('Content-Type', 'text/html');
-					res.end(HTML_project_page.toString().replace('{{token}}', doc.token) + ' project: ' + doc.projects[p]);
+					res.end(HTML_project_page.toString().replace('{{token}}', doc.token).replace('{{upnav}}', '<a href="/' + (doc.admin ? 'admin' : 'client') + '/' + doc.token + '">' + (doc.admin ? 'Admin' : 'Client') + ' Panel</a>') + ' project: ' + doc.projects[p]);
 					return;
 				}
 			}
