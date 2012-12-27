@@ -18,7 +18,7 @@ app.get ('/', 	  		   			 	 login 	 	    );
 app.get ('/login', 		   		     	 login 		    );
 app.post('/process_login', 			 	 process_login  );
 app.get ('/admin/:token',            	 admin 		    );
-app.get ('/admin/:extra/:token'          admin          );
+app.get ('/admin/:extra/:token',         admin          );
 app.get ('/client/:token',           	 client         );
 app.get ('/project/:project/:token', 	 project 	    );
 app.post('/admin/new_project/:token', 	 new_project    );
@@ -51,18 +51,18 @@ function process_login(req, res)
 function admin(req, res)
 {
 	authorize_admin(req, res, 
-		function(req, res, doc)
+		function(req, res, usr)
 		{
-			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
+			var projects = ''; for(var p = 0; p < usr.projects.length; p++) projects += '<a href="/project/' + usr.projects[p] + '/' + usr.token + '">' + usr.projects[p] + '</a><br>';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
-			res.end(HTML_admin_panel.toString().replace('{{token}}', 'token: ' + doc.token).replace('{{projects}}', projects));
+			res.end(HTML_admin_panel.toString().replace('{{token}}', 'token: ' + usr.token).replace('{{projects}}', projects));
 		}
 	);
 }
 function client(req, res)
 {
 	authorize_client(req, res,
-		function(req, res, doc)
+		function(req, res, usr)
 		{
 			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
@@ -73,14 +73,14 @@ function client(req, res)
 function project(req, res)
 {
 	authorize_client(req, res,
-		function(req, res, doc)
+		function(req, res, usr)
 		{
-			for(var p = 0; p < doc.projects.length; p++)
+			for(var p = 0; p < usr.projects.length; p++)
 			{
-				if(req.params.project === doc.projects[p])
+				if(req.params.project === usr.projects[p])
 				{
 					res.status(200); res.setHeader('Content-Type', 'text/html');
-					res.end(HTML_project_page.toString().replace('{{token}}', doc.token).replace('{{upnav}}', '<a href="/' + (doc.admin ? 'admin' : 'client') + '/' + doc.token + '">' + (doc.admin ? 'Admin' : 'Client') + ' Panel</a>') + ' project: ' + doc.projects[p]);
+					res.end(HTML_project_page.toString().replace('{{token}}', usr.token).replace('{{upnav}}', '<a href="/' + (usr.admin ? 'admin' : 'client') + '/' + usr.token + '">' + (usr.admin ? 'Admin' : 'Client') + ' Panel</a>') + ' project: ' + usr.projects[p]);
 					return;
 				}
 			}
@@ -91,7 +91,7 @@ function project(req, res)
 function new_project(req, res)
 {
 	authorize_admin(req, res, 
-		function(req, res, doc)
+		function(req, res, usr)
 		{
 
 		}
@@ -100,7 +100,7 @@ function new_project(req, res)
 function delete_project(req, res)
 {
 	authorize_admin(req, res, 
-		function(req, res, doc)
+		function(req, res, usr)
 		{
 			db.projects.findOne({url: req.body.project_url},
 				function(err, doc)
@@ -111,8 +111,7 @@ function delete_project(req, res)
 						function(err)
 						{
 							if(err)  { error (req, res, err); return; }
-							res.status(200); res.setHeader('Content-Type', 'text/html');
-							res.end(HTML_login + (failed == true ? ' FAILED ' : ''));
+							res.redirect('/admin/'  + doc.token);
 						}
 					);
 				}
@@ -123,7 +122,7 @@ function delete_project(req, res)
 function new_user(req, res)
 {
 	authorize_admin(req, res, 
-		function(req, res, doc)
+		function(req, res, usr)
 		{
 			
 		}
@@ -132,7 +131,7 @@ function new_user(req, res)
 function delete_user(req, res)
 {
 	authorize_admin(req, res, 
-		function(req, res, doc)
+		function(req, res, usr)
 		{
 			
 		}
@@ -141,7 +140,7 @@ function delete_user(req, res)
 function modify_user(req, res)
 {
 	authorize_admin(req, res, 
-		function(req, res, doc)
+		function(req, res, usr)
 		{
 			
 		}
