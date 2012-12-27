@@ -14,10 +14,12 @@ var HTML_client_panel = fs.readFileSync('client_panel.html');
 var HTML_project_page = fs.readFileSync('project_page.html');
 var HTML_error_page   = fs.readFileSync('error_page.html'  );
 
-app.get ('/', 	  		   			 login);
-app.get ('/login', 		   		     login);
-app.post('/process_login', 			 process_login);
-app.get ('/project/:project/:token', project);
+app.get ('/', 	  		   			 login 	 	   );
+app.get ('/login', 		   		     login 		   );
+app.post('/process_login', 			 process_login );
+app.get ('/admin/:token',            admin 		   );
+app.get ('/client/:token',           client        );
+app.get ('/project/:project/:token', project 	   );
 
 function login(req, res, failed)
 {
@@ -33,8 +35,8 @@ function process_login(req, res)
 			if (!doc) 	    { login  (req, res, true); return; }
 
 			doc.token = generate_token();
-			req.token = doc.token;
 			db.users.save(doc);
+			req.token = doc.token;
 
 			if (doc.admin)  { admin  (req, res); 	   return; }
 			if (!doc.admin) { client (req, res);       return; }
@@ -43,8 +45,11 @@ function process_login(req, res)
 }
 function admin(req, res)
 {
+	db.users.find({token: (req.token ? req.token : req.params.token)})
+	var projects = '';
+	for(var p = 0; p < req.user.projects.length; p++) projects += '<a href="/project/' + req.user.projects[p] + '/' + req.user.token + '">' + req.user.projects[p] + '</a><br>';
 	res.status(200); res.setHeader('Content-Type', 'text/html');
-	res.end(HTML_admin_panel.toString().replace('{{token}}', req.token));
+	res.end(HTML_admin_panel.toString().replace('{{token}}', req.user.token).replace('{{projects}}', projects));
 }
 function client(req, res)
 {
@@ -53,10 +58,10 @@ function client(req, res)
 }
 function project(req, res)
 {
-	console.log('proj');
 	db.users.findOne({token: req.params.token}, 
 		function(err, doc)
 		{
+			console.log('post user');
 			if (err)  { error  (req, res, err);  return; }
 			if (!doc) { login  (req, res, true); return; }
 
@@ -65,7 +70,7 @@ function project(req, res)
 				if(req.params.project === doc.projects[p])
 				{
 					res.status(200); res.setHeader('Content-Type', 'text/html');
-					res.end(HTML_client_panel.toString().replace('{{token}}', req.token) + ' project: ' + doc.projects[p]);
+					res.end(HTML_project_page.toString().replace('{{token}}', doc.token) + ' project: ' + doc.projects[p]);
 					return;
 				}
 			}
