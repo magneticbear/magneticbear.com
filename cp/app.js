@@ -36,20 +36,27 @@ function process_login(req, res)
 
 			doc.token = generate_token();
 			db.users.save(doc);
-			req.token = doc.token;
 
-			if (doc.admin)  { admin  (req, res); 	   return; }
-			if (!doc.admin) { client (req, res);       return; }
+			if (doc.admin)  { res.redirect('/admin/'  + doc.token); return; }
+			if (!doc.admin) { res.redirect('/client/' + doc.token); return; }
 		}
 	);
 }
 function admin(req, res)
 {
-	db.users.find({token: (req.token ? req.token : req.params.token)})
-	var projects = '';
-	for(var p = 0; p < req.user.projects.length; p++) projects += '<a href="/project/' + req.user.projects[p] + '/' + req.user.token + '">' + req.user.projects[p] + '</a><br>';
-	res.status(200); res.setHeader('Content-Type', 'text/html');
-	res.end(HTML_admin_panel.toString().replace('{{token}}', req.user.token).replace('{{projects}}', projects));
+	db.users.findOne({token: req.params.token}, 
+		function(err, doc)
+		{
+			if (err)  	    { error  (req, res, err);  return; }
+			if (!doc) 	    { login  (req, res, true); return; }
+
+			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
+			res.status(200); res.setHeader('Content-Type', 'text/html');
+			res.end(HTML_admin_panel.toString().replace('{{token}}', doc.token).replace('{{projects}}', projects));
+
+		}
+	);
+
 }
 function client(req, res)
 {
