@@ -53,14 +53,20 @@ function admin(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-			var projects = ''; 
-			for(var p = 0; p < usr.projects.length; p++) 
-			{	
-				projects += '<a href="/project/' + usr.projects[p] + '/' + usr.token + '">' + usr.projects[p] + '</a>';
-				projects += '<a href="/admin/delete_project/' + usr.projects[p] + '/' + usr.token +'">Delete</a><br>';
-			}
-			res.status(200); res.setHeader('Content-Type', 'text/html');
-			res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace('{{token}}', 'token: ' + usr.token).replace('{{projects}}', projects));
+			db.projects.find({},
+				function(err, projects)
+				{
+					if (err) { error  (req, res, err);  return; }
+					var project_html = ''; 
+					for(var p = 0; p < projects.length; p++) 
+					{	
+						project_html += '<a href="/project/' + projects[p].url + '/' + usr.token + '">' + projects[p].url + '</a>';
+						project_html += '<a href="/admin/delete_project/' + projects[p].url + '/' + usr.token +'">Delete</a><br>';
+					}
+					res.status(200); res.setHeader('Content-Type', 'text/html');
+					res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace('{{token}}', 'token: ' + usr.token).replace('{{projects}}', project_html));
+				}
+			);		
 		}
 	);
 }
@@ -80,16 +86,16 @@ function project(req, res)
 	authorize_client(req, res,
 		function(req, res, usr)
 		{
-			for(var p = 0; p < usr.projects.length; p++)
-			{
-				if(req.params.project === usr.projects[p])
+			db.projects.findOne({url: req.params.project, users: usr.email}, 
+				function(err, doc)
 				{
+					if(err)  { error (req, res, err);  																				  return; }
+					if(!doc) { error (req, res, 'Attempted to access a project that does not exist, or you don\'t have access to.');  return; }
 					res.status(200); res.setHeader('Content-Type', 'text/html');
-					res.end(HTML_project_page.toString().replace('{{token}}', usr.token).replace('{{upnav}}', '<a href="/' + (usr.admin ? 'admin' : 'client') + '/' + usr.token + '">' + (usr.admin ? 'Admin' : 'Client') + ' Panel</a>') + ' project: ' + usr.projects[p]);
+					res.end(HTML_project_page.toString().replace('{{token}}', usr.token).replace('{{upnav}}', '<a href="/' + (usr.admin ? 'admin' : 'client') + '/' + usr.token + '">' + (usr.admin ? 'Admin' : 'Client') + ' Panel</a>') + ' project: ' + req.params.project);
 					return;
 				}
-			}
-			error(req, res, 'Project was not found, or you do not have access to this project if it exists.'); return;
+			);
 		}
 	);
 }
@@ -116,31 +122,7 @@ function delete_project(req, res)
 						function(err)
 						{
 							if(err) { error (req, res, err); return; }
-							db.users.find({},
-								function(err, users)
-								{
-									if(err) { error (req, res, err); return; }
-									for(var u = 0; u < users.length; u++)
-									{
-										for(var p = 0; p < users[u].projects.length; p++)
-										{
-											if(users[u].projects[p] === req.params.project_url)
-											{
-												users[u].projects = users[u].projects.splice(p, 1);
-												console.log('dropped ' + req.params.project_url + ' from ' + users[u].email);
-												break;
-											}
-										}
-									}
-									db.users.save(users, 
-										function(err)
-										{
-											if (err) { error (req, res, err); return; } 
-											res.redirect('/admin/' + encodeURI('Successfully Deleted: ' + req.params.project_url) + '/' + usr.token);
-										}
-									);
-								}
-							);
+							res.redirect('/admin/' + encodeURI('Successfully Deleted: ' + req.params.project_url) + '/' + usr.token);
 						}
 					);
 				}
