@@ -1,4 +1,4 @@
-var ort	 = process.env.PORT || 80;
+var port	 = process.env.PORT || 80;
 var fs		 = require('fs');
 var db_url	 = process.env.MONGOHQ_URL || 'mbsweb';
 var db		 = require('mongojs').connect(db_url, ['users', 'projects', 'log']);
