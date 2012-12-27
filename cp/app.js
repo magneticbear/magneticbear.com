@@ -20,17 +20,22 @@ app.post('/process_login', process_login);
 
 
 function login(req, res, failed)
-{	
+{
 	res.status(200); res.setHeader('Content-Type', 'text/html');
 	res.end(HTML_login + (failed == true ? ' FAILED ' : ''));
 }
 function process_login(req, res)
 {
-	db.users.findOne({email: req.body.email}, 
+	db.users.findOne({email: req.body.email, password: req.body.password}, 
 		function (err, doc)
 		{
 			if (err)  	    { error  (req, res, err);  return; }
 			if (!doc) 	    { login  (req, res, true); return; }
+
+			doc.token = generate_token();
+			req.token = doc.token;
+			db.users.save(doc);
+
 			if (doc.admin)  { admin  (req, res); 	   return; }
 			if (!doc.admin) { client (req, res);       return; }
 		}
@@ -39,30 +44,30 @@ function process_login(req, res)
 function admin(req, res)
 {
 	res.status(200); res.setHeader('Content-Type', 'text/html');
-	res.end(HTML_admin_panel);
+	res.end(HTML_admin_panel.toString().replace('{{token}}', req.token));
 }
 function client(req, res)
 {
 	res.status(200); res.setHeader('Content-Type', 'text/html');
-	res.end(HTML_client_panel);
+	res.end(HTML_client_panel.toString().replace('{{token}}', req.token));
 }
 function error(req, res, err)
 {
 	res.status(500); res.setHeader('Content-Type', 'text/html');
 	res.end(HTML_error_page + ' ' + err);
 }
-function now() { return new Date().getTime(); }
-
+function generate_token() { var token_length = 20; var new_token = ''; var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; for(var t = 0; t < token_length; t++) new_token += possible.charAt(Math.floor(Math.random() * possible.length)); return new_token; }
+function now() 			  { return new Date().getTime(); }
 
 db.users.remove();
 db.projects.remove();
 db.log.remove();
 
 db.users.ensureIndex({email:1});
-
+db.users.ensureIndex({token:1});
 
 db.users.save({email: 'abs@mbs.com', password: 'foobar', admin:1});
-db.users.save({email: 'c@mbs.com', password: 'foobar', admin:0});
+db.users.save({email: 'c@mbs.com',   password: 'foobar', admin:0});
 
 app.listen(port);
 console.log('msbweb serving: ' + port);
