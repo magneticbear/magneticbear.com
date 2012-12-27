@@ -64,7 +64,7 @@ function admin(req, res)
 						project_html += '<a href="/admin/delete_project/' + projects[p].url + '/' + usr.token +'">Delete</a><br>';
 					}
 					res.status(200); res.setHeader('Content-Type', 'text/html');
-					res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace('{{token}}', 'token: ' + usr.token).replace('{{projects}}', project_html));
+					res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', project_html));
 				}
 			);		
 		}
@@ -77,7 +77,7 @@ function client(req, res)
 		{
 			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
-			res.end(HTML_client_panel.toString().replace('{{token}}', 'token: ' + doc.token).replace('{{projects}}', projects));
+			res.end(HTML_client_panel.toString().replace(/\{\{token\}\}/g, doc.token).replace('{{projects}}', projects));
 		}
 	);
 }
@@ -104,7 +104,20 @@ function new_project(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-
+			db.projects.findOne({url: req.body.project_url},
+				function(err, doc)
+				{
+					if(err) { error (req, res, err);  									   return; }
+					if(doc) { error (req, res, 'A project already exists with that url.'); return; }
+					db.projects.save({url: req.body.project_url, filler: req.body.filler, users: ['abs@mbs.com']}, 
+						function(err)
+						{
+							if(err) { error (req, res, err); return; }
+							res.redirect('/admin/' + encodeURI('Successfully Created: ' + req.body.project_url) + '/' + usr.token);
+						}
+					);
+				}
+			);
 		}
 	);
 }

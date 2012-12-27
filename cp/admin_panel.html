@@ -2,4 +2,10 @@ admin_panel.html
 <br><br>
 {{projects}}
 <br><br>
+<form action="/admin/new_project/{{token}}" method="post">
+	Project Url: <input type="text" name="project_url">
+	Filler: 	 <input type="text" name="filler">
+	<input type="submit" value="Create New Project">
+</form>
+<br><br>
 {{token}}
