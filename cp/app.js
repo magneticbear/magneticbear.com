@@ -22,7 +22,7 @@ app.get ('/admin/:extra/:token',         admin          );
 app.get ('/client/:token',           	 client         );
 app.get ('/project/:project/:token', 	 project 	    );
 app.post('/admin/new_project/:token', 	 new_project    );
-app.post('/admin/delete_project/:token', delete_project );
+app.get ('/admin/delete_project/:project_url/:token', delete_project );
 app.post('/admin/new_user/:token', 		 new_user		);
 app.post('/admin/delete_user/:token',    delete_user	);
 app.post('/admin/modify_user/:token',    modify_user	);
@@ -53,7 +53,12 @@ function admin(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-			var projects = ''; for(var p = 0; p < usr.projects.length; p++) projects += '<a href="/project/' + usr.projects[p] + '/' + usr.token + '">' + usr.projects[p] + '</a><br>';
+			var projects = ''; 
+			for(var p = 0; p < usr.projects.length; p++) 
+			{	
+				projects += '<a href="/project/' + usr.projects[p] + '/' + usr.token + '">' + usr.projects[p] + '</a>';
+				projects += '<a href="/admin/delete_project/' + usr.projects[p] + '/' + usr.token +'">Delete</a><br>';
+			}
 			res.status(200); res.setHeader('Content-Type', 'text/html');
 			res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace('{{token}}', 'token: ' + usr.token).replace('{{projects}}', projects));
 		}
@@ -102,16 +107,40 @@ function delete_project(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-			db.projects.findOne({url: req.body.project_url},
+			db.projects.findOne({url: req.params.project_url},
 				function(err, doc)
 				{
 					if(err)  { error (req, res, err);  													return; }
 					if(!doc) { error (req, res, 'Attempted to delete a project that does not exist.');  return; }
-					db.projects.remove({url: req.body.project_url}, 
+					db.projects.remove({url: req.params.project_url}, 
 						function(err)
 						{
-							if(err)  { error (req, res, err); return; }
-							res.redirect('/admin/' + encodeURI('Successfully Deleted: ' + req.body.project_url) + '/' + usr.token);
+							if(err) { error (req, res, err); return; }
+							db.users.find({},
+								function(err, users)
+								{
+									if(err) { error (req, res, err); return; }
+									for(var u = 0; u < users.length; u++)
+									{
+										for(var p = 0; p < users[u].projects.length; p++)
+										{
+											if(users[u].projects[p] === req.params.project_url)
+											{
+												users[u].projects = users[u].projects.splice(p, 1);
+												console.log('dropped ' + req.params.project_url + ' from ' + users[u].email);
+												break;
+											}
+										}
+									}
+									db.users.save(users, 
+										function(err)
+										{
+											if (err) { error (req, res, err); return; } 
+											res.redirect('/admin/' + encodeURI('Successfully Deleted: ' + req.params.project_url) + '/' + usr.token);
+										}
+									);
+								}
+							);
 						}
 					);
 				}
@@ -188,10 +217,11 @@ db.log.remove();
 db.users.ensureIndex({email:1});
 db.users.ensureIndex({token:1});
 
-db.users.save({email: 'abs@mbs.com', password: 'foobar', admin:1, projects: ['idelete', 'scala1']});
-db.users.save({email: 'c@mbs.com',   password: 'foobar', admin:0, projects: ['idelete']});
+db.users.save({email: 'abs@mbs.com', password: 'foobar', admin:1});
+db.users.save({email: 'c@mbs.com',   password: 'foobar', admin:0});
 
-db.projects.save({url: 'idelete', filler: 'LOREM IPSUM ISENDSUM IDELETESUM'});
+db.projects.save({url: 'idelete', filler: 'LOREM IPSUM ISENDSUM IDELETESUM', users: ['abs@mbs.com', 'c@mbs.com']});
+db.projects.save({url: 'scala1',  filler: 'LOREM IPSUM SCALUM ONEUM' , 		 users: ['abs@mbs.com'			   ]});
 
 app.listen(port);
 console.log('msbweb serving: ' + port);
