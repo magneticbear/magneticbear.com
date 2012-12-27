@@ -101,7 +101,13 @@ function delete_project(req, res)
 	authorize_admin(req, res, 
 		function(req, res, doc)
 		{
-			
+			db.projects.findOne({url: req.body.project_url},
+				function(err, doc)
+				{
+					if(err)  { error (req, res, err);  													return; }
+					if(!doc) { error (req, res, 'Attempted to delete a project that does not exist.');  return; }
+				}
+			);
 		}
 	);
 }
@@ -176,6 +182,8 @@ db.users.ensureIndex({token:1});
 
 db.users.save({email: 'abs@mbs.com', password: 'foobar', admin:1, projects: ['idelete', 'scala1']});
 db.users.save({email: 'c@mbs.com',   password: 'foobar', admin:0, projects: ['idelete']});
+
+db.projects.save({url: 'idelete', filler: 'LOREM IPSUM ISENDSUM IDELETESUM'});
 
 app.listen(port);
 console.log('msbweb serving: ' + port);
