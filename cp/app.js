@@ -1,4 +1,4 @@
-var port	 = process.env.PORT || 80;
+var ort	 = process.env.PORT || 80;
 var fs		 = require('fs');
 var db_url	 = process.env.MONGOHQ_URL || 'mbsweb';
 var db		 = require('mongojs').connect(db_url, ['users', 'projects', 'log']);
@@ -84,6 +84,51 @@ function project(req, res)
 				}
 			}
 			error(req, res, 'Project was not found, or you do not have access to this project if it exists.'); return;
+		}
+	);
+}
+function new_project(req, res)
+{
+	authorize_admin(req, res, 
+		function(req, res, doc)
+		{
+
+		}
+	);
+}
+function delete_project(req, res)
+{
+	authorize_admin(req, res, 
+		function(req, res, doc)
+		{
+			
+		}
+	);
+}
+function new_user(req, res)
+{
+	authorize_admin(req, res, 
+		function(req, res, doc)
+		{
+			
+		}
+	);
+}
+function delete_user(req, res)
+{
+	authorize_admin(req, res, 
+		function(req, res, doc)
+		{
+			
+		}
+	);
+}
+function modify_user(req, res)
+{
+	authorize_admin(req, res, 
+		function(req, res, doc)
+		{
+			
 		}
 	);
 }
