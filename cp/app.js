@@ -14,12 +14,17 @@ var HTML_client_panel = fs.readFileSync('client_panel.html');
 var HTML_project_page = fs.readFileSync('project_page.html');
 var HTML_error_page   = fs.readFileSync('error_page.html'  );
 
-app.get ('/', 	  		   			 login 	 	   );
-app.get ('/login', 		   		     login 		   );
-app.post('/process_login', 			 process_login );
-app.get ('/admin/:token',            admin 		   );
-app.get ('/client/:token',           client        );
-app.get ('/project/:project/:token', project 	   );
+app.get ('/', 	  		   			 	 login 	 	    );
+app.get ('/login', 		   		     	 login 		    );
+app.post('/process_login', 			 	 process_login  );
+app.get ('/admin/:token',            	 admin 		    );
+app.get ('/client/:token',           	 client         );
+app.get ('/project/:project/:token', 	 project 	    );
+app.post('/admin/new_project/:token', 	 new_project    );
+app.post('/admin/delete_project/:token', delete_project );
+app.post('/admin/new_user/:token', 		 new_user		);
+app.post('/admin/delete_user/:token',    delete_user	);
+app.post('/admin/modify_user/:token',    modify_user	);
 
 function login(req, res, failed)
 {
@@ -44,12 +49,9 @@ function process_login(req, res)
 }
 function admin(req, res)
 {
-	db.users.findOne({token: req.params.token}, 
-		function(err, doc)
+	authorize_admin(req, res, 
+		function(req, res, doc)
 		{
-			if (err)  	    { error  (req, res, err);  return; }
-			if (!doc) 	    { login  (req, res, true); return; }
-
 			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
 			res.end(HTML_admin_panel.toString().replace('{{token}}', 'token: ' + doc.token).replace('{{projects}}', projects));
@@ -58,12 +60,9 @@ function admin(req, res)
 }
 function client(req, res)
 {
-	db.users.findOne({token: req.params.token}, 
-		function(err, doc)
+	authorize_client(req, res,
+		function(req, res, doc)
 		{
-			if (err)  	    { error  (req, res, err);  return; }
-			if (!doc) 	    { login  (req, res, true); return; }
-
 			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
 			res.end(HTML_client_panel.toString().replace('{{token}}', 'token: ' + doc.token).replace('{{projects}}', projects));
@@ -72,12 +71,9 @@ function client(req, res)
 }
 function project(req, res)
 {
-	db.users.findOne({token: req.params.token}, 
-		function(err, doc)
+	authorize_client(req, res,
+		function(req, res, doc)
 		{
-			if (err)  { error  (req, res, err);  return; }
-			if (!doc) { login  (req, res, true); return; }
-
 			for(var p = 0; p < doc.projects.length; p++)
 			{
 				if(req.params.project === doc.projects[p])
@@ -90,6 +86,33 @@ function project(req, res)
 			error(req, res, 'Project was not found, or you do not have access to this project if it exists.'); return;
 		}
 	);
+}
+function authorize_admin(req, res, callback)
+{
+	db.users.findOne({token: req.params.token}, 
+		function(err, doc)
+		{
+			if (err)  	    { error  	 (req, res, err);  return; }
+			if (!doc) 	    { login  	 (req, res, true); return; }
+			if (!doc.admin) { bad_access (req, res);       return; }
+			if (doc.admin)  { callback	 (req, res, doc);  return; }
+		}
+	);
+}
+function authorize_client(req, res, callback)
+{
+	db.users.findOne({token: req.params.token}, 
+		function(err, doc)
+		{
+			if (err)  { error  	 (req, res, err);  return; }
+			if (!doc) { login  	 (req, res, true); return; }
+			if (doc)  { callback (req, res, doc);  return; }
+		}
+	);
+}
+function bad_access(req, res)
+{
+	error(req, res, 'Page does not exist, or you do not have the authorization to view it.');
 }
 function error(req, res, err)
 {
