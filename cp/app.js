@@ -24,7 +24,7 @@ app.get ('/project/:project/:token', 	 			  project 	     );
 app.post('/admin/new_project/:token', 	 			  new_project    );
 app.get ('/admin/delete_project/:project_url/:token', delete_project );
 app.post('/admin/new_user/:token', 		 			  new_user		 );
-app.post('/admin/delete_user/:token',    			  delete_user	 );
+app.get ('/admin/delete_user/:email/:token',    	  delete_user	 );
 app.post('/admin/modify_user/:token',    			  modify_user	 );
 
 function login(req, res, failed)
@@ -58,15 +58,26 @@ function admin(req, res)
 			db.projects.find({},
 				function(err, projects)
 				{
-					if (err) { error  (req, res, err);  return; }
+					if (err) { error (req, res, err); return; }
 					var project_html = ''; 
 					for(var p = 0; p < projects.length; p++) 
 					{	
 						project_html += '<a href="/project/' + projects[p].url + '/' + usr.token + '">' + projects[p].url + '</a>';
 						project_html += ' <a href="/admin/delete_project/' + projects[p].url + '/' + usr.token +'">Delete</a><br>';
 					}
-					res.status(200); res.setHeader('Content-Type', 'text/html');
-					res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', project_html));
+					db.users.find({},
+						function(err, usrs)
+						{
+							if (err) { error (req, res, err); return; }
+							var users_html = '';
+							for(var u = 0; u < usrs.length; u++)
+							{
+								users_html += '<a href="/admin/delete_user/' + usrs[u].email + '/' + usr.token + '">Delete ' + usrs[u].email + '</a><br>';
+							}
+							res.status(200); res.setHeader('Content-Type', 'text/html');
+							res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', project_html).replace('{{users}}', users_html));
+						}
+					);
 				}
 			);		
 		}
@@ -172,17 +183,17 @@ function delete_user(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-			db.users.findOne({email: req.body.email},
+			db.users.findOne({email: req.params.email},
 				function(err, doc)
 				{
 					if(err)  { error (req, res, err);  											    return; }
 					if(!doc) { error (req, res, 'Attempted to delete a user that does not exist.'); return; }
 					
-					db.users.remove({email: req.body.email},
+					db.users.remove({email: req.params.email},
 						function(err)
 						{
 							if(err) { error (req, res, err); return; }
-							res.redirect('/admin/' + encodeURI('Successfully Deleted User: ' + req.body.email) + '/' + usr.token);
+							res.redirect('/admin/' + encodeURI('Successfully Deleted User: ' + req.params.email) + '/' + usr.token);
 						}
 					);
 				}
