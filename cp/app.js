@@ -151,7 +151,16 @@ function new_user(req, res)
 			db.users.findOne({email: req.body.email},
 				function(err, doc)
 				{
-
+					if(err) { error (req, res, err);  													    return; }
+					if(doc) { error (req, res, 'Attempted to create a user with an email already in use.'); return; }
+					console.log(req.body.admin);
+					db.users.save({email: req.body.email, admin: (req.body.admin === 'on' ? 1 : 0)}, 
+						function(err)
+						{
+							if(err) { error (req, res, err); return; }
+							res.redirect('/admin/' + encodeURI('Successfully Added: ' + req.body.email + (req.body.admin === 'on' ? ' (with administrator priviledges)' : ' ') + '<br>When they first attempt to login, the password they enter will become the password for their account.') + '/' + usr.token);
+						}
+					);
 				}
 			);
 		}

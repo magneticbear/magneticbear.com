@@ -1,11 +1,21 @@
 admin_panel.html
 <br><br>
+<b>ALL PROJECTS</b>
 {{projects}}
 <br><br>
+<b>NEW PROJECT</b>
 <form action="/admin/new_project/{{token}}" method="post">
 	Project Url: <input type="text" name="project_url">
 	Filler: 	 <input type="text" name="filler">
 	<input type="submit" value="Create New Project">
 </form>
 <br><br>
+<b>NEW USER</b>
+<form action="/admin/new_user/{{token}}" method="post">
+	Email: <input type="text" name="email">
+	Admin: <input type="checkbox" name="admin">
+	<input type="submit" value="Add New User">
+</form>
+<br><br>
+<b>TOKEN</b>
 {{token}}
