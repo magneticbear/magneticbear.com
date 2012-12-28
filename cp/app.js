@@ -14,18 +14,18 @@ var HTML_client_panel = fs.readFileSync('client_panel.html');
 var HTML_project_page = fs.readFileSync('project_page.html');
 var HTML_error_page   = fs.readFileSync('error_page.html'  );
 
-app.get ('/', 	  		   			 	 login 	 	    );
-app.get ('/login', 		   		     	 login 		    );
-app.post('/process_login', 			 	 process_login  );
-app.get ('/admin/:token',            	 admin 		    );
-app.get ('/admin/:extra/:token',         admin          );
-app.get ('/client/:token',           	 client         );
-app.get ('/project/:project/:token', 	 project 	    );
-app.post('/admin/new_project/:token', 	 new_project    );
+app.get ('/', 	  		   			 	 			  login 	 	 );
+app.get ('/login', 		   		     	 			  login 		 );
+app.post('/process_login', 			 	 			  process_login  );
+app.get ('/admin/:token',            	 			  admin 		 );
+app.get ('/admin/:extra/:token',         			  admin          );
+app.get ('/client/:token',           	 			  client         );
+app.get ('/project/:project/:token', 	 			  project 	     );
+app.post('/admin/new_project/:token', 	 			  new_project    );
 app.get ('/admin/delete_project/:project_url/:token', delete_project );
-app.post('/admin/new_user/:token', 		 new_user		);
-app.post('/admin/delete_user/:token',    delete_user	);
-app.post('/admin/modify_user/:token',    modify_user	);
+app.post('/admin/new_user/:token', 		 			  new_user		 );
+app.post('/admin/delete_user/:token',    			  delete_user	 );
+app.post('/admin/modify_user/:token',    			  modify_user	 );
 
 function login(req, res, failed)
 {
@@ -148,7 +148,12 @@ function new_user(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-			
+			db.users.findOne({email: req.body.email},
+				function(err, doc)
+				{
+
+				}
+			);
 		}
 	);
 }
