@@ -4,7 +4,7 @@ title: 'Senior Mobile Developer'
 nav: 'jobs'
 type: 'dev'
 author: 'mbs'
-description: 'Learn to clean your shotgun with nothing but coffee grounds and simple wizardry.'
+description: 'We’re seeking experienced mobile developers who love hacking, have real world experience, aren’t just “programmers” and are passionate. We are looking for developers who are highly effective communicators, embrace automated testing, respect the value of polished APIs and actively participate in the Open Source community.'
 ---
 <h2>We’re seeking experienced mobile developers who:</h2>
 <ul>
