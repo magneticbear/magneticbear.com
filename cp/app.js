@@ -25,7 +25,7 @@ app.post('/admin/new_project/:token', 	 			  new_project    );
 app.get ('/admin/delete_project/:project_url/:token', delete_project );
 app.post('/admin/new_user/:token', 		 			  new_user		 );
 app.get ('/admin/delete_user/:email/:token',    	  delete_user	 );
-app.post('/admin/modify_user/:token',    			  modify_user	 );
+app.get ('/admin/modify_user/:email/:action/:token',  modify_user	 );
 
 function login(req, res, failed)
 {
@@ -69,13 +69,18 @@ function admin(req, res)
 						function(err, usrs)
 						{
 							if (err) { error (req, res, err); return; }
-							var users_html = '';
+							var delete_users_html = '';
 							for(var u = 0; u < usrs.length; u++)
 							{
-								users_html += '<a href="/admin/delete_user/' + usrs[u].email + '/' + usr.token + '">Delete ' + usrs[u].email + '</a><br>';
+								delete_users_html += '<a href="/admin/delete_user/' + usrs[u].email + '/' + usr.token + '">Delete ' + usrs[u].email + '</a><br>';
 							}
 							res.status(200); res.setHeader('Content-Type', 'text/html');
-							res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', project_html).replace('{{users}}', users_html));
+							var modify_user_html = '';
+							for(var u = 0; u < usrs.length; u++)
+							{
+								modify_user_html += '<a href="/admin/modify_user/' + usrs[u].email + '/' + (usrs[u].admin ? 'notadmin' : 'admin') +  '/' + usr.token + '">' + (usrs[u].admin ? 'DEMOTE' : 'PROMOTE') + usrs[u].email + '</a><br>';
+							}
+							res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', project_html).replace('{{users}}', delete_users_html).replace('{{modify}}', modify_user_html));
 						}
 					);
 				}
@@ -206,7 +211,36 @@ function modify_user(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-			
+			db.users.findOne({email:req.params.email}, 
+				function(err, doc)
+				{
+					if(err)  { error (req, res, err);  											    return; }
+					if(!doc) { error (req, res, 'Attempted to modify a user that does not exist.'); return; }
+					
+					var verb = '';
+					switch(req.params.action)
+					{
+						case 'admin':
+							doc.admin 	  = 1;
+							verb = 'Gave';
+							break;
+						case 'notadmin':
+							doc.admin 	  = 0;
+							verb = 'Revoked';
+							break;
+						default:
+							error (req, res, 'Attempted to perform an invalid modify action on a user. You sick bastard.');
+							return;
+					}
+					db.users.save(doc, 
+						function(err)
+						{
+							if(err) { error (req, res, err); return; }
+							res.redirect('/admin/' + encodeURI('Successfully ' + verb + ' Administrator Priviledges to User: ' + req.params.email) + '/' + usr.token);
+						}
+					);
+				}
+			);
 		}
 	);
 }
