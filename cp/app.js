@@ -172,7 +172,21 @@ function delete_user(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
-			
+			db.users.findOne({email: req.body.email},
+				function(err, doc)
+				{
+					if(err)  { error (req, res, err);  											    return; }
+					if(!doc) { error (req, res, 'Attempted to delete a user that does not exist.'); return; }
+					
+					db.users.remove({email: req.body.email},
+						function(err)
+						{
+							if(err) { error (req, res, err); return; }
+							res.redirect('/admin/' + encodeURI('Successfully Deleted User: ' + req.body.email) + '/' + usr.token);
+						}
+					);
+				}
+			);
 		}
 	);
 }
