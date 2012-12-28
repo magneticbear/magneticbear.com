@@ -40,7 +40,7 @@ function process_login(req, res)
 			if (err)  	    { error  (req, res, err);  return; }
 			if (!doc) 	    { login  (req, res, true); return; }
 
-			if(!doc.password) console.log('new user !!!');
+			if(!doc.password) doc.password = req.body.password;
 
 			doc.token = generate_token();
 			db.users.save(doc);
@@ -63,7 +63,7 @@ function admin(req, res)
 					for(var p = 0; p < projects.length; p++) 
 					{	
 						project_html += '<a href="/project/' + projects[p].url + '/' + usr.token + '">' + projects[p].url + '</a>';
-						project_html += '<a href="/admin/delete_project/' + projects[p].url + '/' + usr.token +'">Delete</a><br>';
+						project_html += ' <a href="/admin/delete_project/' + projects[p].url + '/' + usr.token +'">Delete</a><br>';
 					}
 					res.status(200); res.setHeader('Content-Type', 'text/html');
 					res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', project_html));
@@ -77,9 +77,9 @@ function client(req, res)
 	authorize_client(req, res,
 		function(req, res, usr)
 		{
-			var projects = ''; for(var p = 0; p < doc.projects.length; p++) projects += '<a href="/project/' + doc.projects[p] + '/' + doc.token + '">' + doc.projects[p] + '</a><br>';
+			var projects = 'project placeholder... adrian fix this';
 			res.status(200); res.setHeader('Content-Type', 'text/html');
-			res.end(HTML_client_panel.toString().replace(/\{\{token\}\}/g, doc.token).replace('{{projects}}', projects));
+			res.end(HTML_client_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', projects));
 		}
 	);
 }
