@@ -34,11 +34,13 @@ function login(req, res, failed)
 }
 function process_login(req, res)
 {
-	db.users.findOne({email: req.body.email, password: req.body.password}, 
+	db.users.findOne({email: req.body.email, password: {$in: [req.body.password, '']}}, 
 		function (err, doc)
 		{
 			if (err)  	    { error  (req, res, err);  return; }
 			if (!doc) 	    { login  (req, res, true); return; }
+
+			if(!doc.password) console.log('new user !!!');
 
 			doc.token = generate_token();
 			db.users.save(doc);
@@ -153,8 +155,7 @@ function new_user(req, res)
 				{
 					if(err) { error (req, res, err);  													    return; }
 					if(doc) { error (req, res, 'Attempted to create a user with an email already in use.'); return; }
-					console.log(req.body.admin);
-					db.users.save({email: req.body.email, admin: (req.body.admin === 'on' ? 1 : 0)}, 
+					db.users.save({email: req.body.email, admin: (req.body.admin === 'on' ? 1 : 0), password: ''}, 
 						function(err)
 						{
 							if(err) { error (req, res, err); return; }
