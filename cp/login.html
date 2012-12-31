@@ -1,7 +1,20 @@
-login.html
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login | Client Portal</title>
+<link href="css/clients.css" rel="stylesheet" />
+</head>
+	<body>
+		<div class="login">
+			<h1>Client Portal</h1>
+			<form action="../../process_login" method="post">
+				<input type="text" name="email" placeholder="Email address">
+				<input type="password" name="password" placeholder="Password">
+				<button>Login</button>
+			</form>
+			<a href="#">forgot password</a>
 
-<form action="../../process_login" method="post">
-	Email: <input type="text" name="email">
-	Password: <input type="password" name="password">
-	<input type="submit" value="Login">
-</form>
+		</div>
+	</body>
+</html>

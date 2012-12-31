@@ -1,27 +1,46 @@
-admin_panel.html
-<br><br>
-<b>ALL PROJECTS</b>
-{{projects}}
-<br><br>
-<b>NEW PROJECT</b>
-<form action="/admin/new_project/{{token}}" method="post">
-	Project Url: <input type="text" name="project_url">
-	Filler: 	 <input type="text" name="filler">
-	<input type="submit" value="Create New Project">
-</form>
-<br><br>
-<b>NEW USER</b>
-<form action="/admin/new_user/{{token}}" method="post">
-	Email: <input type="text" name="email">
-	Admin: <input type="checkbox" name="admin">
-	<input type="submit" value="Add New User">
-</form>
-<br><br>
-<b>DELETE USER</b>
-{{users}}
-<br><br>
-<b>MODIFY USER</b>
-{{modify}}
-<br><br>
-<b>TOKEN</b>
-{{token}}
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel | Client Portal</title>
+<link href="css/clients.css" rel="stylesheet" />
+</head>
+	<body>
+	
+		<header>
+			<a href="index.html"><h1>Magnetic Bear Studio</h1></a>
+			<div class="tagline">
+				<h2>Beautifully<br>Crafted<br><span>APPS</span></h2>
+			</div>
+		</header>
+		
+		<div class="projects">
+			<div class="all-projects">
+				<h1>PROJECTS</h1>
+				{{projects}}
+			</div>
+		
+			<div>		
+				<h2>NEW PROJECT</h2>
+				<form action="/admin/new_project/{{token}}" method="post">
+					<input type="text" name="project_url" placeholder="Project name">
+					<section class="new-user">
+						<div>
+							<input style="display:inline;" type="text" name="email" placeholder="User Email Address">
+							<input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label>
+						</div>
+						
+						<div>
+							<input style="display:inline;" type="text" name="email" placeholder="User Email Address">
+							<input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label>
+						</div>
+						
+						<a href="#">add more users</a>
+					</section>
+					
+					<button>Add new project</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
