@@ -430,7 +430,7 @@ figure {
 }
 
 .iphone5 {
-	width: 180px;
+	max-width: 180px;
 	padding: 72px 30px 40px;
 	position: absolute;
 	right: 12%;
@@ -1234,20 +1234,33 @@ footer span {
 	}
 	
 	.iphone {
-		width: 75%;
-		padding: 31.25% 8.25% 35%; 
-		left: 4.25%;
+		width: 90px;
+		padding: 38px 10px 26px; 
+		left: auto;
+		right: 1em;
 	}
-	
-	.cca, .pr {
+
+	.iphone5 {
+		width: 90px;
+		padding: 33px 14px 26px; 
+		left: auto;
+		right: 1em;
+	}
+
+	.ipad {
+		bottom: -43%;
+	} 
+
+	.bg {
 		height: 180px;
 		margin-bottom: 4em;
 	}
 	
 	.android {
-		width: 70%;
-		padding: 37% 13.2% 93.2%; 
-		left: 2%;
+		width: 85px;
+		padding: 45px 16px 40px; 
+		left: auto;
+		right: 0.5em;
 	}
 	
 	.contact section a {
