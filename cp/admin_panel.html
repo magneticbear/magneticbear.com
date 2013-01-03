@@ -24,22 +24,18 @@
 				<h2>NEW PROJECT</h2>
 				<form action="/admin/new_project/{{token}}" method="post">
 					<input type="text" name="project_url" placeholder="Project name">
+					<input style="padding:0" type="file" name="project_img_url">
 					<section class="new-user">
 						<div>
 							<input style="display:inline;" type="text" name="email" placeholder="User Email Address">
 							<input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label>
 						</div>
 						
-						<div>
-							<input style="display:inline;" type="text" name="email" placeholder="User Email Address">
-							<input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label>
-						</div>
-						
-						<a href="#">add more users</a>
+						<a href="#" class="add">add more users</a>
 
 					</section>
 					
-					<button>Add new project</button>
+					<button>Add project</button>
 				</form>
 			</div>
 		</div>
@@ -49,5 +45,12 @@
 		<br><br>
 		{{modify}}
 		<br><br>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script>
+		 	$(".add").click(function() {
+			$('.add').before('<div><input style="display:inline;" type="text" name="email" placeholder="User Email Address"><input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label><a href="#" class="remove">Remove</a></div>');return false;
+			});
+		 </script>
+		
 	</body>
 </html>

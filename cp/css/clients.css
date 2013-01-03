@@ -233,17 +233,16 @@ form {
 }
 
 form input {
-	width: 100%;
 	display: block;
 	padding: 0.5em;
 	margin-bottom: 1em;
-	max-width: 16.5em;
+	width: 16em;
 }
 
 form button {
 	border: none;
 	background-color: #ABABAB;
-	width: 100%;
+	width: 17.6em;
 	padding: 0.5 em;
 	margin: 1em auto;
 	height: 3em;
@@ -297,6 +296,9 @@ form button {
 .new-user input {
 	width: 15.2em;
 	margin-bottom: 0;
+}
+.remove {
+	margin: 0.3em auto;
 }
 
 
