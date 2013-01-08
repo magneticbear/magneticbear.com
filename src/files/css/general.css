@@ -191,8 +191,7 @@ article h1 {
 
 article p, article ul {
 	font-size: 1em;
-	line-height: 2.5em;
-	margin-bottom: 1.8em;
+	line-height: 2em;
 	margin-left: 7.1em;
 }
 
@@ -490,6 +489,7 @@ figure h1 {
 
 .tags {
 	margin-left: 7.1em;
+	margin-bottom: 1.2em;
 }
 
 .tags li {
@@ -608,6 +608,8 @@ aside figcaption {
 	color: #666;
 	font-size: 0.8em;
 	margin-left:  8.8em;
+	padding-bottom: 1.5em;
+	display: block;
 }
 
 .lab section {
