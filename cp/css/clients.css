@@ -69,11 +69,8 @@ a {
 /* -----------------Header Begins--------------- */
 
 header {
-	width: 100%;
-	max-width:1200px;
 	position: fixed;
 	padding-top: 8em;
-	background-color: rgba(255,255,255,0.9);
 	z-index: 5555;
 	top: 0;
 }
@@ -123,17 +120,29 @@ h1, h2 {
 	height: 100%;
 	background-color: #F4F4F4;
 	margin: 0 auto;
-	padding: 0 0 5%;
+	padding: 15% 0 5%;
 }
 
 article {
 	background: #FFF;
 	border-top: 4px solid #D4D4D4;
-	width: 94%;
-	margin: 10% 3% 0em;
+	width: 47%;
+	margin: 8% auto 0;
 	padding: 0.5em 0 0;
 	position: relative;
 	overflow: hidden;
+	clear: both;
+}
+
+.float {
+	float: left;
+	margin-left: 1.85%;
+	margin-bottom: 5em;
+	clear: none;
+}
+
+.stage {
+	cursor: pointer;
 }
 
 article h1 {
@@ -144,10 +153,22 @@ article h1 {
 article h2 {
 	text-align: center;
 	color: #575757;
+	margin: 0 auto 1.5em;
 }
 
 .stage {
 	display: block;
+}
+
+.extra .compeletion {
+	margin: 1.5em auto;
+	height: 2.5em;
+	border-bottom: 1px solid #CCC;
+}
+
+.compeletion input {
+	width: 98.5%;
+	padding: 0;
 }
 
 .icon {
@@ -165,7 +186,6 @@ article h2 {
 	background-color: #ec1d78;
 	display: block;
 	width: 150px;
-	height: 10px;
 	position: absolute;
 	bottom: 0;
 	}
@@ -184,27 +204,59 @@ article h2 {
 	overflow: hidden;
 }
 
-textarea {
-	font-size: 1em;
-	width: 80%;
-	border: 1px solid #C0C0C0;
-	margin: 2em 0 2em 10%;
-	padding: 1em;
+.extra form{
+	width: 100%;
+	max-width: inherit;
+	margin-bottom: 6em;
+}
 
+.extra form textarea {
+	font-size: 1em;
+	border: 1px solid #C0C0C0;
+	width: 93.5%;
+	margin: 2em auto 0;
+	padding: 0.7em;
+}
+
+.extra form button {
+	margin-top: 1em;
+	float: right;
+	width: 30%;
+	font-weight: bold;
 }
 
 .extra ul {
-	margin-left: 10%;
+	border-top: 1px solid #CCC; 
+	padding-top: 1em;
+}
+
+.extra ul h3 {
+	font-size: 12px;
+	margin: -2em 0;
+	padding-right: 0.5em;
+	float: left;
+	color: #666;
+	background-color: #F0F0F0;
 }
 
 .extra li {
 	list-style-type: none;
 	margin-bottom: 1em;
+	padding-bottom: 1em;
+	border-bottom: 1px solid #CCC; 
+
 }
 
 .extra cite {
 	font-style: normal;
 	font-weight: bold;
+}
+
+.extra time {
+	margin-top: 0.5em;
+	display: block;
+	font-size: 10px;
+	color:#999;
 }
 
 
@@ -333,7 +385,7 @@ form button {
 
 footer {
 	width: 100%;
-	max-width: 1200px;
+	max-width: 300px;
 	margin: 0 20px;
 	padding: 8px 0 24px;
 	font-size: 11px;
@@ -363,87 +415,6 @@ footer span {
 
 /* --Footer Ends-- */
 
-/* -----------------Social Media Begins--------------- */
-
-.social {
-	height: 2.3em;
-	font-size: 12px;
-	letter-spacing: 0.2em;
-	position: absolute;
-	top: 8px;
-	right: 40px;
-}
-
-.social ul {
-	padding: 0;
-	margin: 0;
-}
-
-.social li {
-	width: 26px;
-	height: 26px;
-	display: inline-block;
-	overflow: hidden;
-	list-style-type: none;
-	float: right;
-	margin-right: 4px;
-	position: relative;
-	-webkit-transition: all ease-in-out 400ms;
-}
-
-.social li:nth-child(4):hover {
-		width: 12em;
-}
-
-.social li:nth-child(3):hover {
-		width: 11em;
-}
-
-.social li:nth-child(2):hover {
-		width: 11em;
-}
-
-.social li:nth-child(1):hover {
-		width: 17.2em;
-}
-
-.social a {
-	font-size: 1em;
-	padding: 0.4em;
-	padding-left: 2.2em;
-	background-color: #D4D4D4;
-	display: inline-block;
-	color: #fff;
-}
-
-.social li:nth-child(4) a:hover {
-	width: 12em;
-	background-color: #28aae1;
-}
-
-.social li:nth-child(3) a:hover {
-	width: 11em;
-	background-color: #ea4c89;
-}
-
-.social li:nth-child(2) a:hover {
-	width: 11em;
-	background-color: #666;
-}
-
-.social li:nth-child(1) a:hover {
-	width: 17em;
-	background-color: #fbb03b;
-}
-
-.social img {
-	position: absolute;
-	width: 24px;
-	left: 0;
-	top: 1px;
-}
-
-/* --Social Media Ends-- */
 
 @media screen and (max-width:850px) {
 	
