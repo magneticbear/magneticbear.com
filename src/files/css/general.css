@@ -250,7 +250,7 @@ section a {
 /* -----------------Home Begins--------------- */
 
 .pr {
-	background: transparent url(/images/home-banner/bg.png) no-repeat;
+	background: transparent url(/images/home-banner/bg.jpg) no-repeat;
 }
 
 .process {
@@ -281,15 +281,17 @@ section a {
 	width: 30%;
 	color: #fff;
 	min-width: 100px;
-	padding: 0.8em;
+	padding: 1.1em 0.8em;
 	background-color: #EC1D78;
 	text-align: center;
 	margin: 2em auto;
 	display: block;
+	border-radius: 4px;
+
 }
 
 .home a:hover {
-	text-decoration: underline;
+	text-decoration: none;
 	color: #fff;
 }
 
@@ -363,6 +365,8 @@ section a {
 
 .home section .read-more a {
 	padding-left: 0.5em;
+	border-radius: 0;
+
 }
 
 .home section cite, .home section time {
