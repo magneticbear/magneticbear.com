@@ -23,11 +23,11 @@
 			<div>		
 				<h2>NEW PROJECT</h2>
 				<form action="/admin/new_project/{{token}}" method="post">
-					<input type="text" name="project_url" placeholder="Project name (needs validation)">
+					<input type="text" name="project_url" placeholder="Project name" required >
 					<input style="padding:0" type="file" name="project_img_url">
 					<section class="new-user">
 						<div class="entry">
-							<input style="display:inline;" type="text" name="email" placeholder="User Email Address (needs validation)">
+							<input style="display:inline;" type="email" name="email" placeholder="User Email Address">
 							<input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label>
 						</div>
 						<a href="#" class="add">Add more users</a>
@@ -47,7 +47,7 @@
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 		<script>
 		 	$(".add").click(function() {
-			$('.add').before('<div class="entry"><input style="display:inline;" type="text" name="email" placeholder="User Email Address"><input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label></div>');		
+			$('.add').before('<div class="entry"><input style="display:inline;" type="email" name="email" placeholder="User Email Address"><input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label></div>');		
 			return false;
 			});
 			
