@@ -23,11 +23,11 @@
 			<div>		
 				<h2>NEW PROJECT</h2>
 				<form action="/admin/new_project/{{token}}" method="post">
-					<input type="text" name="project_url" placeholder="Project name">
+					<input type="text" name="project_url" placeholder="Project name (needs validation)">
 					<input style="padding:0" type="file" name="project_img_url">
 					<section class="new-user">
 						<div class="entry">
-							<input style="display:inline;" type="text" name="email" placeholder="User Email Address">
+							<input style="display:inline;" type="text" name="email" placeholder="User Email Address (needs validation)">
 							<input style="display:inline; width: auto;" type="checkbox" name="admin"><label>Admin</label>
 						</div>
 						<a href="#" class="add">Add more users</a>
