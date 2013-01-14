@@ -14,18 +14,18 @@ var HTML_client_panel = fs.readFileSync('client_panel.html');
 var HTML_project_page = fs.readFileSync('project_page.html');
 var HTML_error_page   = fs.readFileSync('error_page.html'  );
 
-app.get ('/', 	  		   			 	 			  login 	 	 );
-app.get ('/login', 		   		     	 			  login 		 );
-app.post('/process_login', 			 	 			  process_login  );
-app.get ('/admin/:token',            	 			  admin 		 );
-app.get ('/admin/:extra/:token',         			  admin          );
-app.get ('/client/:token',           	 			  client         );
-app.get ('/project/:project/:token', 	 			  project 	     );
-app.post('/admin/new_project/:token', 	 			  new_project    );
-app.get ('/admin/delete_project/:project_url/:token', delete_project );
-app.post('/admin/new_user/:token', 		 			  new_user		 );
-app.get ('/admin/delete_user/:email/:token',    	  delete_user	 );
-app.get ('/admin/modify_user/:email/:action/:token',  modify_user	 );
+app.get ('/', 	  		   			 	 			  login 	 	);
+app.get ('/login', 		   		     	 			  login 		);
+app.post('/process_login', 			 	 			  process_login );
+app.get ('/admin/:token',            	 			  admin 		);
+app.get ('/admin/:extra/:token',         			  admin         );
+app.get ('/client/:token',           	 			  client        );
+app.get ('/project/:project/:token', 	 			  project 	    );
+app.post('/admin/new_project/:token', 	 			  new_project   );
+app.get ('/admin/delete_project/:project_url/:token', delete_project);
+app.post('/admin/new_user/:token', 		 			  new_user		);
+app.get ('/admin/delete_user/:email/:token',    	  delete_user	);
+app.get ('/admin/modify_user/:email/:action/:token',  modify_user	);
 
 function login(req, res, failed)
 {
@@ -278,6 +278,19 @@ function error(req, res, err)
 }
 function generate_token() { var token_length = 20; var new_token = ''; var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'; for(var t = 0; t < token_length; t++) new_token += possible.charAt(Math.floor(Math.random() * possible.length)); return new_token; }
 function now() 			  { return new Date().getTime(); }
+
+function validate_email(email)
+{
+	if(!email) return false;
+	var r = /^(([^<>()[\]\\.,;:\s@\']+(\.[^<>()[\]\\.,;:\s@\']+)*)|(\'.+\'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return r.test(email);
+}
+function validate_project_url(project_url)
+{
+	var v = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+	for(var u = 0; u < project_url.length; u++) if(v.indexOf(project_url[u]) < 0) return false;
+	return true;
+}
 
 db.users.remove();
 db.projects.remove();
