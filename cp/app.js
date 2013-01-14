@@ -69,17 +69,12 @@ function admin(req, res)
 						function(err, usrs)
 						{
 							if (err) { error (req, res, err); return; }
-							var delete_users_html = '';
-							for(var u = 0; u < usrs.length; u++)
-							{
-								delete_users_html += '<a href="/admin/delete_user/' + usrs[u].email + '/' + usr.token + '">Delete ' + usrs[u].email + '</a><br>';
-							}
+
 							res.status(200); res.setHeader('Content-Type', 'text/html');
-							var modify_user_html = '';
-							for(var u = 0; u < usrs.length; u++)
-							{
-								modify_user_html += '<a href="/admin/modify_user/' + usrs[u].email + '/' + (usrs[u].admin ? 'notadmin' : 'admin') +  '/' + usr.token + '">' + (usrs[u].admin ? 'DEMOTE' : 'PROMOTE') + usrs[u].email + '</a><br>';
-							}
+							var delete_users_html = '';
+							var modify_user_html  = '';
+							for(var u = 0; u < usrs.length; u++) delete_users_html += '<a href="/admin/delete_user/' + usrs[u].email + '/' + usr.token + '">Delete ' + usrs[u].email + '</a><br>';
+							for(var u = 0; u < usrs.length; u++) modify_user_html  += '<a href="/admin/modify_user/' + usrs[u].email + '/' + (usrs[u].admin ? 'notadmin' : 'admin') +  '/' + usr.token + '">' + (usrs[u].admin ? 'DEMOTE' : 'PROMOTE') + usrs[u].email + '</a><br>';
 							res.end((req.params.extra ? req.params.extra + '<br><br>' : '') + HTML_admin_panel.toString().replace(/\{\{token\}\}/g, usr.token).replace('{{projects}}', project_html).replace('{{users}}', delete_users_html).replace('{{modify}}', modify_user_html));
 						}
 					);
@@ -122,6 +117,8 @@ function new_project(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
+			if(!validate_project_url(req.body.project_url)) { error (req, res, 'Attempted to create a project with an invalid project name.'); return; }
+
 			db.projects.findOne({url: req.body.project_url},
 				function(err, doc)
 				{
@@ -144,6 +141,8 @@ function delete_project(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
+			if(!validate_project_url(req.params.project_url)) { error (req, res, 'Attempted to delete a project with an invalid project name.'); return; }
+
 			db.projects.findOne({url: req.params.project_url},
 				function(err, doc)
 				{
@@ -166,6 +165,8 @@ function new_user(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
+			if(!validate_email(req.body.email)) { error (req, res, 'Attempted to create a user with an invalid email address.'); return; }
+
 			db.users.findOne({email: req.body.email},
 				function(err, doc)
 				{
@@ -188,6 +189,8 @@ function delete_user(req, res)
 	authorize_admin(req, res, 
 		function(req, res, usr)
 		{
+			if(!validate_email(req.params.email)) { error (req, res, 'Attempted to delete a user with an invalid email address.'); return; }
+
 			db.users.findOne({email: req.params.email},
 				function(err, doc)
 				{
@@ -198,6 +201,9 @@ function delete_user(req, res)
 						function(err)
 						{
 							if(err) { error (req, res, err); return; }
+
+							// user also needs to be removed from all projects in which user is contained...
+
 							res.redirect('/admin/' + encodeURI('Successfully Deleted User: ' + req.params.email) + '/' + usr.token);
 						}
 					);
@@ -221,15 +227,15 @@ function modify_user(req, res)
 					switch(req.params.action)
 					{
 						case 'admin':
-							doc.admin 	  = 1;
+							doc.admin = 1;
 							verb = 'Gave';
 							break;
 						case 'notadmin':
-							doc.admin 	  = 0;
+							doc.admin = 0;
 							verb = 'Revoked';
 							break;
 						default:
-							error (req, res, 'Attempted to perform an invalid modify action on a user. You sick bastard.');
+							error (req, res, 'Attempted to perform an invalid modify action on a user.');
 							return;
 					}
 					db.users.save(doc, 
@@ -287,6 +293,8 @@ function validate_email(email)
 }
 function validate_project_url(project_url)
 {
+	if (!project_url) 			return false;
+	if (project_url.length < 1) return false;
 	var v = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 	for(var u = 0; u < project_url.length; u++) if(v.indexOf(project_url[u]) < 0) return false;
 	return true;
