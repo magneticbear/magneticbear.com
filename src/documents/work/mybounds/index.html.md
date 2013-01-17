@@ -8,4 +8,5 @@ quote: ""
 quote_cite: ''
 device: 'android'
 ---
-Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+<p>myBounds is an interactive app that tracks usage for Android devices. This Android app tracks your talk, text, and data usage. Users can view their usage as a chart, create, edit and customize their plans and even add other members so they can keep track of their usage as well. When the user is about to go over their limit, a warning will be shown indicating them of this action.</p>
+<p>This app is now available on the Google Play. For more info, please check out <a href="http://www.vontiva.com" target="_blank">vontiva.com</a>.</p>

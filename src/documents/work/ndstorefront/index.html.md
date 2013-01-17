@@ -8,4 +8,5 @@ quote: ""
 quote_cite: ''
 device: 'ipad'
 ---
-Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+<p>NDStorefront is an iOS shopping app that allows neuropathic doctors to set up their own shop. Users can then sell products such as supplements and other natural health products to their patients and have them delivered. NDStorefront makes it as easy as possible for neuropathic doctors to manage their inventory.<p>
+<p>NDStorefront has been nominated for the best shopping app and is now available on the app store. For more info, please check out <a href="http://www.healthwave.co" target="_blank">Healthwave.co</a>.<p>

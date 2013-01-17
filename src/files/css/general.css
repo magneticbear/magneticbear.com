@@ -200,8 +200,9 @@ article li {
 }
 
 article a {
-	color: #333;
+	color: #999;
 }
+
 
 .jobs article a, .lab article a {
 	text-decoration: underline;
@@ -332,7 +333,7 @@ section a {
 .home section li {
 	list-style-type: none;
 	width: 32%;
-	height: 15em;
+	height: 16em;
 	margin: 0;
 	float: left;
 	padding-bottom: 1em;
@@ -737,6 +738,11 @@ cite img, .lab cite img {
 	position: relative;
 }
 
+.team article a {
+	color: #333;
+
+}
+
 .team article p {
 	margin-left: 0;
 }
@@ -1102,6 +1108,7 @@ footer span {
 	
 	article {
 		padding: 4%;
+		margin-bottom:  20px;
 	}
 
 	article ul, .tags, article h2, .lab article time {

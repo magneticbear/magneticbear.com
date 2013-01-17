@@ -55,10 +55,10 @@ nav: 'home'
 					var quotes = [];
 					<% for post in @getFilesAtPath("work").toJSON(): %>
 						<% if post.quote: %>
-							quotes.push({body: '<%= post.quote %>', cite: '<%= post.quote_cite %>', url: '<%= post.dir %>'});
+							quotes.push({body: "<%= post.quote %>", cite: "<%= post.quote_cite %>", url: '<%= post.dir %>'});
+						
 						<% end %>
 					<% end %>
-
 					var random_quote_index = Math.floor(Math.random() * quotes.length);
 					document.write('<blockquote>' + quotes[random_quote_index].body + '<cite>' + quotes[random_quote_index].cite + '</cite></blockquote>');
 					document.write('<div class="fade"></div>');

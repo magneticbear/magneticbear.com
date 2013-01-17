@@ -8,4 +8,5 @@ quote: "JP and Magnetic Bear are true professionals and bring a level of enthusi
 quote_cite: '- Peter Lalonde, CEO at Openera'
 device: 'iphone black'
 ---
-Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+<p>Openera is an iOS app that automatically saves, organizes, and backs up files and attachments. It allows users to link multiple cloud accounts together, search for certain files, and create rules for easy access. Openera has recently raised over $250K as a part of Founder Fuel program and has been featured multiple times in Technolhy blogs and magazine such as Tech Crunch.</p>
+<p>This app is now available on app store. For more info, please visit <a href="http://www.openera.com" target="_blank">Openera.com</a>.</p>

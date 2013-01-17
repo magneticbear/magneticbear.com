@@ -8,4 +8,5 @@ quote: ''
 quote_cite: ''
 device: 'ipad'
 ---
-Not Well, the way they make shows is, they make one show. That show's called a pilot. Then they show that show to the people who make shows, and on the strength of that one show they decide if they're going to make more shows. Some pilots get picked and become television programs. Some don't, become nothing. She starred in one of the ones that became nothing.
+<p>CCA is an iPad app that contains rich media for all your curling needs. This app allows you to receive live news updates, follow the live  events, browse through the photo and video gallery, locate clubs and so much more. It also features both live events and archived events that include news, score, game stats and team standings.</p>
+<p>This app is now available on the app store. For more info, check out <a href="http://www.curling.ca" target="_blank">curling.ca</a>.</p>
