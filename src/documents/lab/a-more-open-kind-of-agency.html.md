@@ -9,9 +9,9 @@ description: "<p>How MBS is leading the way to creating a new type of agency a f
 
 <p>Since we started Magnetic Bear Studios about a year and a half ago, one of our core values was being as open as possible; our history, our process, our margins, our code.</p>
 
-<p>Up to date, we have open sourced 10 internal projects on [github](https://github.com/magneticbear). In 2013, we're making open source an integral part of our company process.<p>
+<p>Up to date, we have open sourced 10 internal projects on <a href="https://github.com/magneticbear" target="_blank">github</a>. In 2013, we're making open source an integral part of our company process.<p>
 
-<p>To start off this wave of openness, we're publishing our main company website at [github.com/magneticbear/magneticbear.com](https://github.com/magneticbear/magneticbear.com). By the way, the site is based on a wonderful open source framework called [docpad](https://github.com/bevry/docpad).</p>
+<p>To start off this wave of openness, we're publishing our main company website at <a href="https://github.com/magneticbear/magneticbear.com" target="_blank">github.com/magneticbear/magneticbear.com</a>. By the way, the site is based on a wonderful open source framework called <a href="https://github.com/bevry/docpad" target="_blank">docpad</a>.</p>
 
 <p>To help in our efforts to support the open-source community, we'll be releasing some of our internal, currently closed-source projects, at the rate of one every month or two.</p>
 

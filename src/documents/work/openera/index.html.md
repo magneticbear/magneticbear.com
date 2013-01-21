@@ -8,5 +8,5 @@ quote: "JP and Magnetic Bear are true professionals and bring a level of enthusi
 quote_cite: '- Peter Lalonde, CEO at Openera'
 device: 'iphone black'
 ---
-<p>Openera is an iOS app that automatically saves, organizes, and backs up files and attachments. It allows users to link multiple cloud accounts together, search for certain files, and create rules for easy access. Openera has recently raised over $250K as a part of Founder Fuel program and has been featured multiple times in Technolhy blogs and magazine such as Tech Crunch.</p>
+<p>Openera is an iOS app that automatically saves, organizes, and backs up files and attachments contained in your email. It allows users to link multiple cloud email accounts together, search for specific files, and create sort rules for easy access. Openera recently raised over $250K as a part of the Founders Fuel program and has been featured multiple times in Technolgy blogs and magazine such as Tech Crunch. Add a link to articles?</p>
 <p>This app is now available on app store. For more info, please visit <a href="http://www.openera.com" target="_blank">Openera.com</a>.</p>
