@@ -90,36 +90,36 @@ header h1 {
 }
 
 .logo {
-	width: 62px;
-	height: 62px;
-	display: block;
-	background-color: #ed197a;
-	position: absolute;
-	top: 29px;
-	left: 19px;
+    width: 62px;
+    height: 62px;
+    display: block;
+    background-color: #ed197a;
+    position: absolute;
+    top: 28px;
+    left: 19px;
 }
 
 .logo img {
-	width: 100%;
-	-webkit-animation-timing-function: ease-in-out;
-	-webkit-animation: reveal 2s normal;
-	-webkit-transform-origin: bottom left;
-	
-	-moz-animation-timing-function: ease-in-out;
-	-moz-animation: reveal 2s normal;
-	-moz-transform-origin: bottom left;
-	
-	-ms-animation-timing-function: ease-in-out;
-	-ms-animation: reveal 2s normal;
-	-ms-transform-origin: bottom left;
-	
-	-o-animation-timing-function: ease-in-out;
-	-o-animation: reveal 2s normal;
-	-o-transform-origin: bottom left;
-	
-	animation-timing-function: ease-in-out;
-	animation: reveal 2s normal;
-	transform-origin: bottom left;
+    width: 100%;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation: reveal 2s normal;
+    -webkit-transform-origin: bottom left;
+    
+    -moz-animation-timing-function: ease-in-out;
+    -moz-animation: reveal 2s normal;
+    -moz-transform-origin: bottom left;
+    
+    -ms-animation-timing-function: ease-in-out;
+    -ms-animation: reveal 2s normal;
+    -ms-transform-origin: bottom left;
+    
+    -o-animation-timing-function: ease-in-out;
+    -o-animation: reveal 2s normal;
+    -o-transform-origin: bottom left;
+    
+    animation-timing-function: ease-in-out;
+    animation: reveal 2s normal;
+    transform-origin: bottom left;
 }
 
 
@@ -270,11 +270,6 @@ article a {
     color: #999;
 }
 
-
-.jobs article a, .lab article a {
-    text-decoration: underline;
-}
-
 article a:hover {
     color: #999;
     text-decoration: underline;
@@ -345,7 +340,7 @@ section a {
     margin-bottom: 0;
 }
 
-.home a {
+.connect {
     width: 30%;
     color: #fff;
     min-width: 100px;
@@ -358,7 +353,7 @@ section a {
 
 }
 
-.home a:hover {
+.connect:hover {
     text-decoration: none;
     color: #fff;
 }
@@ -410,7 +405,11 @@ section a {
 
 .home section li:nth-child(2) {
     margin: 0 2%;
-    }
+}
+
+.home section li a:hover {
+    text-decoration:  none;
+}
 
 .home section blockquote, .home section p {
     width: 100%;
@@ -429,12 +428,6 @@ section a {
 .home section h2 {
     margin: 0 0 1em;
     font-size: 1.5em;
-}
-
-.home section .read-more a {
-    padding-left: 0.5em;
-    border-radius: 0;
-
 }
 
 .home section cite, .home section time {
@@ -799,8 +792,8 @@ cite img, .lab cite img {
 /* -----------------Team Begins--------------- */
 
 .team article {
-    width: 23.4%;
-    height: 44em;
+    width: 39.5%;
+    height: 35em;
     margin-right: 0%;
     position: relative;
 }
@@ -1131,10 +1124,10 @@ footer span {
     header h1 {
         background-size: 80%;
     }
-	
-	.logo {
-		display: none;
-	}
+    
+    .logo {
+        display: none;
+    }
     
     .tagline {
         font-size: 0.87em;

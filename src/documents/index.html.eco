@@ -21,7 +21,7 @@ nav: 'home'
 		</figure>
 
 		<h1>We create beautifully crafted apps</h1>
-		<a href="contact.html">Get in touch</a>
+		<a class="connect" href="contact.html">Get in touch</a>
 
 		<section>
 			<ul>
@@ -38,7 +38,7 @@ nav: 'home'
 
 				<% for post in @getFilesAtPath("lab").toJSON(): %>
 					<% if post.description: %>
-						<h2><%= post.title %></h2>
+						<h2><a href="/lab/<%= post.name %>"><%= post.title %></a></h2>
 							<time>Posted on <%- post.date.toShortDateString() %></time>
 							<cite>by <%= @getAuthorName post.author %></cite>
 						<% break %>
