@@ -19,7 +19,7 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				Magnetic Bear Studios makes beautifully crafted apps for iOS and Androdi.
+				Magnetic Bear Studios makes beautifully crafted apps for iOS and Android.
 				"""
 
 			# The website keywords (for SEO) separated by commas
