@@ -3,8 +3,7 @@ layout: 'post-lab'
 title: 'A more open kind of agency'
 author: 'jp'
 nav: 'lab'
-description: "How MBS is leading the way to creating a new type of agency a fully open one.
-Since we started Magnetic Bear Studios about a year and a half ago, one of our core values was being as open as possible; our history, our process, our margins, our code."
+description: 'How MBS is leading the way to creating a new type of agency a fully open one. Since we started Magnetic Bear Studios about a year and a half ago, one of our core values was being as open as possible; our history, our process, our margins, our code.'
 ---
 How MBS is leading the way to creating a new type of agency: a fully open one.
 Since we started Magnetic Bear Studios about a year and a half ago, one of our core values was being as open as possible; our history, our process, our margins, our code.
