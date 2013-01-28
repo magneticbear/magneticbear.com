@@ -2,6 +2,7 @@
 layout: 'default'
 title: 'Team'
 nav: 'team'
+short_url: 'mgn.tc/team'
 ---
 <div class="content team">
 	<% for author in @site.authors: %>
@@ -13,6 +14,7 @@ nav: 'team'
 				
 				<h1><%= author.name %></h1>
 				<i>— <%= author.title %></i>
+				<i><a href="http://twitter.com/<%= author.twitter %>">@<%= author.twitter %></a></i>
 				<p><%= author.bio %></p>
 				<section>
 					<a href="lab.html#<%= author.twitter %>"><%= author.tagline %></a>

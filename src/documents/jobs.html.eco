@@ -2,6 +2,7 @@
 layout: 'default'
 title: 'Jobs'
 nav: 'jobs'
+short_url: 'mgn.tc/jobs'
 ---
 <div class="content lab">
 	<% for post in @getFilesAtPath("jobs").toJSON(): %>
@@ -11,7 +12,7 @@ nav: 'jobs'
 					<img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>">
 				</div>
 				<a href="<%= post.url %>" style="text-decoration:none"><h1><%- post.title %></h1></a>
-				<p><%- post.description %></p>
+				<p><%- post.contentRenderedWithoutLayouts.substring(0,100) %></p>
 				<div class="fade"></div>
 				<div class="read-more"><a href="<%= post.url %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</article>

@@ -2,6 +2,7 @@
 layout: 'default'
 title: 'Lab'
 nav: 'lab'
+short_url: 'mgn.tc/lab'
 ---
 <div class="content lab">
 	<% for post in @getFilesAtPath("lab").toJSON(): %>
@@ -11,9 +12,9 @@ nav: 'lab'
 					<a href="team.html#<%= @getAuthorTwitter post.author %>"><img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>"></a>
 				</div>
 				<a href="<%= post.url %>" style="text-decoration:none"><h1><%- post.title %></h1></a>
-				<cite>by <%= @getAuthorName post.author %> (<img src="images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter post.author %>" style="text-decoration: none;" target="_blank">@<%= @getAuthorTwitter post.author %></a>)</cite>
+				<cite>by <%= @getAuthorName post.author %> (<img src="images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter post.author %>" style="text-decoration: none;">@<%= @getAuthorTwitter post.author %></a>)</cite>
 				<time><%- post.date.toShortDateString() %></time>
-				<p><%- post.description %></p>
+				<p><%- post.contentRenderedWithoutLayouts.substring(0,100) %></p>
 				<div class="fade"></div>
 				<div class="read-more"><a href="<%= post.url %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</article>

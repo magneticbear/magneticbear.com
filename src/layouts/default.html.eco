@@ -51,10 +51,10 @@
 		
 		<div class="social">
 			<ul>
-				<li><a href="mailto:consult@magneticbear.com" target="_blank"><img src="images/email-icon.png" alt="Email">info@magneticbear.com</a></li>
-				<li><a href="https://github.com/magneticbear" target="_blank"><img src="images/github-icon.png" alt="Github">magneticbear</a></li>
-				<li><a href="http://dribbble.com/magneticbear" target="_blank"><img src="images/dribbble-icon.png" alt="Dribble">magneticbear</a></li>
-				<li><a href="http://twitter.com/magneticbear" target="_blank"><img src="images/twitter-icon.png" alt="Twitter">@magneticbear</a></li>
+				<li><a href="mailto:consult@magneticbear.com"><img src="images/email-icon.png" alt="Email">info@magneticbear.com</a></li>
+				<li><a href="https://github.com/magneticbear"><img src="images/github-icon.png" alt="Github">magneticbear</a></li>
+				<li><a href="http://dribbble.com/magneticbear"><img src="images/dribbble-icon.png" alt="Dribble">magneticbear</a></li>
+				<li><a href="http://twitter.com/magneticbear"><img src="images/twitter-icon.png" alt="Twitter">@magneticbear</a></li>
 			</ul>
 		</div>
 	</footer>
@@ -70,6 +70,9 @@
 			$(window).load(function() {
 			$('.flexslider').flexslider();});
 		});
+		$(document.links).filter(function() {
+		    return this.hostname != window.location.hostname;
+		}).attr('target', '_blank');
 	</script>
 
 

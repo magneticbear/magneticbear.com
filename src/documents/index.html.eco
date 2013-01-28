@@ -2,6 +2,7 @@
 layout: 'default'
 title: 'Home'
 nav: 'home'
+short_url: 'mgn.tc'
 ---
 <div class="content home">
 	<article>
@@ -27,7 +28,7 @@ nav: 'home'
 			<ul>
 			
 			<li class="clients">
-				<h3>Clients we have helped</h3>
+				<h3>Clients we've worked with</h3>
 				<img src="images/all-clients.gif">
 				<div class="fade"></div>
 				<div class="read-more"><a href="work.html" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
@@ -37,7 +38,7 @@ nav: 'home'
 				<h3>Stuff happening in the lab</h3>
 
 				<% for post in @getFilesAtPath("lab").toJSON(): %>
-					<% if post.description: %>
+					<% if post.author: %>
 						<h2><a href="/lab/<%= post.name %>"><%= post.title %></a></h2>
 							<time>Posted on <%- post.date.toShortDateString() %></time>
 							<cite>by <%= @getAuthorName post.author %></cite>

@@ -1,12 +1,14 @@
 ---
 layout: 'post-work'
 title: 'NDStorefront'
-tags: ['UX','UI','Dev','iOS','API']
+tags: ['UX','UI','iPhone','iPad']
 nav: 'work'
 dir: 'ndstorefront'
-quote: ""
-quote_cite: ''
+quote: "As a small, tech start up it was refreshing to collaborate with a young group of dedicated and knowledgeable mobile developers. The MBS team understood our start up culture and worked so closely with us, that we considered them a part of our team. Attention to detail, work ethic and a solid team makes MBS a continued go-to for our business."
+quote_cite: '- Kyle Braatz, HealthWave CEO'
 device: 'ipad'
+short_url: 'mgn.tc/ndstorefront'
 ---
-NDStorefront is an iOS shopping app that allows neuropathic doctors to set up personalized shops and sell natural health products to their patients. NDStorefront makes it as easy as possible for neuropathic doctors to manage their inventory and deliver products to their clients.
-NDStorefront has been nominated for the best shopping app and is now available on <a href="https://itunes.apple.com/ca/app/ndstorefront/id498848484?mt=8&ign-mpt=uo%3D2" target="_blank">The App Store</a>. For more info, please visit <a href="http://www.healthwave.co" target="_blank">Healthwave.co</a>.
+NDStorefront is an iPhone and iPad app that allows health professionals to set up their own virtual dispensary to sell supplements and natural health products to their patients.
+
+NDStorefront (now Healthwave) has been nominated for the best shopping app and is now available on [The App Store](https://itunes.apple.com/ca/app/health-wave-for-ipad/id500825476?mt=8&uo=4). For more info, visit [Healthwave.co](http://healthwave.co).

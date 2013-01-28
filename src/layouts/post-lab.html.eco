@@ -49,12 +49,12 @@
 				<a href="../team.html#<%= @getAuthorTwitter @document.author %>"><img src="/images/<%= @getAuthorPic @document.author %>" alt="<%= @getAuthorName @document.author %>"></a>
 			</div>
 			<h1><%- @document.title %></h1>
-			<cite>by <%= @getAuthorName @document.author %> (<img src="../images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter @document.author %>" style="text-decoration: none;" target="_blank">@<%= @getAuthorTwitter @document.author %></a>)</cite>
+			<cite>by <%= @getAuthorName @document.author %> (<img src="../images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter @document.author %>" style="text-decoration: none;">@<%= @getAuthorTwitter @document.author %></a>)</cite>
 			<time><%- @document.date.toShortDateString() %></time>
 			<p><%- @content %></p>
 			<section>
 
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.magneticbear.com/lab/<%= @document.name %>" data-text="<%= @document.title %>" data-via="<%= @getAuthorTwitter @document.author %>" data-related="magneticbear" data-count="none" data-hashtags="MBSLab">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://<%= @document.short_url %>" data-text="<%= @document.title %>" data-via="<%= @getAuthorTwitter @document.author %>" data-related="magneticbear" data-count="none" data-hashtags="MBSLab">Tweet</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 				</script>
 
@@ -71,10 +71,10 @@
 		
 		<div class="social">
 			<ul>
-				<li><a href="mailto:consult@magneticbear.com" target="_blank"><img src="/images/email-icon.png" alt="Email">info@magneticbear.com</a></li>
-				<li><a href="https://github.com/magneticbear" target="_blank"><img src="/images/github-icon.png" alt="Github">magneticbear</a></li>
-				<li><a href="http://dribbble.com/magneticbear" target="_blank"><img src="/images/dribbble-icon.png" alt="Dribble">magneticbear</a></li>
-				<li><a href="http://twitter.com/magneticbear" target="_blank"><img src="/images/twitter-icon.png" alt="Twitter">@magneticbear</a></li>
+				<li><a href="mailto:consult@magneticbear.com"><img src="/images/email-icon.png" alt="Email">info@magneticbear.com</a></li>
+				<li><a href="https://github.com/magneticbear"><img src="/images/github-icon.png" alt="Github">magneticbear</a></li>
+				<li><a href="http://dribbble.com/magneticbear"><img src="/images/dribbble-icon.png" alt="Dribble">magneticbear</a></li>
+				<li><a href="http://twitter.com/magneticbear"><img src="/images/twitter-icon.png" alt="Twitter">@magneticbear</a></li>
 			</ul>
 		</div>
 	</footer>
@@ -90,6 +90,9 @@
 			$(window).load(function() {
 			$('.flexslider').flexslider();});
 		});
+		$(document.links).filter(function() {
+		    return this.hostname != window.location.hostname;
+		}).attr('target', '_blank');
 	</script>
 
 	<!-- Google Analytics -->
