@@ -8,5 +8,5 @@ quote: ''
 quote_cite: ''
 device: 'ipad'
 ---
-<p>CCA is an iPad app that contains rich media for all your curling needs. The app allows you to receive live news updates, follow live events, browse through photo and video galleries, locate curling clubs and, much more. The app also allows users to view live and archived event information including news, scores, game stats and team standings.</p>
-<p>This app is now available on the <a href="https://itunes.apple.com/ca/app/curling.ca-mobile/id474248034?mt=8" target="_blank">app store</a>. For more info, please visit <a href="http://www.curling.ca" target="_blank">curling.ca</a>.</p>
+CCA is an iPad app that contains rich media for all your curling needs. The app allows you to receive live news updates, follow live events, browse through photo and video galleries, locate curling clubs and, much more. The app also allows users to view live and archived event information including news, scores, game stats and team standings.
+This app is now available on [the App Store](https://itunes.apple.com/ca/app/curling.ca-mobile/id474248034?mt=8). For more info, please visit [curling.ca](http://www.curling.ca).
