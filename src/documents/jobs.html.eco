@@ -8,7 +8,7 @@ nav: 'jobs'
 		<% if post.type: %>
 			<article>
 				<div class="avatar">
-					<a href="team.html#<%= @getAuthorTwitter post.author %>"><img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>"></a>
+					<img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>">
 				</div>
 				<a href="<%= post.url %>" style="text-decoration:none"><h1><%- post.title %></h1></a>
 				<p><%- post.description %></p>

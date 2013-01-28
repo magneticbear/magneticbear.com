@@ -713,7 +713,7 @@ aside figcaption {
 
 }
 
-.lab .avatar:hover {
+.lab .avatar a:hover {
     opacity: 0.6;
 }
 
