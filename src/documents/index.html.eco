@@ -22,7 +22,7 @@ short_url: 'mgn.tc'
 		</figure>
 
 		<h1>We create beautifully crafted apps</h1>
-		<a class="connect" href="contact.html">Get in touch</a>
+		<a class="connect" href="contact">Get in touch</a>
 
 		<section>
 			<ul>
@@ -31,7 +31,7 @@ short_url: 'mgn.tc'
 				<h3>Clients we've worked with</h3>
 				<img src="images/all-clients.gif">
 				<div class="fade"></div>
-				<div class="read-more"><a href="work.html" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
+				<div class="read-more"><a href="work" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>
 
 			<li>

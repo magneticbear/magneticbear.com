@@ -17,7 +17,7 @@ short_url: 'mgn.tc/team'
 				<i><a href="http://twitter.com/<%= author.twitter %>">@<%= author.twitter %></a></i>
 				<p><%= author.bio %></p>
 				<section>
-					<a href="lab.html#<%= author.twitter %>"><%= author.tagline %></a>
+					<a href="lab#<%= author.twitter %>"><%= author.tagline %></a>
 				</section>
 			</article>
 		<% end %>
