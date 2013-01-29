@@ -797,7 +797,7 @@ cite img, .lab cite img {
 
 .team article {
     width: 39.5%;
-    height: 35em;
+    height: 41em;
     margin-right: 0%;
     position: relative;
 }
@@ -832,12 +832,13 @@ cite img, .lab cite img {
     margin-bottom: 0.5em;
 }
 
-.team i {
+.team i, .team cite {
     color: #666;
     display: block;
     margin-bottom: 1.4em;
     text-align: center;
 }
+
 
 .team section {
     width: 88%;
