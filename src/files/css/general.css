@@ -37,6 +37,10 @@ article h2 {
     margin-left: 4.7em;
 }
 
+article hr {
+    display: none;
+}
+
 /* --General Ends-- */
 
 /* -----------------Fonts Begins--------------- */

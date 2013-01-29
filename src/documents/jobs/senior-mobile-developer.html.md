@@ -18,6 +18,8 @@ short_url: 'mgn.tc/srdev'
 * **Respect the value of polished APIs** and robust technical design and seek to author code that is clear, concise, and well-factored.
 * **Actively participate in the Open Source community** and believe in the sharing of knowledge and code for the betterment of the world.
 
+---
+
 ## Responsibilities
 
 * **Development** of mobile applications on iOS and/or Android platforms

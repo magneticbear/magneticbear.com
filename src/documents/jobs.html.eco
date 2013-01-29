@@ -12,7 +12,7 @@ short_url: 'mgn.tc/jobs'
 					<img src="/images/<%= @getAuthorPic post.author %>" alt="<%= @getAuthorName post.author %>">
 				</div>
 				<a href="<%= post.url %>" style="text-decoration:none"><h1><%- post.title %></h1></a>
-				<p><%- (post.contentRenderedWithoutLayouts || "").substring(0,100) %></p>
+				<p><%- (post.contentRenderedWithoutLayouts || "").substring(0,(post.contentRenderedWithoutLayouts || "").indexOf('<hr>')) %></p>
 				<div class="fade"></div>
 				<div class="read-more"><a href="<%= post.url %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</article>
