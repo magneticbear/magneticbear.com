@@ -38,7 +38,7 @@
 			<li <%= "class=selected" if @document.nav == 'work' %>><a href="/work">WORK</a></li>
 			<li <%= "class=selected" if @document.nav == 'team' %>><a href="/team">TEAM</a></li>
 			<li <%= "class=selected" if @document.nav == 'lab' %>><a href="/lab">LAB</a></li>
-			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs">CAREER</a></li>
+			<li <%= "class=selected" if @document.nav == 'jobs' %>><a href="/jobs">JOBS</a></li>
 			<li <%= "class=selected" if @document.nav == 'contact' %>><a href="/contact">CONTACT</a></li>
 		</ul>
 	</nav>
@@ -52,7 +52,7 @@
 			<p><%- @content %></p>
 			<section>
 				<a href="mailto:jobs@magneticbear.com" style="float: right; text-decoration: underline; font-size: 0.8em;">Apply Now</a>
-				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://<%= @document.short_url %>" data-text="<%= @document.title %>" data-via="magneticbear" data-related="Magneticbear" data-count="none" data-hashtags="MBSCareer">Tweet</a>
+				<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://<%= @document.short_url %>" data-text="<%= @document.title %>" data-via="magneticbear" data-related="Magneticbear" data-count="none" data-hashtags="MBSJobs">Tweet</a>
 				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 				</script>
 				<script src="//platform.linkedin.com/in.js" type="text/javascript"></script>
