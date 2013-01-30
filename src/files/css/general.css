@@ -868,6 +868,24 @@ cite img, .lab cite img {
     margin-top: 3.5em;
 }
 
+.client textarea {
+    width: 140%;
+}
+
+.client form {
+    width: 40%;
+}
+
+.client form button {
+    width: 100%;
+    min-width: 15em;
+}
+
+
+.contact article h1 {
+    margin-top: 1em;
+}
+
 .contact h2 {
     margin-left: 0;
 }
@@ -1310,6 +1328,10 @@ footer span {
     padding: 6%;
 
     }
+    
+    .client textarea {
+    width: 92%;
+    }
 
 }
 
@@ -1351,4 +1373,5 @@ footer span {
     .contact section a {
         padding-top: 0.28em;
     }
+
 }
