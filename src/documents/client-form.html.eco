@@ -9,7 +9,7 @@ short_url: 'mgn.tc/client-form'
 		<a class="avatar" href="http://goo.gl/RfyV7"><img src="images/map.png" alt="Google Map Icon"></a>
 		<h1>Let us help you <br>with your project</h1>
 
-		<form id="contactForm" action='http://formmailer.herokuapp.com/send' method='post'>
+		<form id="contactForm" action='formmailer.herokuapp.com/send_client_inquiry' method='post'>
 			<h2>Contact info</h2>
 			<input type="text" id="full_name" name="name" placeholder="Name" required>
 			<input type="email" id="email_addr" name="email" placeholder="Email" required>
