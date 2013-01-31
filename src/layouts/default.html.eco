@@ -92,6 +92,10 @@
 			$('#full_name').val('');
 			$('#email_addr').val('');
 			$('#message').val('');
+			$('#phone_no').val('');
+			$('#project_des').val('');
+			$('#time_line').val('');
+			$('#budget_est').val('');
 
 			return false;
 		});

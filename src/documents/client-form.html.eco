@@ -9,15 +9,15 @@ short_url: 'mgn.tc/client-form'
 		<a class="avatar" href="http://goo.gl/RfyV7"><img src="images/map.png" alt="Google Map Icon"></a>
 		<h1>Let us help you <br>with your project</h1>
 
-		<form id="contactForm" action='formmailer.herokuapp.com/send_client_inquiry' method='post'>
+		<form id="contactForm" action='http://formmailer.herokuapp.com/send_client_inquiry' method='post'>
 			<h2>Contact info</h2>
 			<input type="text" id="full_name" name="name" placeholder="Name" required>
 			<input type="email" id="email_addr" name="email" placeholder="Email" required>
 			<input type="tel" id="phone_no" name="phone" placeholder="Phone Number">
 			<h2>Project info</h2>
-			<textarea id="project_Des" name="description" placeholder="Project Description" cols="30" rows="10"></textarea>
+			<textarea id="project_des" name="description" placeholder="Project Description" cols="30" rows="10"></textarea>
 			<input type="text" id="time_line" name="time" placeholder="Desierd Timeline" required>
-			<input type="text" id="budget-est" name="budget" placeholder="Budget Estimate" required>
+			<input type="text" id="budget_est" name="budget" placeholder="Budget Estimate" required>
 
 			<button>Submit</button>
 		</form>
