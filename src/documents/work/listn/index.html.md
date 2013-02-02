@@ -4,8 +4,8 @@ title: 'Listn'
 tags: ['iPhone','Strategy']
 nav: 'work'
 dir: 'listn'
-quote: ''
-quote_cite: ''
+quote: 'MBS is a first class app development firm that helped us develop Listn. Their professional and supportive team helped us meet our goals and deliver Listn under extremely tight timelines.'
+quote_cite: '- Mike Schmidt, Listn CEO'
 device: 'iphone5 black5'
 short_url: 'mgn.tc/listn'
 ---
