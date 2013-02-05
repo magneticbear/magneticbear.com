@@ -34,20 +34,9 @@ short_url: 'mgn.tc'
 				<div class="read-more"><a href="work" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>
 
-			<li>
-				<h3>Stuff happening in the lab</h3>
-
-				<% for post in @getFilesAtPath("lab").toJSON(): %>
-					<% if post.author: %>
-						<h2><a href="/lab/<%= post.name %>"><%= post.title %></a></h2>
-							<time>Posted on <%- post.date.toShortDateString() %></time>
-							<cite>by <%= @getAuthorName post.author %></cite>
-						<% break %>
-					<% end %>
-				<% end %>
-
-				<div class="fade"></div>
-				<div class="read-more"><a href="/lab/<%= post.name %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
+			<li class="clients">
+				<h3>MBS Demo Reel 2012</h3>
+				<a href="https://vimeo.com/58976677"><img src="images/demo_reel_thumb.jpg"></a>>
 			</li>
 
 			<li>
