@@ -15,9 +15,10 @@ short_url: 'mgn.tc/client-form'
 			<input type="email" id="email_addr" name="email" placeholder="Email" required>
 			<input type="tel" id="phone_no" name="phone" placeholder="Phone Number">
 			<h2>Project info</h2>
-			<textarea id="project_des" name="description" placeholder="Project Description" cols="30" rows="10"></textarea>
-			<input type="text" id="time_line" name="time" placeholder="Desierd Timeline" required>
-			<input type="text" id="budget_est" name="budget" placeholder="Budget Estimate" required>
+			<textarea id="goal" name="goal" placeholder="What goal are you trying to achieve?" cols="30" rows="10"></textarea>
+			<textarea id="solution" name="solution" placeholder="How can we help you achieve that goal?" cols="30" rows="10"></textarea>
+			<input type="text" id="timeline" name="timeline" placeholder="Desired Timeline" required>
+			<input type="text" id="budget" name="budget" placeholder="Budget Estimate" required>
 
 			<button>Submit</button>
 		</form>

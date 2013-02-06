@@ -93,9 +93,10 @@
 			$('#email_addr').val('');
 			$('#message').val('');
 			$('#phone_no').val('');
-			$('#project_des').val('');
-			$('#time_line').val('');
-			$('#budget_est').val('');
+			$('#goal').val('');
+			$('#solution').val('');
+			$('#timeline').val('');
+			$('#budget').val('');
 
 			return false;
 		});
