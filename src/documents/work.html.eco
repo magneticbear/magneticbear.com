@@ -10,28 +10,39 @@ short_url: 'mgn.tc/work'
 		<% for post in @getFilesAtPath("work").toJSON(): %>
 			<% if post.dir: %>
 				<figure>
-				<div class="bg <%= post.dir %>">
-					<div class="<%= post.device %>">
-						<div class="flexslider">
-							<div class="slides">
-							<% for image in @getFilesAtPath("work/" + post.dir + "/slides").toJSON(): %>
-								<li><img src="/work/<%= post.dir %>/slides/<%= image.name %>" alt="<%= post.title %>"/></li>
-							<% end %>
-						</div>
-						</div>
-					</div>
-				</div>
-					<figcaption>
-						<img class="app-icon" src="work/<%= post.dir %>/app-icon.png" alt="<%= post.title %>">
-						<h1><%= post.title %></h1>
-						<ul class="tags">
-							<% if post.tags: %>
-								<% for tag in post.tags: %>
-									<li><%= tag %></li>
-								<% end %>
-							<% end %>
-						</ul>
-						<p><%- post.contentRenderedWithoutLayouts %></p>
+					<iframe src="http://player.vimeo.com/video/58976677?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+					<figcaption class="no-app">
+						<h1>Our Process</h1>
+						<p>Magnetic Bear Studios has refined its creative and technical process over the last few years by launching over 20 mobile apps.</p>
+
+						<p>Here's a sneak peek at how we work behind the scenes to release our apps:</p>
+
+						<section>
+							<img src="/images/problem-space.jpg" style="margin-top: 0.5em;">
+							<h2>Define the problem and outline a strategy</h2>
+							<p>Our business and user experience exprts drill down to very core of what goal must be reached. We then lay out the best overall course of action to reach that goal.</p>
+
+							<img src="/images/design.jpg">
+							<h2>Design the experience</h2>
+							<p>It's in this stage that we craft the layout of your solution from a user's perspective. Down to the very last pixel.</p>
+
+							<img src="/images/prototype.jpg">
+							<h2>Develop a prototype</h2>
+							<p>By bringing your solution to life for you and select testing partners, you can interact with your app on your device before we dive into the in-depth development process.</p>
+
+							<img src="/images/functionality.jpg">
+							<h2>Build your solution from the ground up</h2>
+							<p>We leverage our existing development stack and experience to build you something highly tailored to your needs.</p>
+
+							<img src="/images/testing.jpg">
+							<h2>Test. Tweak. Rinse. Repeat.</h2>
+							<p>This phase sees a lot of minor tweaks and polishes to make sure your product meets and exceeds the goals we set out in the first step.</p>
+
+							<img src="/images/final-product.jpg">
+							<h2>Deploy and maintain</h2>
+							<p>With your app ready to launch, we make sure it makes a fashionable entrance into the world. Next up is some tender love and care to keep it going strong.</p>
+
+						</section>
 
 						<% if post.quote: %>
 							<blockquote><%= post.quote %><cite><%= post.quote_cite %></cite></blockquote>
@@ -47,7 +58,7 @@ short_url: 'mgn.tc/work'
 				<% for post in @getFilesAtPath("work").toJSON(): %>
 					<% if post.title != 'Work': %>
 						<% if post.dir: %>
-							<figure><a <%= "class=selected-app" if idx == 0 %> href="/work/<%= post.dir %>">
+							<figure><a href="/work/<%= post.dir %>">
 								<img src="/work/<%= post.dir %>/app-icon.png" alt="<%= post.title %>">
 								<figcaption><%= post.title %></figcaption></a>
 							</figure>

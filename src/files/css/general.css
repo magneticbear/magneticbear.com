@@ -560,6 +560,39 @@ figure h1 {
     margin: 0.3em 0;
 }
 
+
+figure iframe {
+    background: transparent url(/images/demo_reel_banner.jpg) no-repeat center center;
+    background-size: contain;
+    margin-bottom: 2em;
+    border-bottom: 2px solid #666;
+    height: 373px;
+    width: 100%;
+}
+
+.no-app h1 {
+    margin-left: 3.6em;
+    margin-top: 1em;
+}
+
+.no-app section {
+    border-top: 0;
+    margin: 0em auto 1.5em;
+    padding-top: 0.1em;
+}
+
+.no-app img {
+    width: 80px;
+    float: left;
+    margin-left: 0;
+}
+
+
+.no-app h2 {
+    margin-bottom: 0;
+    margin-top: 1.5em;
+}
+
 .tags {
     margin-left: 7.1em;
     margin-bottom: 1.2em;
@@ -1202,9 +1235,22 @@ footer span {
         margin-bottom:  20px;
     }
 
-    article ul, .tags, article h2, .lab article time {
+    article ul, .tags, .no-app h1, article h2, .lab article time {
         margin-left:  0;
     }
+
+    .no-app section {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    .no-app img {
+        width: 120px;
+        float: none;
+        margin-top: 2.5em;
+        margin-bottom: -2em;
+    }
+
 
     .app-icon {
         display: block;
@@ -1276,13 +1322,18 @@ footer span {
     .social {
         display: none;
     }
+    .no-app section p {
+        max-width: 400px;
+        margin: 2px auto;
+    }
 }
 
 /* ------------------------------------ */
 @media screen and (max-width:675px) {
-    .cca, .pr, .ndstorefront {
+    .cca, .pr, .ndstorefront, figure iframe {
         height: 250px;
     }
+
     .home section li {
     width: 28%;
     }
@@ -1374,6 +1425,10 @@ footer span {
         right: 0.5em;
     }
     
+    figure iframe {
+        height: 144px;
+    }
+
     .contact section a {
         padding-top: 0.28em;
     }
