@@ -7,11 +7,13 @@ short_url: 'mgn.tc/rebranding'
 ---
 As part of our new year’s resolution to open source more of our work, I thought it would be a good idea to write up a brief case study on our rebranding process and the creative approach to establishing our new identity.
 
-We started the process by digging into our core values and our value proposition. In addition, we re-affirmed our competition, our customers and our consumers. The main goal of this phase was to verify and evaluate our current branding and marketing strategies. We spent almost three full weeks on this phase and gained a lot of valuable insight into our vision, our team, and our position in the industry.  This discovery phase allowed us to sum up MBS in a few words: 
-Young, energetic, enthusiastic, smart, cutting edge, tech savvy, casual, laid back, team-oriented, and focused.
 ---
 
-After all the research and industry analysis was completed, we all agreed that MBS’ old branding and brand strategies didn’t accurately represent the company, its quality work, and its core values. Part of our new branding direction and strategy was the new brand identity package. Here’s a breakdown of the process: 
+We started the process by digging into our core values and our value proposition. In addition, we re-affirmed our competition, our customers and our consumers. The main goal of this phase was to verify and evaluate our current branding and marketing strategies. We spent almost three full weeks on this phase and gained a lot of valuable insight into our vision, our team, and our position in the industry.  This discovery phase allowed us to sum up MBS in a few words: Young, energetic, enthusiastic, smart, cutting edge, tech savvy, casual, laid back, team-oriented, and focused.
+
+After all the research and industry analysis was completed, we all agreed that MBS’ old branding and brand strategies didn’t accurately represent the company, its quality work, and its core values. Part of our new branding direction and strategy was the new brand identity package. 
+
+Here’s a breakdown of the process: 
 
 Color choice:
 -------------
@@ -35,7 +37,6 @@ We wanted to choose the right symbol. One that was not too cheesy or too formal.
 ![Symbol](/lab/rebaranding-img/Brand-Identity-app1.jpg "Symbol")
 ![Symbol](/lab/rebaranding-img/Brand-Identity-app2.jpg "Symbol")
 ![Symbol](/lab/rebaranding-img/Brand-Identity-app3.jpg "Symbol")
-![Symbol](/lab/rebaranding-img/Brand-Identity-app4.jpg "Symbol")
 ![Symbol](/lab/rebaranding-img/Brand-Identity-final.jpg "Symbol")
 
 That was a brief case study on Magnetic Bear Studios’ rebranding. I hope you enjoyed it.
