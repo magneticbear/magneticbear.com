@@ -421,6 +421,10 @@ section a {
     margin-top: 0;
 }
 
+.home section blockquote {
+	width: 92%;
+}
+
 .clients img {
     width: 100%;
 }
