@@ -24,7 +24,7 @@ docpadConfig = {
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				apps, mobile, ios, iphone, android, ipad, ux, user experience, ottawa
+				apps, mobile, ios, iphone, android, ipad, ux, user experience, ottawa, canada
 				"""
 
 			# The main site author's name and email
