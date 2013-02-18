@@ -14,9 +14,10 @@
 		<% if document.author: %>
 			<entry>
 				<title><%= document.title %></title>
-				<link href="<%= @site.url+'/'+document.url %>"/>
+				<author><%= @getAuthorName document.author %></author>
+				<link href="<%= @site.url+document.url %>"/>
 				<updated><%= document.date.toISOString() %></updated>
-				<id><%= @site.url+'/'+document.url %></id>
+				<id><%= @site.url+document.url %></id>
 				<content type="html"><%= document.contentRendered %></content>
 			</entry>
 		<% end %>
