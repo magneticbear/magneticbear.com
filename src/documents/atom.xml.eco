@@ -11,12 +11,14 @@
 	</author>
 
 	<% for document in @getFilesAtPath("lab", {date: -1}).toJSON(): %>
-		<entry>
-			<title><%= document.title %></title>
-			<link href="<%= @site.url+'/'+document.url %>"/>
-			<updated><%= document.date.toISOString() %></updated>
-			<id><%= @site.url+'/'+document.url %></id>
-			<content type="html"><%= document.contentRendered %></content>
-		</entry>
+		<% if document.author: %>
+			<entry>
+				<title><%= document.title %></title>
+				<link href="<%= @site.url+'/'+document.url %>"/>
+				<updated><%= document.date.toISOString() %></updated>
+				<id><%= @site.url+'/'+document.url %></id>
+				<content type="html"><%= document.contentRendered %></content>
+			</entry>
+		<% end %>
 	<% end %>
 </feed>
