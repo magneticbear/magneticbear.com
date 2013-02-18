@@ -6,7 +6,7 @@ short_url: 'mgn.tc/client-form'
 ---
 <div class="content contact client">
 	<article>
-		<a class="avatar" href="http://goo.gl/RfyV7"><img src="images/map.png" alt="Google Map Icon"></a>
+		<a class="avatar" href="http://goo.gl/RfyV7"><img src="/images/map.png" alt="Google Map Icon"></a>
 		<h1>Let us help you <br>with your project</h1>
 
 		<form id="contactForm" action='http://formmailer.herokuapp.com/send_client_inquiry' method='post'>

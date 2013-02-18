@@ -19,24 +19,24 @@ Color choice:
 -------------
 Choosing the perfect color that would best represent MBS wasn’t that easy. Some people may think the color choice is a personal preference but we took a purely scientific approach. In order to figure out the right corporate colors we started eliminating the ones that wouldn’t work.
 Our ideal color was something very saturated, warm, welcoming and cutting edge.
-![Colour](/lab/rebaranding-img/Brand-Identity-colour.jpg "Colour Choice")
+![Colour](img/Brand-Identity-colour.jpg "Colour Choice")
 
 Font choice:
 ------------
 From the very beginning, we knew that the serif fonts were off the table. Serifs are old, very formal and don’t really look that great on digital screens. However, slab serifs didn’t seem too bad. We were looking for something modern, geometric and possibly tall. 
-![fontchoice](/lab/rebaranding-img/Brand-Identity-fontchoice.jpg "Font Choice")
+![fontchoice](img/Brand-Identity-fontchoice.jpg "Font Choice")
 
 Our final choice was going with the sans-serif family. Even though our initial font choice was very close to what we were looking for, we wanted something more unique. We decided to create our own custom typeface.
-![logotype](/lab/rebaranding-img/Brand-Identity-logotype.jpg "Font Choice")
+![logotype](img/Brand-Identity-logotype.jpg "Font Choice")
 
 Symbol:
 -------
 We wanted to choose the right symbol. One that was not too cheesy or too formal. This was probably the toughest part of the whole process. We went through a lot of different possibilities but kept our focus on creating something memorable, clever, minimalistic, and unique. if we could get a “aha, I get it!” moment out of it, that’d be swell.
-![Symbol](/lab/rebaranding-img/Brand-Identity-symbol.jpg "Symbol")
-![Symbol](/lab/rebaranding-img/Brand-Identity.jpg "Symbol")
-![Symbol](/lab/rebaranding-img/Brand-Identity-app1.jpg "Symbol")
-![Symbol](/lab/rebaranding-img/Brand-Identity-app2.jpg "Symbol")
-![Symbol](/lab/rebaranding-img/Brand-Identity-app3.jpg "Symbol")
-![Symbol](/lab/rebaranding-img/Brand-Identity-final.jpg "Symbol")
+![Symbol](img/Brand-Identity-symbol.jpg "Symbol")
+![Symbol](img/Brand-Identity.jpg "Symbol")
+![Symbol](img/Brand-Identity-app1.jpg "Symbol")
+![Symbol](img/Brand-Identity-app2.jpg "Symbol")
+![Symbol](img/Brand-Identity-app3.jpg "Symbol")
+![Symbol](img/Brand-Identity-final.jpg "Symbol")
 
 That was a brief case study on Magnetic Bear Studios’ rebranding. I hope you enjoyed it.

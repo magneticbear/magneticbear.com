@@ -10,12 +10,12 @@ short_url: 'mgn.tc'
 			<div class="bg pr">
 				<div class="process">
 					<ul>
-						<li><img src="images/home-banner/phone.png" alt=""/></li>
-						<li><img src="images/home-banner/IA.png" alt=""/></li>
-						<li><img src="images/home-banner/UX.png" alt=""/></li>
-						<li><img src="images/home-banner/UI.png" alt=""/></li>
-						<li><img src="images/home-banner/Dev.png" alt=""/></li>
-						<li><img src="images/home-banner/Final-Product.png" alt=""/></li>
+						<li><img src="/images/home-banner/phone.png" alt=""/></li>
+						<li><img src="/images/home-banner/IA.png" alt=""/></li>
+						<li><img src="/images/home-banner/UX.png" alt=""/></li>
+						<li><img src="/images/home-banner/UI.png" alt=""/></li>
+						<li><img src="/images/home-banner/Dev.png" alt=""/></li>
+						<li><img src="/images/home-banner/Final-Product.png" alt=""/></li>
 					</ul>
 				</div>
 			</div>
@@ -29,14 +29,14 @@ short_url: 'mgn.tc'
 			
 			<li class="clients">
 				<h3>Clients we've worked with</h3>
-				<a href="work"><img src="images/all-clients.gif"></a>
+				<a href="work"><img src="/images/all-clients.gif"></a>
 				<div class="fade"></div>
 				<div class="read-more"><a href="work" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>
 
 			<li class="clients">
 				<h3>MBS Demo Reel 2012</h3>
-				<a href="work"><img src="images/demo_reel_thumb.jpg"></a>
+				<a href="work"><img src="/images/demo_reel_thumb.jpg"></a>
 				<div class="fade"></div>
 				<div class="read-more"><a href="work" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>

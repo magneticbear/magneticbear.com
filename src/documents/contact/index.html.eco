@@ -6,7 +6,7 @@ short_url: 'mgn.tc/contact'
 ---
 <div class="content contact">
 	<article>
-		<a class="avatar" href="http://goo.gl/RfyV7"><img src="images/map.png" alt="Google Map Icon"></a>
+		<a class="avatar" href="http://goo.gl/RfyV7"><img src="/images/map.png" alt="Google Map Icon"></a>
 		<h1>We are located in the heart of Downtown Ottawa, ON</h1>
 		<iframe width="99.2%" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=185+Rideau+Street,+Ottawa,+ON&amp;aq=0&amp;oq=185+ride&amp;sll=49.303974,-84.738438&amp;sspn=35.073009,73.740234&amp;ie=UTF8&amp;hq=&amp;hnear=185+Rideau+St,+Ottawa,+Ontario+K1N+5X8&amp;t=m&amp;ll=45.428998,-75.689707&amp;spn=0.021082,0.055962&amp;z=14&amp;output=embed"></iframe><br /><small><a href="https://maps.google.ca/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=185+Rideau+Street,+Ottawa,+ON&amp;aq=0&amp;oq=185+ride&amp;sll=49.303974,-84.738438&amp;sspn=35.073009,73.740234&amp;ie=UTF8&amp;hq=&amp;hnear=185+Rideau+St,+Ottawa,+Ontario+K1N+5X8&amp;t=m&amp;ll=45.428998,-75.689707&amp;spn=0.021082,0.055962&amp;z=14" style="color:#0000FF;text-align:left">View Larger Map</a></small>
 	
@@ -20,18 +20,18 @@ short_url: 'mgn.tc/contact'
 		
 		<section>
 			<h2>Or contact us directly</h2>
-			<p><a href="http://goo.gl/RfyV7"><span><img src="images/address-icon-color.png"></span>185 Rideau Street <br>Ottawa, ON  K1N 7X8</a></p>
+			<p><a href="http://goo.gl/RfyV7"><span><img src="/images/address-icon-color.png"></span>185 Rideau Street <br>Ottawa, ON  K1N 7X8</a></p>
 			
 			<p>
-				<a href="tel:18887440098"><span><img src="images/phone-icon-color.png"></span>1 (888) 744 0098</a>
-				<a href="mailto:consult@magneticbear.com"><span><img src="images/email-icon-color.png"></span>consult@magneticbear.com</a>
+				<a href="tel:18887440098"><span><img src="/images/phone-icon-color.png"></span>1 (888) 744 0098</a>
+				<a href="mailto:consult@magneticbear.com"><span><img src="/images/email-icon-color.png"></span>consult@magneticbear.com</a>
 			</p>
 			
 			<p>
-				<a href="https://twitter.com/magneticbear"><span><img src="images/twitter-icon-color.png"></span>@magneticbear</a>
-				<a href="http://dribbble.com/magneticbear"><span><img src="images/dribbble-icon-color.png"></span>Dribbble.com/magneticbear</a>
-				<a href="https://github.com/magneticbear"><span><img src="images/github-icon-color.png"></span>Github.com/magneticbear</a>
-				<a href="http://ca.linkedin.com/company/magnetic-bear-studios"><span><img src="images/linkdin-icon-color.png"></span>Magnetic Bear Studios</a>
+				<a href="https://twitter.com/magneticbear"><span><img src="/images/twitter-icon-color.png"></span>@magneticbear</a>
+				<a href="http://dribbble.com/magneticbear"><span><img src="/images/dribbble-icon-color.png"></span>Dribbble.com/magneticbear</a>
+				<a href="https://github.com/magneticbear"><span><img src="/images/github-icon-color.png"></span>Github.com/magneticbear</a>
+				<a href="http://ca.linkedin.com/company/magnetic-bear-studios"><span><img src="/images/linkdin-icon-color.png"></span>Magnetic Bear Studios</a>
 			</p>
 		</section>
 

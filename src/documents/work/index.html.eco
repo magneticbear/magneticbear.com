@@ -67,7 +67,7 @@ short_url: 'mgn.tc/work'
 					<% end %>
 				<% end %>
 				<figure><a href="http://dribbble.com/magneticbear">
-					<img src="images/portfolio/dribbble-app-icon.png" alt="More on Dribbble">
+					<img src="/images/portfolio/dribbble-app-icon.png" alt="More on Dribbble">
 					<figcaption>More on Dribbble</figcaption></a>
 				</figure>
 			</div>
