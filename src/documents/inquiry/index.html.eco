@@ -1,0 +1,34 @@
+---
+layout: 'default'
+title: 'Client Form'
+nav: 'contact'
+short_url: 'mgn.tc/client-form'
+---
+<div class="content contact client">
+	<article>
+		<a class="avatar" href="http://goo.gl/RfyV7"><img src="images/map.png" alt="Google Map Icon"></a>
+		<h1>Let us help you <br>with your project</h1>
+
+		<form id="contactForm" action='http://formmailer.herokuapp.com/send_client_inquiry' method='post'>
+			<h2>Contact info</h2>
+			<input type="text" id="full_name" name="name" placeholder="Name" required>
+			<input type="email" id="email_addr" name="email" placeholder="Email" required>
+			<input type="tel" id="phone_no" name="phone" placeholder="Phone Number">
+			<h2>Project info</h2>
+			<textarea id="goal" name="goal" placeholder="What goal are you trying to achieve?" cols="30" rows="10"></textarea>
+			<textarea id="solution" name="solution" placeholder="How can we help you achieve that goal?" cols="30" rows="10"></textarea>
+			<input type="text" id="timeline" name="timeline" placeholder="Desired Timeline" required>
+			<input type="text" id="budget" name="budget" placeholder="Budget Estimate" required>
+
+			<button>Submit</button>
+		</form>
+
+	</article>
+
+</div>
+
+<div class="popup">
+	<div class="dialog">
+		<h1>Thanks for getting in touch!</h1>
+	</div>
+</div>
