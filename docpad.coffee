@@ -27,6 +27,11 @@ docpadConfig = {
 				apps, mobile, ios, iphone, android, ipad, ux, user experience, ottawa
 				"""
 
+			# The main site author's name and email
+			author: "Magnetic Bear Studios"
+			email: "info@magneticbear.com"
+
+			# The website authors along with their nicknames, pictures, full names, emails, github accounts, twitter handles, titles, taglines and bios
 			authors: [
 						{'nick': 'mbs', 'pic': 'mbs.png', 'name': 'MBS', 'email': 'info@magneticbear.com', 'github': 'magneticbear', 'twitter': 'magneticbear', 'title': '', 'tagline': 'BEAUTIFULLY CRAFTED APPS','bio': ''},
 						{'nick': 'jp', 'pic': 'JP.jpeg', 'name': 'JP Simard', 'email': 'jp@magneticbear.com', 'github': 'jpsim', 'twitter': 'simjp', 'title': 'Founder & CEO', 'tagline': 'My articles...', 'bio': 'JP is our fearless leader. The force behind Magnetic Bear’s vision and purveyor of smooth, silky jazz music. He is the main man always working extremely hard — eats, sleeps and codes! He’s a machine trapped in a man’s body!'},
