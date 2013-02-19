@@ -3,7 +3,7 @@ layout: 'post-lab'
 title: 'A more open kind of agency'
 author: 'jp'
 nav: 'lab'
-order: '1'
+date: 2013-01-08 12:21
 short_url: 'mgn.tc/openagency'
 ---
 MBS is leading the way to creating a new type of agency: a fully open one.

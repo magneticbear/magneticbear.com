@@ -5,7 +5,7 @@ nav: 'lab'
 short_url: 'mgn.tc/lab'
 ---
 <div class="content lab">
-	<% for post in @getFilesAtPath("lab", {order: -1}).toJSON(): %>
+	<% for post in @getFilesAtPath("lab", {date: -1}).toJSON(): %>
 		<% if post.author: %>
 			<article id="<%= @getAuthorTwitter post.author %>">
 				<div class="avatar">

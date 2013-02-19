@@ -3,7 +3,7 @@ layout: 'post-lab'
 title: '3 lessons from SWMontreal'
 author: 'stu'
 nav: 'lab'
-order: '3'
+date: 2013-02-19 10:28
 short_url: 'mgn.tc/swmontreal'
 ---
 I had the privilege of attending [Montreal's Startup Weekend](http://montreal.startupweekend.org/) this past weekend. How we made it is still a mystery to me, what with the blizzard we had to drive through. But at least it allowed us to come up and refine our idea we were going to pitch this weekend.
