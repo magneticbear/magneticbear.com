@@ -3,6 +3,7 @@ layout: 'post-lab'
 title: 'MBS Rebranding Case Study'
 author: 'mo'
 nav: 'lab'
+order: '2'
 short_url: 'mgn.tc/rebranding'
 ---
 As part of our new year’s resolution to open source more of our work, I thought it would be a good idea to write up a brief case study on our rebranding process and the creative approach to establishing our new identity.
