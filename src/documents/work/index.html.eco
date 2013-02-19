@@ -7,7 +7,7 @@ short_url: 'mgn.tc/work'
 <div class="content">
 	<article>
 
-		<% for post in @getFilesAtPath("work").toJSON(): %>
+		<% for post in @getFilesAtPath("work", {short_url: 1}).toJSON(): %>
 			<% if post.dir: %>
 				<figure>
 					<iframe src="http://player.vimeo.com/video/58976677?title=0&amp;byline=0&amp;portrait=0&amp;color=ffffff" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
@@ -55,7 +55,7 @@ short_url: 'mgn.tc/work'
 		<aside>
 			<div class="wrap">
 				<% idx = 0 %>
-				<% for post in @getFilesAtPath("work").toJSON(): %>
+				<% for post in @getFilesAtPath("work", {short_url: 1}).toJSON(): %>
 					<% if post.title != 'Work': %>
 						<% if post.dir: %>
 							<figure><a href="/work/<%= post.dir %>">

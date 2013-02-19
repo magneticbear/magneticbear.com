@@ -45,10 +45,9 @@ short_url: 'mgn.tc'
 				<h3>Client Testemonials</h3>
 				<script type="text/javascript">
 					var quotes = [];
-					<% for post in @getFilesAtPath("work").toJSON(): %>
+					<% for post in @getFilesAtPath("work", {short_url: 1}).toJSON(): %>
 						<% if post.quote: %>
 							quotes.push({body: "<%= post.quote %>", cite: "<%= post.quote_cite %>", url: '<%= post.dir %>'});
-						
 						<% end %>
 					<% end %>
 					var random_quote_index = Math.floor(Math.random() * quotes.length);
