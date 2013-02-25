@@ -8,7 +8,7 @@ short_url: 'mgn.tc/testframeworks'
 ---
 Like Unit Testing Frameworks, there are an abundance of Integration and UI testing frameworks available. We'll be focusing on three of them: [KIF](https://github.com/square/KIF), [UIAutomation](http://developer.apple.com/library/ios/#documentation/DeveloperTools/Reference/UIAutomationRef/_index.html), and [Frank](http://testingwithfrank.com/). Each has strengths and weaknesses.
 
-Unlike my previous [testing frameworks comparison](/lab/ios-unit-testing), this article will be much more concice, with examples being provided in a github repository instead of in the code. This should keep everyone from falling asleep mid-article.
+Unlike my previous [testing frameworks comparison](/lab/ios-unit-testing), this article will be much more concise, with examples being provided in a github repository instead of in the code. This should keep everyone from falling asleep mid-article.
 
 ---
 
