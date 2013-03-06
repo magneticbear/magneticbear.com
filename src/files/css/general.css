@@ -260,10 +260,14 @@ article h1 {
     letter-spacing: 0.2em;
 }
 
-article p, article ul {
+article p, article ul, article ol {
     font-size: 1em;
     line-height: 2em;
     margin-left: 7.1em;
+}
+
+article ol {
+    padding-left: 0em;
 }
 
 article li {
