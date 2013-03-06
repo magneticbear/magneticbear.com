@@ -11,8 +11,7 @@ I had the privilege of attending [Montreal's Startup Weekend](http://montreal.st
 ---
 
 For those who aren't aware of Startup Weekend, a brief overview from their website.
-
-> "Startup Weekends are 54-hour events where developers, designers, marketers, product managers and startup enthusiasts come together to share ideas, form teams, build products, and launch startups!"
+> Startup Weekends are 54-hour events where developers, designers, marketers, product managers and startup enthusiasts come together to share ideas, form teams, build products, and launch startups!
 
 So: come up with an idea, make it as fast as possible, then pitch it to a panel of judges who have a wealth of experience in the startup world. How hard could it be?
 
@@ -31,9 +30,7 @@ Failure is never the ideal scenario, but it’s a fact of life. If your project 
 As a developer, I was fairly insulated from this side of our project, but it’s probably the most important factor in any startup, let alone a presentation that has to be pitched to a panel of judges. The pitches at SWM were nothing short of amazing. You could tell the weekend was dominated by business people. That said, there were a few things I noticed from the presentations I liked:
 
 * They all had a demo, or a beta, available. Even if the demo wasn’t fully operational, it framed their idea in a functional light. This was key to winning the judges over. The top three startups (as determined by the judges), all had demonstrations.
-
 * They were unique. While all the presentations had similarities (business plan, the actual idea, etc.), the presentations that really caught my attention had something special about them. For instance, [CrowdMedia](http://crowdmedia.co) had their full platform being demonstrated in the background, with their talking points corresponding to what was on the screen. It really highlighted the product’s features, and the problems it was solving. We did the same at [Dashbook](http://dashbook.co).
-
 * Each pitch had a story. They all had something that tied the product into a real life situation. This really tied the problem, the solution, and the product together into a cohesive presentation.
 
 ## 1. Build your product to ship, not to pitch.
