@@ -321,7 +321,7 @@ section a {
 /* -----------------Home Begins--------------- */
 
 .pr {
-    background: transparent url(/images/home-banner/bg.jpg) no-repeat;
+    background: transparent url(/images/home-banner/bg.jpg) no-repeat center center;
 }
 
 .process {
@@ -461,35 +461,35 @@ figure {
 }
 
 .scala1 {
-    background: transparent url(/work/scala1/bg.jpg) no-repeat;
+    background: transparent url(/work/scala1/bg.jpg) no-repeat center center;
 }
 
 .mybounds {
-    background: transparent url(/work/mybounds/bg.jpg) no-repeat;
+    background: transparent url(/work/mybounds/bg.jpg) no-repeat center center;
 }
 
 .cca {
-    background: transparent url(/work/cca/bg.jpg) no-repeat;
+    background: transparent url(/work/cca/bg.jpg) no-repeat center center;
 }
 
 .openera {
-    background: transparent url(/work/openera/bg.jpg) no-repeat;
+    background: transparent url(/work/openera/bg.jpg) no-repeat center center;
 }
 
 .idelete {
-    background: transparent url(/work/idelete/bg.jpg) no-repeat;
+    background: transparent url(/work/idelete/bg.jpg) no-repeat center center;
 }
 
 .ndstorefront {
-    background: transparent url(/work/ndstorefront/bg.jpg) no-repeat;
+    background: transparent url(/work/ndstorefront/bg.jpg) no-repeat center centert;
 }
 
 .pinxto {
-    background: transparent url(/work/pinxto/bg.jpg) no-repeat;
+    background: transparent url(/work/pinxto/bg.jpg) no-repeat center center;
 }
 
 .listn {
-    background: transparent url(/work/listn/bg.jpg) no-repeat;
+    background: transparent url(/work/listn/bg.jpg) no-repeat center center;
 }
 
 .bg {
