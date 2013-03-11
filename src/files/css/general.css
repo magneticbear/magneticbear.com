@@ -260,10 +260,14 @@ article h1 {
     letter-spacing: 0.2em;
 }
 
-article p, article ul {
+article p, article ul, article ol {
     font-size: 1em;
     line-height: 2em;
     margin-left: 7.1em;
+}
+
+article ol {
+    padding-left: 0em;
 }
 
 article li {
@@ -317,7 +321,7 @@ section a {
 /* -----------------Home Begins--------------- */
 
 .pr {
-    background: transparent url(/images/home-banner/bg.jpg) no-repeat;
+    background: transparent url(/images/home-banner/bg.jpg) no-repeat center center;
 }
 
 .process {
@@ -457,35 +461,35 @@ figure {
 }
 
 .scala1 {
-    background: transparent url(/work/scala1/bg.jpg) no-repeat;
+    background: transparent url(/work/scala1/bg.jpg) no-repeat center center;
 }
 
 .mybounds {
-    background: transparent url(/work/mybounds/bg.jpg) no-repeat;
+    background: transparent url(/work/mybounds/bg.jpg) no-repeat center center;
 }
 
 .cca {
-    background: transparent url(/work/cca/bg.jpg) no-repeat;
+    background: transparent url(/work/cca/bg.jpg) no-repeat center center;
 }
 
 .openera {
-    background: transparent url(/work/openera/bg.jpg) no-repeat;
+    background: transparent url(/work/openera/bg.jpg) no-repeat center center;
 }
 
 .idelete {
-    background: transparent url(/work/idelete/bg.jpg) no-repeat;
+    background: transparent url(/work/idelete/bg.jpg) no-repeat center center;
 }
 
 .ndstorefront {
-    background: transparent url(/work/ndstorefront/bg.jpg) no-repeat;
+    background: transparent url(/work/ndstorefront/bg.jpg) no-repeat center center;
 }
 
 .pinxto {
-    background: transparent url(/work/pinxto/bg.jpg) no-repeat;
+    background: transparent url(/work/pinxto/bg.jpg) no-repeat center center;
 }
 
 .listn {
-    background: transparent url(/work/listn/bg.jpg) no-repeat;
+    background: transparent url(/work/listn/bg.jpg) no-repeat center center;
 }
 
 .bg {
@@ -626,6 +630,11 @@ blockquote {
     padding: 1em;
     background: transparent url(/images/quote-mark.png) no-repeat left 3%;
 }
+
+blockquote p {
+    margin: 0;
+}
+
 
 blockquote cite {
     margin-top: 1em;

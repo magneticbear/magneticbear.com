@@ -51,7 +51,7 @@
 						<div class="<%= @document.device %>">
 							<div class="flexslider">
 								<ul class="slides">
-									<% for image in @getFilesAtPath("/work/" + @document.dir + "/slides", {name: 1}).toJSON(): %>
+									<% for image in @getFilesAtPath("work/" + @document.dir + "/slides", {name: 1}).toJSON(): %>
 										<li><img src="/work/<%= @document.dir %>/slides/<%= image.name %>" alt="<%= @document.title %>"/></li>
 									<% end %>
 								</ul>
