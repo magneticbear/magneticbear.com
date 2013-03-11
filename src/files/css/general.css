@@ -749,6 +749,13 @@ aside figcaption {
 .lab article li {
     margin-bottom: 0.8em;
 }
+
+.lab code {
+    padding: 0.5em 1em;
+    background-color: #eeeeee;
+    border-left: solid 4px #51b724;
+    color: #818181;
+}
  
 .avatar {
     position: relative;
