@@ -12,9 +12,9 @@ As part of our new year's resolution to open source more of our work, I thought 
 
 We started the process by digging into our core values and our value proposition. In addition, we re-affirmed our competition, our customers and our consumers. The main goal of this phase was to verify and evaluate our current branding and marketing strategies. We spent almost three full weeks on this phase and gained a lot of valuable insight into our vision, our team, and our position in the industry.  This discovery phase allowed us to sum up MBS in a few words: Young, energetic, enthusiastic, smart, cutting edge, tech savvy, casual, laid back, team-oriented, and focused.
 
-After all the research and industry analysis was completed, we all agreed that MBS’ old branding and brand strategies didn’t accurately represent the company, its quality work, and its core values. Part of our new branding direction and strategy was the new brand identity package. 
+After all the research and industry analysis was completed, we all agreed that MBS’ old branding and brand strategies didn't accurately represent the company, its quality work, and its core values. Part of our new branding direction and strategy was the new brand identity package.
 
-Here's a breakdown of the process: 
+Here's a breakdown of the process:
 
 Color choice:
 -------------
@@ -24,7 +24,7 @@ Our ideal color was something very saturated, warm, welcoming and cutting edge.
 
 Font choice:
 ------------
-From the very beginning, we knew that the serif fonts were off the table. Serifs are old, very formal and don't really look that great on digital screens. However, slab serifs didn't seem too bad. We were looking for something modern, geometric and possibly tall. 
+From the very beginning, we knew that the serif fonts were off the table. Serifs are old, very formal and don't really look that great on digital screens. However, slab serifs didn't seem too bad. We were looking for something modern, geometric and possibly tall.
 ![fontchoice](img/Brand-Identity-fontchoice.jpg "Font Choice")
 
 Our final choice was going with the sans-serif family. Even though our initial font choice was very close to what we were looking for, we wanted something more unique. We decided to create our own custom typeface.
