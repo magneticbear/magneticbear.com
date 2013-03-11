@@ -11,7 +11,7 @@ As the *1-man SWAT Team* at [MBS](http://magneticbear.com), it's my job to ensur
 ---
 
 ## Goal
-We're formalizing our testing methodology to provide the fastest and easiest way to catch bugs and errors, without overcomplicating the work of developers and testers alike.
+We're formalizing our testing methodology to provide the fastest and easiest way to catch bugs and errors, without over-complicating the work of developers and testers alike.
 
 ## Outline
 Ideally, we'd like to be catching bugs as they're being developed, in a *Test Driven Development* fashion. With that in mind, whenever a developer creates a new `feature` branch, a `test feature` branch is created in parallel. The test branch will have the tests laid out that best describe how the feature should work, as well as any possible edge cases. When the Developer is ready to test these features, they'll send a pull request to the `test feature` branch.
@@ -39,7 +39,7 @@ Assuming the backend of the product is operational, this tests everything in a c
 There are various types of testing approaches, each with their own strengths and weaknesses. By combining them in the right way, we can maximize our testing coverage of the product.
 
 ### Manual Testing
-The most obvious and oldest of the testing solutions. Take a device, run your product on it, and try to break it by hand. While easy to perform, this method is wraught with weaknesses. It makes tests harder to repeat precisely (essential in bug hunting), it's hard to keep track of, and requires much more time to complete. Nevertheless, there are some things that simply cannot be efficiently tested automatically. By using manual testing judiciously, many bugs can be found and fixed.
+The most obvious and oldest of the testing solutions. Take a device, run your product on it, and try to break it by hand. While easy to perform, this method is wrought with weaknesses. It makes tests harder to repeat precisely (essential in bug hunting), it's hard to keep track of, and requires much more time to complete. Nevertheless, there are some things that simply cannot be efficiently tested automatically. By using manual testing judiciously, many bugs can be found and fixed.
 
 ### Unit Testing
 A testing method popularized by the TDD community, unit testing is the primary way we will use to conduct logic tests. By resetting the environment after each test, we can be sure the results of one test won't affect another.
@@ -63,6 +63,6 @@ By using each manual, unit, and integration testing in the proper contexts, we c
 * Test how all parts of the product work together, look for side affects
 
 ## Conclusion
-By using a hybrid of the discussed testing possibilities, it is possible to have proper coverage of most written code. By keeping the test and feature branches seperate, we ensure the Developer can work with minimal adjustments, while still maintaing strong bug catching abilities. By testing each feature seperately, and again when all features are combined, we can catch issues as they appear, as well as possible side effects of the feature integration. This method will help keep our code lean, as well as the entire project lean, yet still have enough coverage to minimize possible issues.
+By using a hybrid of the discussed testing possibilities, it is possible to have proper coverage of most written code. By keeping the test and feature branches separate, we ensure the Developer can work with minimal adjustments, while still maintaining strong bug catching abilities. By testing each feature separately, and again when all features are combined, we can catch issues as they appear, as well as possible side effects of the feature integration. This method will help keep our code lean, as well as the entire project lean, yet still have enough coverage to minimize possible issues.
 
 *This post is the first in a 3-part series on how Magnetic Bear Studios manages its quality assurance process.*
