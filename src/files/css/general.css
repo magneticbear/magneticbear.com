@@ -408,6 +408,7 @@ section a {
 .home section h3 {
     line-height: 1.6em;
     padding: 1em 0;
+    margin-left: 0;
 }
 
 .home section li {
