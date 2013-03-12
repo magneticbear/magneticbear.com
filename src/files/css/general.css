@@ -758,6 +758,10 @@ aside figcaption {
     color: #818181;
 }
 
+.lab .gist {
+    margin-left: 7.1em;
+}
+
 .avatar {
     position: relative;
     width: 5.5em;

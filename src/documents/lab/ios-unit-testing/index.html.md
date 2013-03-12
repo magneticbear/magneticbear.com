@@ -31,21 +31,9 @@ The first test case I ever wrote was for a temperature conversion method. It's s
 
 In our Test Project's viewController, we'll have two methods.
 
-``` objectivec
-- (double)convertCelsiusToFarenheit:(double)celsius {
-    double farenheit = 0;
-    farenheit = celsius * (9/5) + 32;
-    return farenheit;
-}
-```
+<script src="https://gist.github.com/jpsim/5147985.js"></script>
 
-``` objectivec
-- (double)convertFarenheithToCelsius:(double)farenheit {
-    double celsius = 0;
-    celsius = (5/9) * (farenheit - 32);
-    return celsius;
-}
-```
+<script src="https://gist.github.com/jpsim/5147981.js"></script>
 
 Yes, these methods are a little contrived and verbose, but they'll serve for what we need.
 
@@ -64,69 +52,27 @@ OCUnit is the easiest of the frameworks to set up. When setting up the project, 
 ### Writing Tests
 First, set up your setup and TearDown Methods to create destroy a viewController Object
 
-``` objectivec
-- (void)setUp
-{
-    [super setUp];
-    controller = [[ViewController alloc] init];
-    // Set-up code here.
-}
-```
+<script src="https://gist.github.com/jpsim/5147991.js"></script>
 
-``` objectivec
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-    controller = nil;
-}
-```
+<script src="https://gist.github.com/jpsim/5147993.js"></script>
 
 On to the tests. All test methods must begin with "test". This is how OCUnit determines what's a test, and what isn't.
 
 First, we'll check if -40 equals -40:
-``` objectivec
-- (void)testCelsiusEqualsFarenheitAtNegativeForty {
-    double celsiusResult = 0;
-    double farenheitResult = 0;
-    
-    celsiusResult = [controller convertFarenheithToCelsius:-40];
-    farenheitResult = [controller convertCelsiusToFarenheit:-40];
-    STAssertEquals(celsiusResult, farenheitResult, @"these should be the same");
-}
-```
+
+<script src="https://gist.github.com/jpsim/5147996.js"></script>
 
 Next, we check that 32 Farenheit if 0 Celsius, and vice versa
-``` objectivec
--(void)testThatThirtyTwoFarenheitEqualsZeroCelsius{
-    double celsiusResult = [controller convertFarenheithToCelsius:32];
-    double farenheitResult = [controller convertCelsiusToFarenheit:0];
-    STAssertEquals(celsiusResult, 0, @"should be zero");
-    STAssertEquals(farenheitResult, 32, @"should equal 32");
-}
-```
+
+<script src="https://gist.github.com/jpsim/5147998.js"></script>
 
 We test that 100 Celsius is 212 Farenheit and vice versa
-``` objectivec
-- (void)testThatHundredCelsiusIsTwoTwelveFarenheit {
-    double farenheitResult = [controller convertCelsiusToFarenheit:100];
-    double celsiusResult = [controller convertFarenheithToCelsius:212];
-    STAssertEquals(farenheitResult, 212, @"should equal 212");
-    STAssertEquals(celsiusResult, 100, @"should equal 100");
-}
-```
+
+<script src="https://gist.github.com/jpsim/5148000.js"></script>
 
 Finally, test that the temperatures can be converted back and forth
-``` objectivec
-- (void)testThatConvertingBackAndForthDoesntAffectResults {
-    double celsius = 50;
-    double farenheitResult = [controller convertCelsiusToFarenheit:celsius];
-    //convert back
-    double celsiusResult = [controller convertFarenheithToCelsius:farenheitResult];
-    STAssertEquals(celsius, celsiusResult, @"should be equal");   
-}
-```
+
+<script src="https://gist.github.com/jpsim/5148003.js"></script>
 
 We could split these up even further (one STassert per test), but this will do for our purposes.
 
@@ -183,22 +129,7 @@ Kiwi, while not as easy as OCunit, is still a fair sight easier than GHUnit. A s
 ### Writing Tests
 Kiwi is different syntactically speaking in comparison to OCUnit and GHUnit. Instead of setting up test methods, you set up specifications that you expect to be passed.
 
-``` objectivec
-SPEC_BEGIN(TemperatureConverterTests)
-
-describe(@"basic converter", ^{
-  it(@"converts farenheit To celsius", ^{
-    ViewController *controller = [ViewController alloc]init];
-    [[theValue([controller convertCelisusToFarenheit:-40]) should]equal:theValue(-40)];
-  });
-  it(@"converts celsius to farenheight", ^{
-    ViewController *controller = [ViewController alloc]init];
-    [[theValue([controller convertfarenheitToCelsius:-40]) should]equal:theValue(-40)];
-  });
-});
-
-SPEC_END
-```
+<script src="https://gist.github.com/jpsim/5148005.js"></script>
 
 This syntax is a fair bit different. That's because with Kiwi, we're more describing stories and specifications than actual tests.
 
