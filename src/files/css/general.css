@@ -51,6 +51,10 @@ article hr {
     display: none;
 }
 
+article li ul, article li ol {
+    margin-left: 0;
+}
+
 /* --General Ends-- */
 
 /* -----------------Fonts Begins--------------- */
@@ -1270,7 +1274,7 @@ footer span {
         margin-bottom:  20px;
     }
 
-    article ul, .tags, .no-app h1, article h2, article h3, article h4, article h5, article h6, .lab article time {
+    article ul, .tags, .no-app h1, article h2, article h3, article h4, article h5, article h6, .lab article time, .lab .gist, article ol {
         margin-left:  0;
     }
 
