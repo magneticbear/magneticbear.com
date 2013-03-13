@@ -20,6 +20,14 @@
 	<link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Oswald|Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
 	<link rel="icon" href="/fav.png">
+    <script src="/vendor/modernizr.js"></script>
+    <!--[if lt IE 9]>
+	<link rel="stylesheet" type="text/css" href="/css/ie8.css" />
+	<![endif]-->
+
+	<!--[if IE 7]>
+	<link rel="stylesheet" type="text/css" href="/css/ie7.css">
+	<![endif]-->
 
 	<!--
 							mbsmbsmbsmbsmbsmbsmbsmbsmbsmbsmbsmbsmbsmbsmbsmbsmbs

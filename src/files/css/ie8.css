@@ -1,0 +1,37 @@
+@charset "UTF-8";
+/* CSS Document */
+
+/* -----------------General Begins--------------- */
+header h1 {
+background: transparent url(/images/mbs-logo-small.png) no-repeat;
+}
+
+.fade {
+    background: none;
+}
+
+nav a {
+    color: #333;
+    padding: 0.9em 0;
+}
+
+nav {
+    font-size: 1.6em;
+}
+
+.selected {
+    font-size: 1.7em; 
+}
+
+.ipad {
+    width: 462px;
+    padding: 50px 60px 40px 75px;
+}
+
+.tags li {
+    display: inline;
+}
+
+*+html nav { 
+    position: absolute;
+}

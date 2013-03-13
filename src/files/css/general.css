@@ -218,6 +218,7 @@ nav a {
     padding: 1.5em 0;
     display: block;
     margin: 0;
+    line-height: 1em;
     transition: all ease-in-out 200ms;
     -webkit-transition: all ease-in-out 200ms;
     -moz-transition: all ease-in-out 200ms;
@@ -272,6 +273,7 @@ article {
 article h1 {
     font-size: 2em;
     letter-spacing: 0.2em;
+    line-height: 1em;
 }
 
 article p, article ul, article ol {
@@ -351,6 +353,7 @@ section a {
     text-align: center;
     width: 75%; 
     margin: 0 auto;
+    line-height: 1em;
 }
 
 .home h3 {
@@ -809,7 +812,7 @@ aside figcaption {
 }
 
 cite img, .lab cite img {
-    max-width: 24px;
+    width: 24px;
     vertical-align: middle;
 }
 
