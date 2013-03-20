@@ -35,10 +35,19 @@ short_url: 'mgn.tc'
 			</li>
 
 			<li class="clients">
-				<h3>MBS Demo Reel 2012</h3>
-				<a href="work"><img src="/images/demo_reel_thumb.jpg"></a>
-				<div class="fade"></div>
-				<div class="read-more"><a href="work" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
+		        <h3>Stuff happening in the lab</h3>
+		
+		        <% for post in @getFilesAtPath("lab", {date: -1}).toJSON(): %>
+		          <% if post.author: %>
+		            <h2><a href="<%= post.url.replace("index.html","") %>"><%= post.title %></a></h2>
+		              <time>Posted on <%- post.date.toShortDateString() %></time>
+		              <cite>by <%= @getAuthorName post.author %></cite>
+		            <% break %>
+		          <% end %>
+		        <% end %>
+		
+		        <div class="fade"></div>
+		        <div class="read-more"><a href="<%= post.url.replace("index.html","") %>" style="text-decoration:none"><img src="/images/read-more.png" alt="Read More">More</a></div>
 			</li>
 
 			<li>
