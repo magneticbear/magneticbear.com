@@ -1,7 +1,7 @@
 ---
 layout: 'post-lab'
 title: 'A more open kind of agency'
-author: 'jp'
+author: 'mbs'
 nav: 'lab'
 date: 2013-01-08 12:21
 short_url: 'mgn.tc/openagency'
