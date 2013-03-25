@@ -1,6 +1,6 @@
 ---
 layout: 'post-lab'
-title: 'Don't Let Best Practices Kill your Project'
+title: "Don't Let Best Practices Kill your Project"
 author: 'adrian'
 nav: 'lab'
 date: 2013-03-25 14:05
