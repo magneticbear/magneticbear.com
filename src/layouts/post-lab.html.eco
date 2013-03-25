@@ -59,7 +59,7 @@
 			</div>
 			<h1><%- @document.title %></h1>
 			<cite>by <%= @getAuthorName @document.author %> (<img src="/images/twitter-icon-color2.png"><a href="http://twitter.com/<%= @getAuthorTwitter @document.author %>" style="text-decoration: none;">@<%= @getAuthorTwitter @document.author %></a>)</cite>
-			<time><%- @document.date.toShortDateString() %></time>
+			<time><%- @document.date.toDateString() %></time>
 			<p><%- @content %></p>
 			<section>
 

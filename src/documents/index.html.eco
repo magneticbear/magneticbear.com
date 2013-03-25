@@ -40,7 +40,7 @@ short_url: 'mgn.tc'
 		        <% for post in @getFilesAtPath("lab", {date: -1}).toJSON(): %>
 		          <% if post.author: %>
 		            <h2><a href="<%= post.url.replace("index.html","") %>"><%= post.title %></a></h2>
-		              <time>Posted on <%- post.date.toShortDateString() %></time>
+		              <time>Posted on <%- post.date.toDateString() %></time>
 		              <cite>by <%= @getAuthorName post.author %></cite>
 		            <% break %>
 		          <% end %>
