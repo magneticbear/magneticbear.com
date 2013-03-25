@@ -1,6 +1,6 @@
 ---
 layout: 'post-lab'
-title: 'Connected Apps'
+title: 'Don't Let Best Practices Kill your Project'
 author: 'adrian'
 nav: 'lab'
 date: 2013-03-25 14:05
