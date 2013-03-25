@@ -1,4 +1,4 @@
- ---
+---
 layout: 'post-lab'
 title: 'GROWTalks. Grow and be merry'
 author: 'brandon'
