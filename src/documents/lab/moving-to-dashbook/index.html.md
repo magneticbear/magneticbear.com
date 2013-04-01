@@ -8,9 +8,11 @@ short_url: 'mgn.tc/m2d'
 ---
 When Magnetic Bear Studios started almost two years ago it had a clearly defined road map. Three P's were laid out as the key stages of growth: Portfolio, People, Product.
 
+---
+
 Over the last two years we have been focused on delivering the best mobile experience possible to our clients through beautifully crafted mobile apps. We have had the opportunity to hone our skills, develop our process, and build our portfolio (40+ apps!). In that time we have also managed to assemble a mobile development SWAT team capable of tackling any mobile problem in an innovative way.
 
-With the portfolio and team being complete, the first two P's had been achieved. It was time for us to put our skills and experience to work on a product of our own.
+With the portfolio and team being complete, the first two P's had been achieved. It was time for us to apply our skills and experience to a product of our own.
 
 ## Enter Dashbook
 
