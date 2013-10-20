@@ -12,8 +12,8 @@ We're strong believers that the only way to truly innovate is through experiment
 
 ---
 
-One such ongoing experiment is [DASHBOOK](http://dashbookapp.com). As you [may have seen](/lab/moving-to-dashbook), the entire team at MBS took a brief hiatus from our renowned agency work to build a product of our own...
+Our experiments over the years range from iterating on our business model, developing games, creating apps for NFP's and spinning off a new company to build completely new things.
 
-That experiment is still ongoing and it's turning out to be quite successful. In fact, it's achieved enough momentum for the original MBS team to come back to what we're known for. Building beautifully crafted apps our amazing clients!
+But now we're back, doing what we're known for, in full force. Building beautifully crafted apps our amazing clients!
 
 So give us a [shout](/contact) if you'd like to work with us and we'll pick up on this journey where we left off.
